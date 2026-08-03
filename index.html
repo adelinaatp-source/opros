@@ -44,7 +44,7 @@
   .num{font-variant-numeric:tabular-nums}
   a{color:var(--accent2)}
 
-  header.top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:20px}
+  header.top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:18px}
   .h-title{font-size:28px;font-weight:780;letter-spacing:-.5px;line-height:1.12;margin:0;display:flex;align-items:center;gap:11px}
   .h-title .u{box-shadow:inset 0 -.32em 0 var(--accent-soft)}
   .h-title .em{font-size:26px}
@@ -55,6 +55,13 @@
   .chip{display:inline-flex;align-items:center;gap:6px;background:color-mix(in srgb,var(--accent2) 15%,transparent);color:var(--accent);border-radius:20px;padding:3px 11px;font-size:11.5px;font-weight:600}
   .chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent2)}
   .ttoggle{cursor:pointer;border:1px solid var(--line);background:var(--panel);color:var(--ink2);border-radius:20px;padding:4px 12px;font-size:12px;font-weight:600}
+
+  .tabs{display:inline-flex;gap:4px;background:var(--panel2);border:1px solid var(--line);border-radius:13px;padding:4px;margin-bottom:20px;flex-wrap:wrap}
+  .tabs button{border:none;background:transparent;color:var(--ink2);font:inherit;font-size:14px;font-weight:650;padding:9px 17px;border-radius:9px;cursor:pointer;display:inline-flex;align-items:center;gap:9px}
+  .tabs button:hover{color:var(--accent)}
+  .tabs button.active{background:var(--panel);color:var(--accent);box-shadow:var(--shadow)}
+  .tabs button .cnt{font-size:12px;font-weight:700;background:var(--accent-soft);color:var(--accent);padding:1px 9px;border-radius:20px}
+  .tabs button.active .cnt{background:var(--accent);color:#fff}
 
   .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:8px}
   .kpi{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:15px 16px;box-shadow:var(--shadow)}
@@ -70,6 +77,7 @@
 
   .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:4px 4px}
   .panel.pad{padding:20px 22px}
+  .empty{padding:26px 22px;color:var(--muted);font-size:13px;text-align:center}
 
   .svcards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
   .svcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;position:relative;overflow:hidden}
@@ -152,21 +160,26 @@
   <header class="top">
     <div>
       <h1 class="h-title"><span class="em">📊</span> Мониторинг прохождения <span class="u">опросов</span></h1>
-      <div class="h-sub">Кто уже прошёл опросы бота-интервьюера, а кому ещё предстоит. <b>Красным отмечены сотрудники, которые пока не проходили.</b> Три сценария: основной опрос по процессу, доопрос (заполнение пробелов) и фото рабочего дня. Источник — выгрузка бота и файл охвата <code>coverage.xlsx</code>.</div>
+      <div class="h-sub">Кто уже прошёл опросы бота-интервьюера, а кому ещё предстоит. <b>Красным отмечены сотрудники, которые пока не проходили.</b> Три сценария: основной опрос по процессу, доопрос и фото рабочего дня. Товароведы вынесены во вторую вкладку. Источник — выгрузка бота и файл охвата <code>coverage.xlsx</code>.</div>
     </div>
     <div class="h-meta">
       <span class="chip" id="chipDate">снимок …</span>
-      <span>штат по оргструктуре: <span class="d" id="mStaff">…</span></span>
+      <span>всего в оргструктуре: <span class="d" id="mStaff">…</span></span>
       <button class="ttoggle" id="ttoggle">◐ тема</button>
     </div>
   </header>
 
+  <div class="tabs" id="tabs">
+    <button data-tab="staff" class="active">👥 Сотрудники <span class="cnt" id="cntStaff">…</span></button>
+    <button data-tab="tovar">🏷️ Товароведы <span class="cnt" id="cntTovar">…</span></button>
+  </div>
+
   <div class="kpis" id="kpis"></div>
 
-  <h2 class="sec">Сценарии опросов <span class="hint">— сколько сотрудников прошли и сколько ещё нет по каждому</span></h2>
+  <h2 class="sec">Сценарии опросов <span class="hint" id="hintSurv">— сколько сотрудников прошли и сколько ещё нет по каждому</span></h2>
   <div class="svcards" id="svcards"></div>
 
-  <h2 class="sec">Реестр прохождения <span class="hint">— поиск, фильтр по управлению; красным отмечены пока не прошедшие</span></h2>
+  <h2 class="sec" id="secRoster">Реестр прохождения <span class="hint">— поиск, фильтр по управлению; красным отмечены пока не прошедшие</span></h2>
   <div class="controls">
     <div class="seg" id="segFilter">
       <button data-f="none" class="active">Ещё не прошли</button>
@@ -194,7 +207,7 @@
     </div>
   </div>
 
-  <h2 class="sec">Прошли хотя бы один опрос <span class="hint">— поимённо, с числом прохождений по каждому сценарию</span></h2>
+  <h2 class="sec" id="secPass">Прошли хотя бы один опрос <span class="hint">— поимённо, с числом прохождений по каждому сценарию</span></h2>
   <div class="panel">
     <div class="tbl-scroll">
       <table id="passT">
@@ -240,59 +253,89 @@ const fmt = n => (n==null?"":String(n).replace(/\B(?=(\d{3})+(?!\d))/g," "));
 function fdate(iso){ if(!iso) return "—"; const m=iso.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/); if(!m) return iso; return `${m[3]}.${m[2]} ${m[4]}:${m[5]}`; }
 function esc(s){ return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
 const plural=(n,a,b,c)=>{const d=n%10,e=n%100; return e>=11&&e<=14?c:(d===1?a:(d>=2&&d<=4?b:c));};
+const pct = (a,b)=> b? Math.round(a/b*1000)/10 : 0;
 
-const total = DATA.length;
-const passers = DATA.filter(r=>r.vs>0);
-const passN = passers.length;
-const noneN = total - passN;
-const sessTotal = DATA.reduce((a,r)=>a+r.vs,0);
-const sBy = {s1:0,s2:0,s3:0}, pBy={s1:0,s2:0,s3:0};
-DATA.forEach(r=>SK.forEach(k=>{ sBy[k]+=r[k]; if(r[k]>0)pBy[k]++; }));
-const unitsPassed = new Set(passers.map(r=>r.u)).size;
-const unitsTotal = new Set(DATA.map(r=>r.u)).size;
+// --- товаровед detection ---
+const isTovar = r => r.o==="Товароведы" || /[Тт]оваровед/.test(r.d||"");
+const SUBSETS = {
+  staff: DATA.filter(r=>!isTovar(r)),
+  tovar: DATA.filter(isTovar)
+};
+
+// global constants (for header/footer)
+const GTOTAL = DATA.length;
+const GPASS = DATA.filter(r=>r.vs>0).length;
+const GSESS = DATA.reduce((a,r)=>a+r.vs,0);
+const GSBY = {s1:0,s2:0,s3:0};
+DATA.forEach(r=>SK.forEach(k=>GSBY[k]+=r[k]));
 
 document.getElementById("chipDate").textContent = "снимок " + SNAPSHOT;
-document.getElementById("mStaff").textContent = fmt(total) + " чел.";
+document.getElementById("mStaff").textContent = fmt(GTOTAL) + " чел.";
+document.getElementById("cntStaff").textContent = fmt(SUBSETS.staff.length);
+document.getElementById("cntTovar").textContent = fmt(SUBSETS.tovar.length);
 
-const pct = (a,b)=> b? Math.round(a/b*1000)/10 : 0;
-const kpis = [
-  {n:fmt(passN), sm:` / ${pct(passN,total)}%`, l:"Прошли хотя бы один опрос", cls:"good"},
-  {n:fmt(total), l:"Сотрудников в оргструктуре"},
-  {n:fmt(noneN), sm:` / ${pct(noneN,total)}%`, l:"Ещё не проходили опросов", cls:"warn"},
-  {n:fmt(sessTotal), l:"Всего пройдено сессий", cls:"accent"},
-  {n:unitsPassed+" / "+unitsTotal, l:"Управлений охвачено"}
-];
-const kw = document.getElementById("kpis");
-kpis.forEach(k=>{
-  const d=el("div","kpi"+(k.cls?" "+k.cls:""));
-  d.innerHTML = `<div class="n">${k.n}${k.sm?`<small>${k.sm}</small>`:""}</div><div class="l">${k.l}</div>`;
-  kw.appendChild(d);
-});
+// ===== active-subset state =====
+let ROWS = SUBSETS.staff;
+let TAB = "staff";
+// derived
+let total, passers, passN, noneN, sessTotal, sBy, pBy, unitsPassed, unitsTotal;
+function recompute(){
+  total = ROWS.length;
+  passers = ROWS.filter(r=>r.vs>0);
+  passN = passers.length;
+  noneN = total - passN;
+  sessTotal = ROWS.reduce((a,r)=>a+r.vs,0);
+  sBy = {s1:0,s2:0,s3:0}; pBy={s1:0,s2:0,s3:0};
+  ROWS.forEach(r=>SK.forEach(k=>{ sBy[k]+=r[k]; if(r[k]>0)pBy[k]++; }));
+  unitsPassed = new Set(passers.map(r=>r.u)).size;
+  unitsTotal = new Set(ROWS.map(r=>r.u)).size;
+}
 
-// survey cards — прошли / ещё нет
-const sc = document.getElementById("svcards");
-SK.forEach(k=>{
-  const s=SURV[k]; const passed=pBy[k], missed=total-passed;
-  const d=el("div","svcard "+s.cls);
-  d.innerHTML = `<div class="nm">${s.name}<span class="tag">${s.tag}</span></div>
-    <div class="row2">
-      <div class="met g"><div class="v">${fmt(passed)}</div><div class="k">прошли · ${fmt(sBy[k])} ${plural(sBy[k],"сессия","сессии","сессий")}</div></div>
-      <div class="met m"><div class="v">${fmt(missed)}</div><div class="k">ещё не проходили</div></div>
-    </div>
-    <div class="sub">${s.desc}</div>`;
-  sc.appendChild(d);
-});
+function renderKPIs(){
+  const kw = document.getElementById("kpis"); kw.innerHTML="";
+  const kpis = [
+    {n:fmt(passN), sm:` / ${pct(passN,total)}%`, l:"Прошли хотя бы один опрос", cls:"good"},
+    {n:fmt(total), l: TAB==="tovar" ? "Товароведов всего" : "Сотрудников во вкладке"},
+    {n:fmt(noneN), sm:` / ${pct(noneN,total)}%`, l:"Ещё не проходили опросов", cls:"warn"},
+    {n:fmt(sessTotal), l:"Всего пройдено сессий", cls:"accent"},
+    {n:unitsPassed+" / "+unitsTotal, l:"Управлений охвачено"}
+  ];
+  kpis.forEach(k=>{
+    const d=el("div","kpi"+(k.cls?" "+k.cls:""));
+    d.innerHTML = `<div class="n">${k.n}${k.sm?`<small>${k.sm}</small>`:""}</div><div class="l">${k.l}</div>`;
+    kw.appendChild(d);
+  });
+}
 
-// ---- roster: filter / search / sort (default = ещё не прошли) ----
+function renderCards(){
+  const sc = document.getElementById("svcards"); sc.innerHTML="";
+  SK.forEach(k=>{
+    const s=SURV[k]; const passed=pBy[k], missed=total-passed;
+    const d=el("div","svcard "+s.cls);
+    d.innerHTML = `<div class="nm">${s.name}<span class="tag">${s.tag}</span></div>
+      <div class="row2">
+        <div class="met g"><div class="v">${fmt(passed)}</div><div class="k">прошли · ${fmt(sBy[k])} ${plural(sBy[k],"сессия","сессии","сессий")}</div></div>
+        <div class="met m"><div class="v">${fmt(missed)}</div><div class="k">ещё не проходили</div></div>
+      </div>
+      <div class="sub">${s.desc}</div>`;
+    sc.appendChild(d);
+  });
+}
+
+// ---- roster ----
 let rFilter="none", rQuery="", rUnit="", rSort={k:"f",dir:1};
-const selU=document.getElementById("selUnit");
-selU.appendChild(el("option",null,"Все управления"));
-[...new Set(DATA.map(r=>r.u))].sort((a,b)=>a.localeCompare(b,"ru")).forEach(u=>{
-  const o=el("option",null,esc(u)); o.value=u; selU.appendChild(o);
-});
+function populateUnits(){
+  const selU=document.getElementById("selUnit");
+  selU.innerHTML="";
+  selU.appendChild(el("option",null,"Все управления"));
+  [...new Set(ROWS.map(r=>r.u))].sort((a,b)=>a.localeCompare(b,"ru")).forEach(u=>{
+    const o=el("option",null,esc(u)); o.value=u; selU.appendChild(o);
+  });
+  selU.value="";
+}
 function dotmark(v,k){ return v>0 ? `<span class="dot on${k[1]}" title="${SURV[k].name}: ${v}"></span>` : `<span class="dot no" title="${SURV[k].name}: ещё не пройден"></span>`; }
 function renderRoster(){
-  let arr=DATA.filter(r=>{
+  let arr=ROWS.filter(r=>{
     if(rFilter==="pass" && r.vs<=0) return false;
     if(rFilter==="none" && r.vs>0) return false;
     if(rUnit && r.u!==rUnit) return false;
@@ -309,8 +352,7 @@ function renderRoster(){
   const frag=document.createDocumentFragment();
   arr.forEach(r=>{
     const pending = r.vs<=0;
-    const tr=el("tr");
-    tr.className = pending? "pending":"";
+    const tr=el("tr"); tr.className = pending? "pending":"";
     const status = pending ? `<span class="badge-no">ещё не прошёл</span>` : `<span class="tot" style="color:var(--good)">${r.vs}</span>`;
     tr.innerHTML=`<td><div class="fio">${esc(r.f)}</div></td>
       <td><div class="unit">${esc(r.o)}<span class="up">${esc(r.u)}</span></div></td>
@@ -325,27 +367,21 @@ function renderRoster(){
   const lbl = rFilter==="none"?"ещё не прошли":(rFilter==="pass"?"прошли":"всего");
   document.getElementById("rosterCount").innerHTML = `показано <b>${fmt(arr.length)}</b> (${lbl}) из ${fmt(total)}`;
 }
-document.getElementById("segFilter").addEventListener("click",e=>{
-  const b=e.target.closest("button"); if(!b) return;
-  document.querySelectorAll("#segFilter button").forEach(x=>x.classList.remove("active"));
-  b.classList.add("active"); rFilter=b.dataset.f; renderRoster();
-});
-selU.addEventListener("change",()=>{ rUnit=selU.value; renderRoster(); });
-document.getElementById("search").addEventListener("input",e=>{ rQuery=e.target.value.trim(); renderRoster(); });
-document.querySelectorAll("#rosterT thead th.sortable").forEach(th=>{
-  th.addEventListener("click",()=>{
-    const k=th.dataset.k;
-    if(rSort.k===k) rSort.dir*=-1;
-    else rSort={k, dir:(k==="vs")?-1:1};
-    renderRoster();
-  });
-});
-renderRoster();
 
 // ---- passers table ----
 function mk(v,k){ return v>0 ? `<span class="mk on${k[1]}">✓${v>1?" ×"+v:""}</span>` : `<span class="mk off">—</span>`; }
 let passSort={k:"vs",dir:-1};
 function renderPass(){
+  const secPass=document.getElementById("secPass"), passPanel=document.getElementById("passT").closest(".panel");
+  if(passers.length===0){
+    document.getElementById("passBody").innerHTML="";
+    passPanel.querySelector(".tbl-scroll").style.display="none";
+    if(!passPanel.querySelector(".empty")){ const e=el("div","empty","В этой вкладке пока никто не прошёл ни одного опроса."); passPanel.appendChild(e); }
+    return;
+  } else {
+    passPanel.querySelector(".tbl-scroll").style.display="";
+    const e=passPanel.querySelector(".empty"); if(e) e.remove();
+  }
   const arr=[...passers];
   const {k,dir}=passSort;
   arr.sort((a,b)=>{
@@ -367,20 +403,11 @@ function renderPass(){
     tb.appendChild(tr);
   });
 }
-document.querySelectorAll("#passT thead th.sortable").forEach(th=>{
-  th.addEventListener("click",()=>{
-    const k=th.dataset.k;
-    if(passSort.k===k) passSort.dir*=-1;
-    else passSort={k, dir:(k==="vs"||k.startsWith("s"))?-1:1};
-    renderPass();
-  });
-});
-renderPass();
 
-// ---- coverage bars (share passed) ----
+// ---- coverage bars ----
 function groupCoverage(keyFn){
   const m=new Map();
-  DATA.forEach(r=>{
+  ROWS.forEach(r=>{
     const key=keyFn(r);
     if(!m.has(key)) m.set(key,{staff:0,pass:0});
     const o=m.get(key); o.staff++; if(r.vs>0)o.pass++;
@@ -403,27 +430,81 @@ function renderBars(elId, rows){
     box.appendChild(b);
   });
 }
-const uCov = groupCoverage(r=>r.u).sort((a,b)=> a.ppct-b.ppct || b.miss-a.miss || a.k.localeCompare(b.k,"ru"));
-renderBars("barsU", uCov);
-const oCov = groupCoverage(r=>r.o).sort((a,b)=> a.ppct-b.ppct || b.miss-a.miss || a.k.localeCompare(b.k,"ru"));
-renderBars("barsO", oCov);
 
-// ---- footer ----
+function renderBars_all(){
+  const uCov = groupCoverage(r=>r.u).sort((a,b)=> a.ppct-b.ppct || b.miss-a.miss || a.k.localeCompare(b.k,"ru"));
+  renderBars("barsU", uCov);
+  const oCov = groupCoverage(r=>r.o).sort((a,b)=> a.ppct-b.ppct || b.miss-a.miss || a.k.localeCompare(b.k,"ru"));
+  renderBars("barsO", oCov);
+}
+
+function renderBoard(){
+  recompute();
+  renderKPIs();
+  renderCards();
+  populateUnits();
+  // reset roster controls to defaults on tab switch
+  rFilter="none"; rUnit=""; rQuery=""; rSort={k:"f",dir:1};
+  document.querySelectorAll("#segFilter button").forEach(x=>x.classList.toggle("active", x.dataset.f==="none"));
+  document.getElementById("search").value="";
+  renderRoster();
+  renderPass();
+  renderBars_all();
+}
+
+// ---- footer (global) ----
 document.getElementById("foot").innerHTML =
   `<b>Данные:</b> выгрузка бота-интервьюера (Telegram-экспорт) + файл охвата <code>coverage.xlsx</code>, снимок ${SNAPSHOT}. `+
-  `Из ${fmt(total)} сотрудников ${fmt(passN)} уже прошли хотя бы один опрос, ${fmt(noneN)} — пока нет (всего ${fmt(sessTotal)} сессий: ${sBy.s1} — процесс, ${sBy.s2} — доопрос, ${sBy.s3} — фото дня). `+
-  `«Прошёл» = есть хотя бы одна завершённая сессия сценария; красным отмечены сотрудники, которые ещё не проходили. `+
-  `Штат и распределение по управлениям/отделам — по оргструктуре Битрикс24. Страница внутренняя, не для внешней публикации.`;
+  `Всего в оргструктуре ${fmt(GTOTAL)} чел.: ${fmt(SUBSETS.staff.length)} сотрудников (без товароведов) и ${fmt(SUBSETS.tovar.length)} товароведов — они на отдельной вкладке. `+
+  `Прошли хотя бы один опрос ${fmt(GPASS)} чел. (${fmt(GSESS)} сессий: ${GSBY.s1} — процесс, ${GSBY.s2} — доопрос, ${GSBY.s3} — фото дня); все прошедшие — среди сотрудников, товароведы пока не проходили. `+
+  `«Прошёл» = есть хотя бы одна завершённая сессия сценария; красным отмечены не прошедшие. Штат и оргструктура — по Битрикс24. Страница внутренняя, не для внешней публикации.`;
+
+// ---- tab switching ----
+document.getElementById("tabs").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  const t=b.dataset.tab; if(t===TAB) return;
+  TAB=t; ROWS=SUBSETS[t];
+  document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("active", x.dataset.tab===t));
+  document.getElementById("secRoster").firstChild.textContent = t==="tovar" ? "Реестр товароведов " : "Реестр прохождения ";
+  document.getElementById("hintSurv").textContent = t==="tovar" ? "— по товароведам (пока никто не проходил)" : "— сколько сотрудников прошли и сколько ещё нет по каждому";
+  renderBoard();
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+
+// static control listeners (persist across tabs)
+document.getElementById("segFilter").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  document.querySelectorAll("#segFilter button").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active"); rFilter=b.dataset.f; renderRoster();
+});
+document.getElementById("selUnit").addEventListener("change",e=>{ rUnit=e.target.value; renderRoster(); });
+document.getElementById("search").addEventListener("input",e=>{ rQuery=e.target.value.trim(); renderRoster(); });
+document.querySelectorAll("#rosterT thead th.sortable").forEach(th=>{
+  th.addEventListener("click",()=>{
+    const k=th.dataset.k;
+    if(rSort.k===k) rSort.dir*=-1;
+    else rSort={k, dir:(k==="vs")?-1:1};
+    renderRoster();
+  });
+});
+document.querySelectorAll("#passT thead th.sortable").forEach(th=>{
+  th.addEventListener("click",()=>{
+    const k=th.dataset.k;
+    if(passSort.k===k) passSort.dir*=-1;
+    else passSort={k, dir:(k==="vs"||k.startsWith("s"))?-1:1};
+    renderPass();
+  });
+});
 
 // ---- theme toggle ----
 document.getElementById("ttoggle").addEventListener("click",()=>{
   const cur=document.documentElement.getAttribute("data-theme");
   const sysDark=window.matchMedia("(prefers-color-scheme:dark)").matches;
-  let next;
-  if(!cur) next = sysDark? "light":"dark";
-  else next = (cur==="light")? "dark":"light";
-  document.documentElement.setAttribute("data-theme",next);
+  document.documentElement.setAttribute("data-theme", !cur ? (sysDark?"light":"dark") : (cur==="light"?"dark":"light"));
 });
+
+// initial render
+renderBoard();
 </script>
 </body>
 </html>
