@@ -208,7 +208,7 @@
   </div>
 
   <h2 class="sec" id="secPass">Прошли хотя бы один опрос <span class="hint">— поимённо, с числом прохождений по каждому сценарию</span></h2>
-  <div class="panel">
+  <div class="panel" id="passPanel">
     <div class="tbl-scroll">
       <table id="passT">
         <thead><tr>
@@ -226,11 +226,11 @@
     </div>
   </div>
 
-  <h2 class="sec">Охват по управлениям <span class="hint">— доля сотрудников, прошедших хотя бы один опрос; ниже охват — выше в списке</span></h2>
-  <div class="panel pad"><div class="bars" id="barsU"></div></div>
+  <h2 class="sec" id="secCovU">Охват по управлениям <span class="hint">— доля сотрудников, прошедших хотя бы один опрос; ниже охват — выше в списке</span></h2>
+  <div class="panel pad" id="panelCovU"><div class="bars" id="barsU"></div></div>
 
-  <h2 class="sec">Охват по отделам <span class="hint">— доля прошедших по отделам</span></h2>
-  <div class="panel pad"><div class="bars" id="barsO"></div></div>
+  <h2 class="sec" id="secCovO">Охват по отделам <span class="hint">— доля прошедших по отделам</span></h2>
+  <div class="panel pad" id="panelCovO"><div class="bars" id="barsO"></div></div>
 
   <div class="foot" id="foot"></div>
 
@@ -442,8 +442,17 @@ function renderBars_all(){
   renderBars("barsO", oCov);
 }
 
+// прячем пустые блоки на вкладках, где никто ещё не прошёл (нет данных для «Прошли» и «Охват»)
+function applyLayout(){
+  const rich = passN>0;
+  ["secPass","passPanel","secCovU","panelCovU","secCovO","panelCovO"].forEach(id=>{
+    const e=document.getElementById(id); if(e) e.style.display = rich ? "" : "none";
+  });
+}
+
 function renderBoard(){
   recompute();
+  applyLayout();
   renderKPIs();
   renderCards();
   populateUnits();
