@@ -4,35 +4,37 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Свод по прохождению опросов — СКС-Ломбард</title>
+<title>Доска позора — прохождение опросов — СКС-Ломбард</title>
 <style>
   :root{
-    --bg:#eef1f6; --panel:#ffffff; --panel2:#f7f9fc; --ink:#1a2130; --ink2:#3a4457; --muted:#6a7488;
-    --line:#e3e8f0; --line2:#eef1f7;
-    --accent:#37567d; --accent2:#5b81b0; --accent-soft:#e8eef6;
-    --good:#2f8f66; --warn:#c08a1e; --neg:#c1544f;
+    --bg:#f4eef0; --panel:#ffffff; --panel2:#faf6f7; --ink:#1f1a1d; --ink2:#443a3f; --muted:#8a7a80;
+    --line:#ecdfe3; --line2:#f4ebee;
+    --accent:#a3323b; --accent2:#c05560; --accent-soft:#f7e2e4;
+    --good:#2f8f66; --good-s:#dcefe6; --warn:#c08a1e;
+    --bad:#cf2d3a; --bad-s:#fbe0e2; --bad-row:#fdf1f2; --bad-bar:#e3474f;
     --sv1:#3b6fb0; --sv1s:#e6eef8;
     --sv2:#c0821f; --sv2s:#f7eed7;
     --sv3:#2f9e8f; --sv3s:#dcf1ee;
-    --track:#e7ebf2;
-    --shadow:0 1px 2px rgba(20,30,55,.05), 0 8px 24px rgba(20,30,55,.06);
+    --track:#efe4e7;
+    --shadow:0 1px 2px rgba(60,20,30,.05), 0 8px 24px rgba(60,20,30,.07);
     --radius:16px;
   }
   @media (prefers-color-scheme:dark){
     :root{
-      --bg:#0f1218; --panel:#171c26; --panel2:#1c222e; --ink:#e9edf4; --ink2:#bfc8d8; --muted:#828da0;
-      --line:#262e3b; --line2:#20262f;
-      --accent:#7ea3d1; --accent2:#9db9dc; --accent-soft:#212f41;
-      --good:#5cbf92; --warn:#d8ad57; --neg:#df7d79;
+      --bg:#160f11; --panel:#1e161a; --panel2:#241a1e; --ink:#f2e9ec; --ink2:#d3c3c9; --muted:#9a878e;
+      --line:#3a2a30; --line2:#2a1e22;
+      --accent:#e0757e; --accent2:#e6949b; --accent-soft:#3a2126;
+      --good:#5cbf92; --good-s:#173026; --warn:#d8ad57;
+      --bad:#f2646f; --bad-s:#3a1c20; --bad-row:#251317; --bad-bar:#e3474f;
       --sv1:#7ea9dc; --sv1s:#1e2b3d;
       --sv2:#d8ad57; --sv2s:#332a17;
       --sv3:#5fc3b3; --sv3s:#16302c;
-      --track:#232a36;
-      --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.3);
+      --track:#2e2024;
+      --shadow:0 1px 2px rgba(0,0,0,.35), 0 10px 30px rgba(0,0,0,.35);
     }
   }
-  :root[data-theme="light"]{ --bg:#eef1f6; --panel:#fff; --panel2:#f7f9fc; --ink:#1a2130; --ink2:#3a4457; --muted:#6a7488; --line:#e3e8f0; --line2:#eef1f7; --accent:#37567d; --accent2:#5b81b0; --accent-soft:#e8eef6; --good:#2f8f66; --warn:#c08a1e; --neg:#c1544f; --sv1:#3b6fb0; --sv1s:#e6eef8; --sv2:#c0821f; --sv2s:#f7eed7; --sv3:#2f9e8f; --sv3s:#dcf1ee; --track:#e7ebf2; --shadow:0 1px 2px rgba(20,30,55,.05),0 8px 24px rgba(20,30,55,.06); }
-  :root[data-theme="dark"]{ --bg:#0f1218; --panel:#171c26; --panel2:#1c222e; --ink:#e9edf4; --ink2:#bfc8d8; --muted:#828da0; --line:#262e3b; --line2:#20262f; --accent:#7ea3d1; --accent2:#9db9dc; --accent-soft:#212f41; --good:#5cbf92; --warn:#d8ad57; --neg:#df7d79; --sv1:#7ea9dc; --sv1s:#1e2b3d; --sv2:#d8ad57; --sv2s:#332a17; --sv3:#5fc3b3; --sv3s:#16302c; --track:#232a36; --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.3); }
+  :root[data-theme="light"]{ --bg:#f4eef0; --panel:#fff; --panel2:#faf6f7; --ink:#1f1a1d; --ink2:#443a3f; --muted:#8a7a80; --line:#ecdfe3; --line2:#f4ebee; --accent:#a3323b; --accent2:#c05560; --accent-soft:#f7e2e4; --good:#2f8f66; --good-s:#dcefe6; --warn:#c08a1e; --bad:#cf2d3a; --bad-s:#fbe0e2; --bad-row:#fdf1f2; --bad-bar:#e3474f; --sv1:#3b6fb0; --sv1s:#e6eef8; --sv2:#c0821f; --sv2s:#f7eed7; --sv3:#2f9e8f; --sv3s:#dcf1ee; --track:#efe4e7; --shadow:0 1px 2px rgba(60,20,30,.05),0 8px 24px rgba(60,20,30,.07); }
+  :root[data-theme="dark"]{ --bg:#160f11; --panel:#1e161a; --panel2:#241a1e; --ink:#f2e9ec; --ink2:#d3c3c9; --muted:#9a878e; --line:#3a2a30; --line2:#2a1e22; --accent:#e0757e; --accent2:#e6949b; --accent-soft:#3a2126; --good:#5cbf92; --good-s:#173026; --warn:#d8ad57; --bad:#f2646f; --bad-s:#3a1c20; --bad-row:#251317; --bad-bar:#e3474f; --sv1:#7ea9dc; --sv1s:#1e2b3d; --sv2:#d8ad57; --sv2s:#332a17; --sv3:#5fc3b3; --sv3s:#16302c; --track:#2e2024; --shadow:0 1px 2px rgba(0,0,0,.35),0 10px 30px rgba(0,0,0,.35); }
 
   *{box-sizing:border-box}
   html,body{margin:0;background:var(--bg)}
@@ -42,33 +44,38 @@
   .num{font-variant-numeric:tabular-nums}
   a{color:var(--accent2)}
 
-  header.top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
-  .h-title{font-size:28px;font-weight:780;letter-spacing:-.5px;line-height:1.12;margin:0}
+  header.top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:20px}
+  .h-title{font-size:30px;font-weight:800;letter-spacing:-.6px;line-height:1.1;margin:0;display:flex;align-items:center;gap:12px}
   .h-title .u{box-shadow:inset 0 -.32em 0 var(--accent-soft)}
-  .h-sub{color:var(--muted);font-size:13px;margin-top:9px;max-width:70ch}
+  .h-title .em{font-size:30px}
+  .h-sub{color:var(--muted);font-size:13px;margin-top:10px;max-width:72ch}
+  .h-sub b{color:var(--bad)}
   .h-meta{text-align:right;font-size:12.5px;color:var(--muted);white-space:nowrap;display:flex;flex-direction:column;align-items:flex-end;gap:7px}
   .h-meta .d{color:var(--ink2);font-weight:600}
-  .chip{display:inline-flex;align-items:center;gap:6px;background:color-mix(in srgb,var(--good) 14%,transparent);color:var(--good);border-radius:20px;padding:3px 11px;font-size:11.5px;font-weight:600}
-  .chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--good)}
+  .chip{display:inline-flex;align-items:center;gap:6px;background:var(--bad-s);color:var(--bad);border-radius:20px;padding:3px 11px;font-size:11.5px;font-weight:700}
+  .chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--bad)}
   .ttoggle{cursor:pointer;border:1px solid var(--line);background:var(--panel);color:var(--ink2);border-radius:20px;padding:4px 12px;font-size:12px;font-weight:600}
 
   .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:8px}
   .kpi{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:15px 16px;box-shadow:var(--shadow)}
-  .kpi .n{font-size:30px;font-weight:790;line-height:1;letter-spacing:-.6px}
+  .kpi .n{font-size:30px;font-weight:800;line-height:1;letter-spacing:-.6px}
   .kpi .n small{font-size:15px;font-weight:600;color:var(--muted)}
   .kpi .l{font-size:11.5px;color:var(--muted);margin-top:8px;line-height:1.3}
   .kpi.accent .n{color:var(--accent)}
   .kpi.good .n{color:var(--good)}
   .kpi.warn .n{color:var(--warn)}
-  .kpi.neg .n{color:var(--neg)}
+  .kpi.bad{background:var(--bad-s);border-color:color-mix(in srgb,var(--bad) 30%,transparent)}
+  .kpi.bad .n{color:var(--bad)}
+  .kpi.bad .l{color:color-mix(in srgb,var(--bad) 75%,var(--muted))}
 
   h2.sec{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin:30px 0 13px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-  h2.sec .hint{font-weight:500;text-transform:none;letter-spacing:0;font-size:12px}
+  h2.sec.shame{color:var(--bad)}
+  h2.sec .hint{font-weight:500;text-transform:none;letter-spacing:0;font-size:12px;color:var(--muted)}
 
   .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:4px 4px}
   .panel.pad{padding:20px 22px}
+  .panel.shame{border-color:color-mix(in srgb,var(--bad) 35%,transparent)}
 
-  /* survey cards */
   .svcards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
   .svcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;position:relative;overflow:hidden}
   .svcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px}
@@ -76,12 +83,13 @@
   .svcard .nm{font-size:15px;font-weight:720;letter-spacing:-.2px;display:flex;align-items:center;gap:8px}
   .svcard .tag{font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:6px}
   .svcard.s1 .tag{background:var(--sv1s);color:var(--sv1)} .svcard.s2 .tag{background:var(--sv2s);color:var(--sv2)} .svcard.s3 .tag{background:var(--sv3s);color:var(--sv3)}
-  .svcard .big{font-size:32px;font-weight:800;letter-spacing:-.7px;margin-top:12px;line-height:1}
-  .svcard.s1 .big{color:var(--sv1)} .svcard.s2 .big{color:var(--sv2)} .svcard.s3 .big{color:var(--sv3)}
-  .svcard .big small{font-size:14px;font-weight:600;color:var(--muted);letter-spacing:0}
-  .svcard .sub{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.35}
+  .svcard .row2{display:flex;align-items:baseline;gap:16px;margin-top:12px;flex-wrap:wrap}
+  .svcard .met{display:flex;flex-direction:column}
+  .svcard .met .v{font-size:24px;font-weight:800;letter-spacing:-.5px;line-height:1}
+  .svcard .met.g .v{color:var(--good)} .svcard .met.b .v{color:var(--bad)}
+  .svcard .met .k{font-size:11px;color:var(--muted);margin-top:3px}
+  .svcard .sub{font-size:11.5px;color:var(--muted);margin-top:10px;line-height:1.35}
 
-  /* tables */
   .tbl-scroll{overflow-x:auto;border-radius:var(--radius)}
   table{border-collapse:collapse;width:100%;font-size:13.5px}
   thead th{position:sticky;top:0;background:var(--panel2);color:var(--ink2);text-align:left;font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.4px;padding:11px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
@@ -91,42 +99,47 @@
   tbody td{padding:9px 12px;border-bottom:1px solid var(--line2);vertical-align:middle}
   tbody tr:last-child td{border-bottom:none}
   tbody tr:hover{background:var(--panel2)}
+  tbody tr.shamed{background:var(--bad-row);box-shadow:inset 3px 0 0 var(--bad)}
+  tbody tr.shamed:hover{background:color-mix(in srgb,var(--bad) 12%,var(--panel))}
   td.c{text-align:center} td.r{text-align:right}
   .fio{font-weight:650;color:var(--ink);white-space:nowrap}
+  tr.shamed .fio{color:var(--bad)}
   .pos{color:var(--muted);font-size:12px}
   .unit{color:var(--ink2);font-size:12.5px;white-space:nowrap}
   .unit .up{color:var(--muted);font-size:11px;display:block}
   .rk{color:var(--muted);font-size:12px;width:26px;text-align:right}
   .tot{font-weight:750;font-size:14px}
 
-  /* survey mark badges */
   .mk{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:23px;border-radius:7px;font-weight:750;font-size:12.5px;padding:0 7px}
   .mk.on1{background:var(--sv1s);color:var(--sv1)} .mk.on2{background:var(--sv2s);color:var(--sv2)} .mk.on3{background:var(--sv3s);color:var(--sv3)}
-  .mk.off{background:transparent;color:var(--muted);opacity:.5;font-weight:500}
-  .mk .x{font-size:11px}
+  .mk.off{background:var(--bad-s);color:var(--bad);font-weight:750}
+  .badge-no{display:inline-flex;align-items:center;gap:5px;background:var(--bad-s);color:var(--bad);font-weight:700;font-size:11.5px;padding:3px 9px;border-radius:20px;white-space:nowrap}
+  .badge-no::before{content:"✗";font-size:11px}
   .dot{display:inline-block;width:9px;height:9px;border-radius:50%}
   .dot.on1{background:var(--sv1)} .dot.on2{background:var(--sv2)} .dot.on3{background:var(--sv3)}
-  .dot.off{background:var(--track)}
+  .dot.no{background:var(--bad);opacity:.85}
 
-  /* coverage bars */
   .bars{display:flex;flex-direction:column;gap:2px}
   .bar{display:grid;grid-template-columns:minmax(150px,1.6fr) 1fr auto;align-items:center;gap:14px;padding:8px 6px;border-bottom:1px solid var(--line2)}
   .bar:last-child{border-bottom:none}
   .bar .bn{font-size:13px;color:var(--ink2);font-weight:600}
-  .bar .track{height:9px;background:var(--track);border-radius:6px;overflow:hidden}
-  .bar .fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent2),var(--accent))}
-  .bar .val{font-size:12px;color:var(--muted);white-space:nowrap;min-width:96px;text-align:right}
+  .bar .track{height:9px;background:var(--track);border-radius:6px;overflow:hidden;position:relative}
+  .bar .fill{height:100%;border-radius:6px}
+  .bar .val{font-size:12px;color:var(--muted);white-space:nowrap;min-width:118px;text-align:right}
   .bar .val b{color:var(--ink);font-weight:700}
+  .bar .val .miss{color:var(--bad);font-weight:700}
 
-  /* controls */
   .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
   .seg{display:inline-flex;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:3px}
   .seg button{border:none;background:transparent;color:var(--ink2);font:inherit;font-size:12.5px;font-weight:600;padding:6px 13px;border-radius:7px;cursor:pointer}
   .seg button.active{background:var(--panel);color:var(--accent);box-shadow:var(--shadow)}
+  .seg button[data-f="none"].active{color:var(--bad)}
+  .seg button[data-f="pass"].active{color:var(--good)}
   .inp,.sel{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:10px;padding:8px 12px;font:inherit;font-size:13px}
   .inp{min-width:210px}
   .grow{flex:1}
   .count-note{font-size:12px;color:var(--muted);white-space:nowrap}
+  .count-note b{color:var(--bad)}
 
   .foot{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;line-height:1.6}
   .foot b{color:var(--ink2)}
@@ -144,8 +157,8 @@
 
   <header class="top">
     <div>
-      <h1 class="h-title">Свод по прохождению <span class="u">опросов</span></h1>
-      <div class="h-sub">Кто из сотрудников прошёл опросы бота, по каким сценариям и сколько раз. Три сценария: основной опрос по процессу, доопрос (заполнение пробелов) и фото рабочего дня. Источник — выгрузка бота и файл охвата <code>coverage.xlsx</code>.</div>
+      <h1 class="h-title"><span class="em">🔴</span> Доска <span class="u">позора</span></h1>
+      <div class="h-sub">Кто ещё <b>не сдал</b> опросы бота-интервьюера. <b>Красным подсвечены не сдавшие.</b> Три сценария: основной опрос по процессу, доопрос (заполнение пробелов) и фото рабочего дня. Источник — выгрузка бота и файл охвата <code>coverage.xlsx</code>.</div>
     </div>
     <div class="h-meta">
       <span class="chip" id="chipDate">снимок …</span>
@@ -156,10 +169,38 @@
 
   <div class="kpis" id="kpis"></div>
 
-  <h2 class="sec">Сценарии опросов <span class="hint">— число сессий и уникальных сотрудников по каждому</span></h2>
+  <h2 class="sec">Сценарии опросов <span class="hint">— сколько сдали и сколько ещё не сдали по каждому</span></h2>
   <div class="svcards" id="svcards"></div>
 
-  <h2 class="sec">Прошедшие опросы <span class="hint">— поимённо, с отметкой по каждому сценарию и числом прохождений</span></h2>
+  <h2 class="sec shame">🔴 Не сдали ни одного опроса <span class="hint">— доска позора: поиск, фильтр по управлению, красным — не сдавшие</span></h2>
+  <div class="controls">
+    <div class="seg" id="segFilter">
+      <button data-f="none" class="active">Не сдали</button>
+      <button data-f="pass">Сдали</button>
+      <button data-f="all">Все</button>
+    </div>
+    <select class="sel" id="selUnit"></select>
+    <input class="inp grow" id="search" type="search" placeholder="Поиск по ФИО или должности…">
+    <span class="count-note" id="rosterCount"></span>
+  </div>
+  <div class="panel shame">
+    <div class="tbl-scroll">
+      <table id="rosterT">
+        <thead><tr>
+          <th class="sortable" data-k="f">ФИО</th>
+          <th class="sortable" data-k="u">Управление / отдел</th>
+          <th class="sortable" data-k="d">Должность</th>
+          <th class="c" title="Основной опрос по процессу">Процесс</th>
+          <th class="c" title="Доопрос">Доопрос</th>
+          <th class="c" title="Фото рабочего дня">Фото дня</th>
+          <th class="c sortable" data-k="vs">Статус</th>
+        </tr></thead>
+        <tbody id="rosterBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <h2 class="sec">🟢 Сдали хотя бы один опрос <span class="hint">— поимённо, с числом прохождений по каждому сценарию</span></h2>
   <div class="panel">
     <div class="tbl-scroll">
       <table id="passT">
@@ -178,39 +219,11 @@
     </div>
   </div>
 
-  <h2 class="sec">Охват по управлениям <span class="hint">— доля сотрудников, прошедших хотя бы один опрос</span></h2>
+  <h2 class="sec shame">Антирейтинг управлений <span class="hint">— доля не сдавших; чем краснее и длиннее, тем хуже охват</span></h2>
   <div class="panel pad"><div class="bars" id="barsU"></div></div>
 
-  <h2 class="sec">Охват по отделам <span class="hint">— отделы, где есть хотя бы один прошедший</span></h2>
+  <h2 class="sec shame">Антирейтинг отделов <span class="hint">— доля не сдавших по отделам</span></h2>
   <div class="panel pad"><div class="bars" id="barsO"></div></div>
-
-  <h2 class="sec">Полный реестр сотрудников <span class="hint">— поиск, фильтр и отметки прохождения по всем сотрудникам</span></h2>
-  <div class="controls">
-    <div class="seg" id="segFilter">
-      <button data-f="all" class="active">Все</button>
-      <button data-f="pass">Прошли</button>
-      <button data-f="none">Не прошли</button>
-    </div>
-    <select class="sel" id="selUnit"></select>
-    <input class="inp grow" id="search" type="search" placeholder="Поиск по ФИО или должности…">
-    <span class="count-note" id="rosterCount"></span>
-  </div>
-  <div class="panel">
-    <div class="tbl-scroll">
-      <table id="rosterT">
-        <thead><tr>
-          <th class="sortable" data-k="f">ФИО</th>
-          <th class="sortable" data-k="u">Управление / отдел</th>
-          <th class="sortable" data-k="d">Должность</th>
-          <th class="c" title="Основной опрос по процессу">П</th>
-          <th class="c" title="Доопрос">Д</th>
-          <th class="c" title="Фото рабочего дня">Ф</th>
-          <th class="c sortable" data-k="vs">Всего</th>
-        </tr></thead>
-        <tbody id="rosterBody"></tbody>
-      </table>
-    </div>
-  </div>
 
   <div class="foot" id="foot"></div>
 
@@ -221,21 +234,19 @@ const DATA = [{"f":"Абдеев Айдар Расимович","d":"Супер�
 ;
 const SNAPSHOT = "03.08.2026";
 
-// --- survey metadata ---
 const SURV = {
-  s1:{name:"Основной опрос по процессу", short:"Процесс", tag:"S1", cls:"s1", folder:"process_survey", desc:"Описание бизнес-процесса со слов владельца."},
-  s2:{name:"Доопрос", short:"Доопрос", tag:"S2", cls:"s2", folder:"gap_survey", desc:"Заполнение пробелов (GAP) по ранее собранным данным."},
-  s3:{name:"Фото рабочего дня", short:"Фото дня", tag:"S3", cls:"s3", folder:"workday_photo", desc:"Карта рабочего дня сотрудника и баланс времени."}
+  s1:{name:"Основной опрос по процессу", short:"Процесс", tag:"S1", cls:"s1", desc:"Описание бизнес-процесса со слов владельца."},
+  s2:{name:"Доопрос", short:"Доопрос", tag:"S2", cls:"s2", desc:"Заполнение пробелов (GAP) по собранным данным."},
+  s3:{name:"Фото рабочего дня", short:"Фото дня", tag:"S3", cls:"s3", desc:"Карта рабочего дня и баланс времени."}
 };
 const SK = ["s1","s2","s3"];
 
-// --- helpers ---
 const el = (t,c,h)=>{const e=document.createElement(t); if(c)e.className=c; if(h!=null)e.innerHTML=h; return e;};
 const fmt = n => (n==null?"":String(n).replace(/\B(?=(\d{3})+(?!\d))/g," "));
 function fdate(iso){ if(!iso) return "—"; const m=iso.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/); if(!m) return iso; return `${m[3]}.${m[2]} ${m[4]}:${m[5]}`; }
 function esc(s){ return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+const plural=(n,a,b,c)=>{const d=n%10,e=n%100; return e>=11&&e<=14?c:(d===1?a:(d>=2&&d<=4?b:c));};
 
-// --- aggregates ---
 const total = DATA.length;
 const passers = DATA.filter(r=>r.vs>0);
 const passN = passers.length;
@@ -245,21 +256,17 @@ const sBy = {s1:0,s2:0,s3:0}, pBy={s1:0,s2:0,s3:0};
 DATA.forEach(r=>SK.forEach(k=>{ sBy[k]+=r[k]; if(r[k]>0)pBy[k]++; }));
 const unitsPassed = new Set(passers.map(r=>r.u)).size;
 const unitsTotal = new Set(DATA.map(r=>r.u)).size;
-const deptPassed = new Set(passers.map(r=>r.u+" / "+r.o)).size;
 
-// --- header meta ---
 document.getElementById("chipDate").textContent = "снимок " + SNAPSHOT;
 document.getElementById("mStaff").textContent = fmt(total) + " чел.";
-document.title = "Свод по прохождению опросов — СКС-Ломбард";
 
-// --- KPIs ---
 const pct = (a,b)=> b? Math.round(a/b*1000)/10 : 0;
 const kpis = [
+  {n:fmt(noneN), sm:` / ${pct(noneN,total)}%`, l:"Ещё НЕ сдали ни одного опроса", cls:"bad"},
   {n:fmt(total), l:"Сотрудников в оргструктуре"},
-  {n:fmt(passN), sm:` / ${pct(passN,total)}%`, l:"Прошли хотя бы один опрос", cls:"good"},
-  {n:fmt(noneN), l:"Ещё не проходили опросов", cls:"warn"},
+  {n:fmt(passN), sm:` / ${pct(passN,total)}%`, l:"Сдали хотя бы один опрос", cls:"good"},
   {n:fmt(sessTotal), l:"Всего пройдено сессий", cls:"accent"},
-  {n:unitsPassed+" / "+unitsTotal, l:"Управлений охвачено"}
+  {n:(unitsTotal-unitsPassed)+" / "+unitsTotal, l:"Управлений без единого сдавшего", cls:"warn"}
 ];
 const kw = document.getElementById("kpis");
 kpis.forEach(k=>{
@@ -268,87 +275,28 @@ kpis.forEach(k=>{
   kw.appendChild(d);
 });
 
-// --- survey cards ---
+// survey cards — сдали / не сдали
 const sc = document.getElementById("svcards");
 SK.forEach(k=>{
-  const s=SURV[k];
+  const s=SURV[k]; const passed=pBy[k], missed=total-passed;
   const d=el("div","svcard "+s.cls);
   d.innerHTML = `<div class="nm">${s.name}<span class="tag">${s.tag}</span></div>
-    <div class="big">${fmt(sBy[k])} <small>${sBy[k]===1?"сессия":(sBy[k]%10>=2&&sBy[k]%10<=4&&(sBy[k]<10||sBy[k]>20)?"сессии":"сессий")}</small></div>
-    <div class="sub">${pBy[k]} ${pBy[k]===1?"сотрудник":"сотрудников"} прошли · ${s.desc}</div>`;
+    <div class="row2">
+      <div class="met g"><div class="v">${fmt(passed)}</div><div class="k">сдали · ${fmt(sBy[k])} ${plural(sBy[k],"сессия","сессии","сессий")}</div></div>
+      <div class="met b"><div class="v">${fmt(missed)}</div><div class="k">не сдали</div></div>
+    </div>
+    <div class="sub">${s.desc}</div>`;
   sc.appendChild(d);
 });
 
-// --- passers table ---
-function mk(v,k){ return v>0 ? `<span class="mk on${k[1]}">✓${v>1?" ×"+v:""}</span>` : `<span class="mk off"><span class="x">✗</span></span>`; }
-let passSort={k:"vs",dir:-1};
-function renderPass(){
-  const arr=[...passers];
-  const {k,dir}=passSort;
-  arr.sort((a,b)=>{
-    let x=a[k],y=b[k];
-    if(typeof x==="number"){ if(x!==y) return (x-y)*dir; return a.f.localeCompare(b.f,"ru"); }
-    x=(x||"").toString(); y=(y||"").toString();
-    return x.localeCompare(y,"ru")*dir;
-  });
-  const tb=document.getElementById("passBody"); tb.innerHTML="";
-  arr.forEach((r,i)=>{
-    const tr=el("tr");
-    tr.innerHTML = `<td class="rk">${i+1}</td>
-      <td><div class="fio">${esc(r.f)}</div><div class="pos">${esc(r.d)}</div></td>
-      <td><div class="unit">${esc(r.o)}<span class="up">${esc(r.u)}</span></div></td>
-      <td class="c">${mk(r.s1,"s1")}</td>
-      <td class="c">${mk(r.s2,"s2")}</td>
-      <td class="c">${mk(r.s3,"s3")}</td>
-      <td class="c"><span class="tot">${r.vs}</span></td>
-      <td class="pos">${fdate(r.last)}</td>`;
-    tb.appendChild(tr);
-  });
-}
-document.querySelectorAll("#passT thead th.sortable").forEach(th=>{
-  th.addEventListener("click",()=>{
-    const k=th.dataset.k;
-    if(passSort.k===k) passSort.dir*=-1;
-    else passSort={k, dir:(k==="vs"||k.startsWith("s"))?-1:1};
-    renderPass();
-  });
-});
-renderPass();
-
-// --- coverage bars ---
-function groupCoverage(keyFn){
-  const m=new Map();
-  DATA.forEach(r=>{
-    const key=keyFn(r);
-    if(!m.has(key)) m.set(key,{staff:0,pass:0});
-    const o=m.get(key); o.staff++; if(r.vs>0)o.pass++;
-  });
-  return [...m.entries()].map(([k,v])=>({k,...v,pct:pct(v.pass,v.staff)}));
-}
-function renderBars(elId, rows, opts){
-  const box=document.getElementById(elId); box.innerHTML="";
-  rows.forEach(r=>{
-    const b=el("div","bar");
-    b.innerHTML=`<div class="bn">${esc(r.k)}</div>
-      <div class="track"><div class="fill" style="width:${Math.max(r.pct,r.pass>0?4:0)}%${opts&&opts.color?`;background:${opts.color}`:""}"></div></div>
-      <div class="val"><b>${r.pass}</b> / ${r.staff} · ${r.pct}%</div>`;
-    box.appendChild(b);
-  });
-}
-const uCov = groupCoverage(r=>r.u).sort((a,b)=> b.pass-a.pass || b.pct-a.pct || a.k.localeCompare(b.k,"ru"));
-renderBars("barsU", uCov);
-const oCov = groupCoverage(r=>r.o).filter(r=>r.pass>0).sort((a,b)=> b.pass-a.pass || b.pct-a.pct || a.k.localeCompare(b.k,"ru"));
-renderBars("barsO", oCov, {color:"linear-gradient(90deg,var(--sv3),var(--sv1))"});
-
-// --- full roster: filter / search / sort ---
-let rFilter="all", rQuery="", rUnit="", rSort={k:"f",dir:1};
-// populate unit select
+// ---- SHAME roster: filter / search / sort (default = none) ----
+let rFilter="none", rQuery="", rUnit="", rSort={k:"f",dir:1};
 const selU=document.getElementById("selUnit");
 selU.appendChild(el("option",null,"Все управления"));
 [...new Set(DATA.map(r=>r.u))].sort((a,b)=>a.localeCompare(b,"ru")).forEach(u=>{
   const o=el("option",null,esc(u)); o.value=u; selU.appendChild(o);
 });
-function dotmark(v,k){ return `<span class="dot ${v>0?"on"+k[1]:"off"}" title="${SURV[k].name}${v>0?': '+v:''}"></span>`; }
+function dotmark(v,k){ return v>0 ? `<span class="dot on${k[1]}" title="${SURV[k].name}: ${v}"></span>` : `<span class="dot no" title="${SURV[k].name}: не сдал"></span>`; }
 function renderRoster(){
   let arr=DATA.filter(r=>{
     if(rFilter==="pass" && r.vs<=0) return false;
@@ -366,18 +314,22 @@ function renderRoster(){
   const tb=document.getElementById("rosterBody"); tb.innerHTML="";
   const frag=document.createDocumentFragment();
   arr.forEach(r=>{
-    const tr=el("tr"+(r.vs>0?"":""));
+    const shamed = r.vs<=0;
+    const tr=el("tr");
+    tr.className = shamed? "shamed":"";
+    const status = shamed ? `<span class="badge-no">не сдал</span>` : `<span class="tot" style="color:var(--good)">${r.vs}</span>`;
     tr.innerHTML=`<td><div class="fio">${esc(r.f)}</div></td>
       <td><div class="unit">${esc(r.o)}<span class="up">${esc(r.u)}</span></div></td>
       <td class="pos">${esc(r.d)}</td>
       <td class="c">${dotmark(r.s1,"s1")}</td>
       <td class="c">${dotmark(r.s2,"s2")}</td>
       <td class="c">${dotmark(r.s3,"s3")}</td>
-      <td class="c">${r.vs>0?`<span class="tot">${r.vs}</span>`:`<span class="mk off">—</span>`}</td>`;
+      <td class="c">${status}</td>`;
     frag.appendChild(tr);
   });
   tb.appendChild(frag);
-  document.getElementById("rosterCount").textContent = `показано ${fmt(arr.length)} из ${fmt(total)}`;
+  const lbl = rFilter==="none"?"не сдали":(rFilter==="pass"?"сдали":"всего");
+  document.getElementById("rosterCount").innerHTML = `показано <b>${fmt(arr.length)}</b> (${lbl}) из ${fmt(total)}`;
 }
 document.getElementById("segFilter").addEventListener("click",e=>{
   const b=e.target.closest("button"); if(!b) return;
@@ -396,21 +348,87 @@ document.querySelectorAll("#rosterT thead th.sortable").forEach(th=>{
 });
 renderRoster();
 
-// --- footer ---
+// ---- honor (passers) table ----
+function mk(v,k){ return v>0 ? `<span class="mk on${k[1]}">✓${v>1?" ×"+v:""}</span>` : `<span class="mk off">✗</span>`; }
+let passSort={k:"vs",dir:-1};
+function renderPass(){
+  const arr=[...passers];
+  const {k,dir}=passSort;
+  arr.sort((a,b)=>{
+    let x=a[k],y=b[k];
+    if(typeof x==="number"){ if(x!==y) return (x-y)*dir; return a.f.localeCompare(b.f,"ru"); }
+    return ((x||"").toString()).localeCompare((y||"").toString(),"ru")*dir;
+  });
+  const tb=document.getElementById("passBody"); tb.innerHTML="";
+  arr.forEach((r,i)=>{
+    const tr=el("tr");
+    tr.innerHTML = `<td class="rk">${i+1}</td>
+      <td><div class="fio">${esc(r.f)}</div><div class="pos">${esc(r.d)}</div></td>
+      <td><div class="unit">${esc(r.o)}<span class="up">${esc(r.u)}</span></div></td>
+      <td class="c">${mk(r.s1,"s1")}</td>
+      <td class="c">${mk(r.s2,"s2")}</td>
+      <td class="c">${mk(r.s3,"s3")}</td>
+      <td class="c"><span class="tot" style="color:var(--good)">${r.vs}</span></td>
+      <td class="pos">${fdate(r.last)}</td>`;
+    tb.appendChild(tr);
+  });
+}
+document.querySelectorAll("#passT thead th.sortable").forEach(th=>{
+  th.addEventListener("click",()=>{
+    const k=th.dataset.k;
+    if(passSort.k===k) passSort.dir*=-1;
+    else passSort={k, dir:(k==="vs"||k.startsWith("s"))?-1:1};
+    renderPass();
+  });
+});
+renderPass();
+
+// ---- anti-rating bars (share NOT passed) ----
+function groupCoverage(keyFn){
+  const m=new Map();
+  DATA.forEach(r=>{
+    const key=keyFn(r);
+    if(!m.has(key)) m.set(key,{staff:0,pass:0});
+    const o=m.get(key); o.staff++; if(r.vs>0)o.pass++;
+  });
+  return [...m.entries()].map(([k,v])=>({k, staff:v.staff, pass:v.pass, miss:v.staff-v.pass, mpct:pct(v.staff-v.pass,v.staff)}));
+}
+function shameColor(mpct){
+  // 0% missed -> green, 100% -> red
+  if(mpct>=95) return "var(--bad-bar)";
+  if(mpct>=60) return "linear-gradient(90deg,#e0a33a,var(--bad-bar))";
+  if(mpct>=30) return "linear-gradient(90deg,var(--good),#e0a33a)";
+  return "var(--good)";
+}
+function renderBars(elId, rows){
+  const box=document.getElementById(elId); box.innerHTML="";
+  rows.forEach(r=>{
+    const b=el("div","bar");
+    b.innerHTML=`<div class="bn">${esc(r.k)}</div>
+      <div class="track"><div class="fill" style="width:${Math.max(r.mpct,2)}%;background:${shameColor(r.mpct)}"></div></div>
+      <div class="val"><span class="miss">${r.miss}</span> не сдали / ${r.staff} · ${r.mpct}%</div>`;
+    box.appendChild(b);
+  });
+}
+const uCov = groupCoverage(r=>r.u).sort((a,b)=> b.mpct-a.mpct || b.staff-a.staff || a.k.localeCompare(b.k,"ru"));
+renderBars("barsU", uCov);
+const oCov = groupCoverage(r=>r.o).sort((a,b)=> b.mpct-a.mpct || b.staff-a.staff || a.k.localeCompare(b.k,"ru"));
+renderBars("barsO", oCov);
+
+// ---- footer ----
 document.getElementById("foot").innerHTML =
   `<b>Данные:</b> выгрузка бота-интервьюера (Telegram-экспорт) + файл охвата <code>coverage.xlsx</code>, снимок ${SNAPSHOT}. `+
-  `Всего ${fmt(sessTotal)} сессий: ${sBy.s1} — основной опрос по процессу, ${sBy.s2} — доопрос, ${sBy.s3} — фото рабочего дня. `+
-  `«Прошёл» = есть хотя бы одна завершённая сессия соответствующего сценария; число в отметке — сколько раз сценарий пройден. `+
+  `Из ${fmt(total)} сотрудников <b style="color:var(--bad)">${fmt(noneN)} ещё не сдали</b> ни одного опроса, ${fmt(passN)} сдали (${fmt(sessTotal)} сессий: ${sBy.s1} — процесс, ${sBy.s2} — доопрос, ${sBy.s3} — фото дня). `+
+  `«Сдал» = есть хотя бы одна завершённая сессия сценария; красным помечены не сдавшие. `+
   `Штат и распределение по управлениям/отделам — по оргструктуре Битрикс24. Страница внутренняя, не для внешней публикации.`;
 
-// --- theme toggle ---
-const tb=document.getElementById("ttoggle");
-tb.addEventListener("click",()=>{
+// ---- theme toggle ----
+document.getElementById("ttoggle").addEventListener("click",()=>{
   const cur=document.documentElement.getAttribute("data-theme");
   const sysDark=window.matchMedia("(prefers-color-scheme:dark)").matches;
   let next;
   if(!cur) next = sysDark? "light":"dark";
-  else if(cur==="light") next="dark"; else next="light";
+  else next = (cur==="light")? "dark":"light";
   document.documentElement.setAttribute("data-theme",next);
 });
 </script>
