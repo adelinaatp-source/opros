@@ -184,6 +184,7 @@
   <div class="controls">
     <div class="seg" id="segFilter">
       <button data-f="all" class="active">Все</button>
+      <button data-f="none">Не прошли</button>
       <button data-f="pass">Прошли</button>
       <button data-f="cov">Охват</button>
     </div>
@@ -340,6 +341,7 @@ function dotmark(v,k){ return v>0 ? `<span class="mk done" title="${SURV[k].name
 function renderRoster(){
   let arr=ROWS.filter(r=>{
     if(rFilter==="pass" && r.vs<=0) return false;
+    if(rFilter==="none" && r.vs>0) return false;
     if(rUnit && r.u!==rUnit) return false;
     if(rQuery){ const q=rQuery.toLowerCase(); if(!(r.f.toLowerCase().includes(q)||(r.d||"").toLowerCase().includes(q))) return false; }
     return true;
@@ -366,7 +368,7 @@ function renderRoster(){
     frag.appendChild(tr);
   });
   tb.appendChild(frag);
-  const lbl = rFilter==="pass"?"прошли":"всего";
+  const lbl = rFilter==="pass"?"прошли":(rFilter==="none"?"не прошли":"всего");
   document.getElementById("rosterCount").innerHTML = `показано <b>${fmt(arr.length)}</b> (${lbl}) из ${fmt(total)}`;
 }
 
