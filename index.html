@@ -115,7 +115,8 @@
 
   .mk{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:23px;border-radius:7px;font-weight:750;font-size:12.5px;padding:0 7px}
   .mk.on1{background:var(--sv1s);color:var(--sv1)} .mk.on2{background:var(--sv2s);color:var(--sv2)} .mk.on3{background:var(--sv3s);color:var(--sv3)}
-  .mk.off{background:transparent;color:var(--muted);opacity:.55;font-weight:500}
+  .mk.done{background:var(--good-s);color:var(--good);font-weight:750}
+  .mk.off{background:transparent;color:var(--muted);opacity:.6;font-weight:500}
   .badge-no{display:inline-flex;align-items:center;gap:5px;background:var(--bad-s);color:var(--bad);font-weight:650;font-size:11.5px;padding:3px 10px;border-radius:20px;white-space:nowrap}
   .dot{display:inline-block;width:9px;height:9px;border-radius:50%}
   .dot.on1{background:var(--sv1)} .dot.on2{background:var(--sv2)} .dot.on3{background:var(--sv3)}
@@ -179,7 +180,7 @@
   <h2 class="sec">Сценарии опросов <span class="hint" id="hintSurv">— сколько сотрудников прошли и сколько ещё нет по каждому</span></h2>
   <div class="svcards" id="svcards"></div>
 
-  <h2 class="sec" id="secRoster">Реестр прохождения <span class="hint">— поиск, фильтр по управлению; красным отмечены пока не прошедшие</span></h2>
+  <h2 class="sec" id="secRoster">Реестр прохождения <span class="hint">— в колонках сценариев: <b style="color:var(--good)">✓</b> прошёл (×N — сколько раз), <b>—</b> ещё нет; красным — совсем не прошедшие</span></h2>
   <div class="controls">
     <div class="seg" id="segFilter">
       <button data-f="all" class="active">Все</button>
@@ -354,7 +355,7 @@ function populateUnits(){
   });
   selU.value="";
 }
-function dotmark(v,k){ return v>0 ? `<span class="dot on${k[1]}" title="${SURV[k].name}: ${v}"></span>` : `<span class="dot no" title="${SURV[k].name}: ещё не пройден"></span>`; }
+function dotmark(v,k){ return v>0 ? `<span class="mk done" title="${SURV[k].name}: пройден ${v} раз(а)">✓${v>1?" ×"+v:""}</span>` : `<span class="mk off" title="${SURV[k].name}: ещё не пройден">—</span>`; }
 function renderRoster(){
   let arr=ROWS.filter(r=>{
     if(rFilter==="pass" && r.vs<=0) return false;
