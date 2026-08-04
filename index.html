@@ -241,8 +241,22 @@ const RAW = [{"f":"Абдеев Айдар Расимович","d":"Суперв
 ;
 const SNAPSHOT = "03.08.2026";
 // исключаем отдел «Обособленные подразделения» целиком (по решению пользователя)
-const DATA = RAW.filter(r => r.o !== "Обособленные подразделения");
-const EXCLUDED_OP = RAW.length - DATA.length;
+const noOp = RAW.filter(r => r.o !== "Обособленные подразделения");
+const EXCLUDED_OP = RAW.length - noOp.length;
+// объединяем дубли продавцов-скупщиков (один человек = одна карточка): ключ Фамилия+Имя, оставляем запись с самым полным ФИО
+const scupKey = f => (f||"").toLowerCase().replace(/ё/g,"е").trim().split(/\s+/).slice(0,2).join(" ");
+const isScup = r => /скуп/i.test(r.d||"");
+const _scupGroups = {};
+noOp.forEach((r,i)=>{ if(isScup(r)){ const k=scupKey(r.f); (_scupGroups[k]=_scupGroups[k]||[]).push(i); } });
+const _dropIdx = new Set();
+Object.values(_scupGroups).forEach(idxs=>{
+  if(idxs.length<2) return;
+  let keep=idxs[0];
+  idxs.forEach(i=>{ if(noOp[i].f.trim().split(/\s+/).length > noOp[keep].f.trim().split(/\s+/).length) keep=i; });
+  idxs.forEach(i=>{ if(i!==keep) _dropIdx.add(i); });
+});
+const DATA = noOp.filter((r,i)=>!_dropIdx.has(i));
+const EXCLUDED_SCUP = noOp.length - DATA.length;
 
 const SURV = {
   s1:{name:"Основной опрос по процессу", short:"Процесс", tag:"S1", cls:"s1", desc:"Описание бизнес-процесса со слов владельца."},
@@ -467,7 +481,7 @@ function renderBoard(){
 // ---- footer (global) ----
 document.getElementById("foot").innerHTML =
   `<b>Данные:</b> выгрузка бота-интервьюера (Telegram-экспорт) + файл охвата <code>coverage.xlsx</code>, снимок ${SNAPSHOT}. `+
-  `Учтено ${fmt(GTOTAL)} чел.: ${fmt(SUBSETS.staff.length)} сотрудников и ${fmt(SUBSETS.tovar.length)} товароведов — они на отдельной вкладке (отдел «Обособленные подразделения», ${fmt(EXCLUDED_OP)} ${plural(EXCLUDED_OP,"карточка","карточки","карточек")}, из таблицы удалён целиком). `+
+  `Учтено ${fmt(GTOTAL)} чел.: ${fmt(SUBSETS.staff.length)} сотрудников и ${fmt(SUBSETS.tovar.length)} товароведов — они на отдельной вкладке (отдел «Обособленные подразделения», ${fmt(EXCLUDED_OP)} ${plural(EXCLUDED_OP,"карточка","карточки","карточек")}, из таблицы удалён целиком; объединены дубли продавцов-скупщиков — ${fmt(EXCLUDED_SCUP)} ${plural(EXCLUDED_SCUP,"лишняя карточка","лишние карточки","лишних карточек")} убрано). `+
   `Прошли хотя бы один опрос ${fmt(GPASS)} чел. (${fmt(GSESS)} сессий: ${GSBY.s1} — процесс, ${GSBY.s2} — доопрос, ${GSBY.s3} — фото дня); все прошедшие — среди сотрудников, товароведы пока не проходили. `+
   `«Прошёл» = есть хотя бы одна завершённая сессия сценария; красным отмечены не прошедшие. Штат и оргструктура — по Битрикс24. Страница внутренняя, не для внешней публикации.`;
 
