@@ -63,7 +63,7 @@
   .tabs button .cnt{font-size:12px;font-weight:700;background:var(--accent-soft);color:var(--accent);padding:1px 9px;border-radius:20px}
   .tabs button.active .cnt{background:var(--accent);color:#fff}
 
-  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:8px}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px}
   .kpi{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:15px 16px;box-shadow:var(--shadow)}
   .kpi .n{font-size:30px;font-weight:790;line-height:1;letter-spacing:-.6px}
   .kpi .n small{font-size:15px;font-weight:600;color:var(--muted)}
@@ -302,7 +302,6 @@ function recompute(){
 function renderKPIs(){
   const kw = document.getElementById("kpis"); kw.innerHTML="";
   const kpis = [
-    {n:fmt(passN), sm:` / ${pct(passN,total)}%`, l:"Прошли хотя бы один опрос", cls:"good"},
     {n:fmt(total), l: TAB==="tovar" ? "Товароведы и скупщики, всего" : "Сотрудников во вкладке"},
     {n:fmt(noneN), sm:` / ${pct(noneN,total)}%`, l:"Ещё не проходили опросов", cls:"warn"},
     {n:fmt(sessTotal), l:"Всего пройдено сессий", cls:"accent"},
