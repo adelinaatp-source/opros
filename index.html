@@ -123,7 +123,7 @@
   .dot.no{background:var(--bad);opacity:.8}
 
   .bars{display:flex;flex-direction:column;gap:2px}
-  .bar{display:grid;grid-template-columns:minmax(150px,1.6fr) 1fr auto;align-items:center;gap:14px;padding:8px 6px;border-bottom:1px solid var(--line2)}
+  .bar{display:grid;grid-template-columns:minmax(150px,1.6fr) 1fr auto;align-items:center;gap:3px 14px;padding:9px 6px;border-bottom:1px solid var(--line2)}
   .bar:last-child{border-bottom:none}
   .bar .bn{font-size:13px;color:var(--ink2);font-weight:600}
   .bar .track{height:9px;background:var(--track);border-radius:6px;overflow:hidden}
@@ -131,6 +131,9 @@
   .bar .val{font-size:12px;color:var(--muted);white-space:nowrap;min-width:116px;text-align:right}
   .bar .val b{color:var(--ink);font-weight:700}
   .bar .val .miss{color:var(--bad);font-weight:600}
+  .bar-sub{grid-column:1/-1;font-size:11px;color:var(--muted)}
+  .cov-legend{font-size:11.5px;color:var(--muted);padding:0 2px 12px;line-height:1.45}
+  .cov-legend b{color:var(--ink2)}
 
   .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
   .seg{display:inline-flex;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:3px}
@@ -208,6 +211,7 @@
       </table>
     </div>
     <div id="covView" style="display:none;padding:14px 18px">
+      <div class="cov-legend"><b>Полнота</b> = сколько из 3 анкет (процесс, доопрос, фото дня) закрыто в среднем на человека. <b>100%</b> = все сотрудники прошли все три вида. Под каждой полосой — по скольку человек закрыт каждый вид.</div>
       <div style="margin-bottom:18px">
         <div style="font-size:11.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin:0 0 9px;font-weight:700">По управлениям</div>
         <div class="bars" id="barsU"></div>
@@ -372,20 +376,24 @@ function renderRoster(){
   document.getElementById("rosterCount").innerHTML = `показано <b>${fmt(arr.length)}</b> (${lbl}) из ${fmt(total)}`;
 }
 
-// ---- coverage bars ----
+// ---- coverage bars: полнота = закрытые анкеты из 3 (процесс/доопрос/фото) на человека ----
 function groupCoverage(keyFn){
   const m=new Map();
   ROWS.forEach(r=>{
     const key=keyFn(r);
-    if(!m.has(key)) m.set(key,{staff:0,pass:0});
-    const o=m.get(key); o.staff++; if(r.vs>0)o.pass++;
+    if(!m.has(key)) m.set(key,{staff:0,p1:0,p2:0,p3:0});
+    const o=m.get(key); o.staff++;
+    if(r.s1>0)o.p1++; if(r.s2>0)o.p2++; if(r.s3>0)o.p3++;
   });
-  return [...m.entries()].map(([k,v])=>({k, staff:v.staff, pass:v.pass, miss:v.staff-v.pass, ppct:pct(v.pass,v.staff)}));
+  return [...m.entries()].map(([k,v])=>{
+    const done=v.p1+v.p2+v.p3, possible=v.staff*3;
+    return {k, staff:v.staff, p1:v.p1, p2:v.p2, p3:v.p3, done, possible, cpct:pct(done,possible)};
+  });
 }
-function covColor(ppct){
-  if(ppct>=60) return "linear-gradient(90deg,var(--sv3),var(--good))";
-  if(ppct>=25) return "linear-gradient(90deg,var(--accent2),var(--sv3))";
-  if(ppct>0)   return "var(--accent2)";
+function covColor(cpct){
+  if(cpct>=60) return "linear-gradient(90deg,var(--sv3),var(--good))";
+  if(cpct>=25) return "linear-gradient(90deg,var(--accent2),var(--sv3))";
+  if(cpct>0)   return "var(--accent2)";
   return "var(--track)";
 }
 function renderBars(elId, rows){
@@ -393,16 +401,17 @@ function renderBars(elId, rows){
   rows.forEach(r=>{
     const b=el("div","bar");
     b.innerHTML=`<div class="bn">${esc(r.k)}</div>
-      <div class="track"><div class="fill" style="width:${Math.max(r.ppct,r.pass>0?4:0)}%;background:${covColor(r.ppct)}"></div></div>
-      <div class="val"><b>${r.pass}</b> / ${r.staff} · ${r.ppct}% ${r.miss>0?`· <span class="miss">${r.miss} ждём</span>`:""}</div>`;
+      <div class="track"><div class="fill" style="width:${Math.max(r.cpct,r.done>0?4:0)}%;background:${covColor(r.cpct)}"></div></div>
+      <div class="val"><b>${r.cpct}%</b> · ${r.done}/${r.possible} анкет</div>
+      <div class="bar-sub">процесс ${r.p1}/${r.staff} · доопрос ${r.p2}/${r.staff} · фото дня ${r.p3}/${r.staff}</div>`;
     box.appendChild(b);
   });
 }
 
 function renderBars_all(){
-  const uCov = groupCoverage(r=>r.u).sort((a,b)=> a.ppct-b.ppct || b.miss-a.miss || a.k.localeCompare(b.k,"ru"));
+  const uCov = groupCoverage(r=>r.u).sort((a,b)=> a.cpct-b.cpct || b.possible-a.possible || a.k.localeCompare(b.k,"ru"));
   renderBars("barsU", uCov);
-  const oCov = groupCoverage(r=>r.o).sort((a,b)=> a.ppct-b.ppct || b.miss-a.miss || a.k.localeCompare(b.k,"ru"));
+  const oCov = groupCoverage(r=>r.o).sort((a,b)=> a.cpct-b.cpct || b.possible-a.possible || a.k.localeCompare(b.k,"ru"));
   renderBars("barsO", oCov);
 }
 
