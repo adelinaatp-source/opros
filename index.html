@@ -468,19 +468,13 @@ function applyView(){
   document.getElementById("search").style.display = cov ? "none" : "";
   document.getElementById("rosterCount").style.display = cov ? "none" : "";
   if(cov) renderBars_all(); else renderRoster();
-}
-
-// прячем пустой богатый блок «Прошли хотя бы один опрос» на вкладках, где никто ещё не прошёл
-function applyLayout(){
-  const rich = passN>0;
-  ["secPass","passPanel"].forEach(id=>{
-    const e=document.getElementById(id); if(e) e.style.display = rich ? "" : "none";
-  });
+  // богатая таблица «Прошли хотя бы один опрос» — только на виде «Прошли» и если есть прошедшие
+  const showRich = rFilter==="pass" && passN>0;
+  ["secPass","passPanel"].forEach(id=>{ const e=document.getElementById(id); if(e) e.style.display = showRich ? "" : "none"; });
 }
 
 function renderBoard(){
   recompute();
-  applyLayout();
   renderKPIs();
   renderCards();
   populateUnits();
