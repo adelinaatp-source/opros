@@ -182,16 +182,16 @@
   <h2 class="sec" id="secRoster">Реестр прохождения <span class="hint">— поиск, фильтр по управлению; красным отмечены пока не прошедшие</span></h2>
   <div class="controls">
     <div class="seg" id="segFilter">
-      <button data-f="none" class="active">Ещё не прошли</button>
+      <button data-f="all" class="active">Все</button>
       <button data-f="pass">Прошли</button>
-      <button data-f="all">Все</button>
+      <button data-f="cov">Охват</button>
     </div>
     <select class="sel" id="selUnit"></select>
     <input class="inp grow" id="search" type="search" placeholder="Поиск по ФИО или должности…">
     <span class="count-note" id="rosterCount"></span>
   </div>
   <div class="panel">
-    <div class="tbl-scroll">
+    <div class="tbl-scroll" id="rosterScroll">
       <table id="rosterT">
         <thead><tr>
           <th class="sortable" data-k="f">ФИО</th>
@@ -204,6 +204,16 @@
         </tr></thead>
         <tbody id="rosterBody"></tbody>
       </table>
+    </div>
+    <div id="covView" style="display:none;padding:14px 18px">
+      <div style="margin-bottom:18px">
+        <div style="font-size:11.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin:0 0 9px;font-weight:700">По управлениям</div>
+        <div class="bars" id="barsU"></div>
+      </div>
+      <div>
+        <div style="font-size:11.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin:0 0 9px;font-weight:700">По отделам</div>
+        <div class="bars" id="barsO"></div>
+      </div>
     </div>
   </div>
 
@@ -225,12 +235,6 @@
       </table>
     </div>
   </div>
-
-  <h2 class="sec" id="secCovU">Охват по управлениям <span class="hint">— доля сотрудников, прошедших хотя бы один опрос; ниже охват — выше в списке</span></h2>
-  <div class="panel pad" id="panelCovU"><div class="bars" id="barsU"></div></div>
-
-  <h2 class="sec" id="secCovO">Охват по отделам <span class="hint">— доля прошедших по отделам</span></h2>
-  <div class="panel pad" id="panelCovO"><div class="bars" id="barsO"></div></div>
 
   <div class="foot" id="foot"></div>
 
@@ -340,7 +344,7 @@ function renderCards(){
 }
 
 // ---- roster ----
-let rFilter="none", rQuery="", rUnit="", rSort={k:"f",dir:1};
+let rFilter="all", rQuery="", rUnit="", rSort={k:"f",dir:1};
 function populateUnits(){
   const selU=document.getElementById("selUnit");
   selU.innerHTML="";
@@ -354,7 +358,6 @@ function dotmark(v,k){ return v>0 ? `<span class="dot on${k[1]}" title="${SURV[k
 function renderRoster(){
   let arr=ROWS.filter(r=>{
     if(rFilter==="pass" && r.vs<=0) return false;
-    if(rFilter==="none" && r.vs>0) return false;
     if(rUnit && r.u!==rUnit) return false;
     if(rQuery){ const q=rQuery.toLowerCase(); if(!(r.f.toLowerCase().includes(q)||(r.d||"").toLowerCase().includes(q))) return false; }
     return true;
@@ -381,7 +384,7 @@ function renderRoster(){
     frag.appendChild(tr);
   });
   tb.appendChild(frag);
-  const lbl = rFilter==="none"?"ещё не прошли":(rFilter==="pass"?"прошли":"всего");
+  const lbl = rFilter==="pass"?"прошли":"всего";
   document.getElementById("rosterCount").innerHTML = `показано <b>${fmt(arr.length)}</b> (${lbl}) из ${fmt(total)}`;
 }
 
@@ -455,10 +458,21 @@ function renderBars_all(){
   renderBars("barsO", oCov);
 }
 
-// прячем пустые блоки на вкладках, где никто ещё не прошёл (нет данных для «Прошли» и «Охват»)
+// переключение вида реестра: Все/Прошли — таблица людей; Охват — полосы охвата
+function applyView(){
+  const cov = rFilter==="cov";
+  document.getElementById("rosterScroll").style.display = cov ? "none" : "";
+  document.getElementById("covView").style.display = cov ? "" : "none";
+  document.getElementById("selUnit").style.display = cov ? "none" : "";
+  document.getElementById("search").style.display = cov ? "none" : "";
+  document.getElementById("rosterCount").style.display = cov ? "none" : "";
+  if(cov) renderBars_all(); else renderRoster();
+}
+
+// прячем пустой богатый блок «Прошли хотя бы один опрос» на вкладках, где никто ещё не прошёл
 function applyLayout(){
   const rich = passN>0;
-  ["secPass","passPanel","secCovU","panelCovU","secCovO","panelCovO"].forEach(id=>{
+  ["secPass","passPanel"].forEach(id=>{
     const e=document.getElementById(id); if(e) e.style.display = rich ? "" : "none";
   });
 }
@@ -470,12 +484,11 @@ function renderBoard(){
   renderCards();
   populateUnits();
   // reset roster controls to defaults on tab switch
-  rFilter="none"; rUnit=""; rQuery=""; rSort={k:"f",dir:1};
-  document.querySelectorAll("#segFilter button").forEach(x=>x.classList.toggle("active", x.dataset.f==="none"));
+  rFilter="all"; rUnit=""; rQuery=""; rSort={k:"f",dir:1};
+  document.querySelectorAll("#segFilter button").forEach(x=>x.classList.toggle("active", x.dataset.f==="all"));
   document.getElementById("search").value="";
-  renderRoster();
+  applyView();
   renderPass();
-  renderBars_all();
 }
 
 // ---- footer (global) ----
@@ -501,7 +514,7 @@ document.getElementById("tabs").addEventListener("click",e=>{
 document.getElementById("segFilter").addEventListener("click",e=>{
   const b=e.target.closest("button"); if(!b) return;
   document.querySelectorAll("#segFilter button").forEach(x=>x.classList.remove("active"));
-  b.classList.add("active"); rFilter=b.dataset.f; renderRoster();
+  b.classList.add("active"); rFilter=b.dataset.f; applyView();
 });
 document.getElementById("selUnit").addEventListener("change",e=>{ rUnit=e.target.value; renderRoster(); });
 document.getElementById("search").addEventListener("input",e=>{ rQuery=e.target.value.trim(); renderRoster(); });
