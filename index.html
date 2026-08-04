@@ -218,25 +218,6 @@
     </div>
   </div>
 
-  <h2 class="sec" id="secPass">Прошли хотя бы один опрос <span class="hint">— поимённо, с числом прохождений по каждому сценарию</span></h2>
-  <div class="panel" id="passPanel">
-    <div class="tbl-scroll">
-      <table id="passT">
-        <thead><tr>
-          <th class="r">#</th>
-          <th class="sortable" data-k="f">ФИО</th>
-          <th class="sortable" data-k="o">Отдел</th>
-          <th class="c sortable" data-k="s1">Процесс</th>
-          <th class="c sortable" data-k="s2">Доопрос</th>
-          <th class="c sortable" data-k="s3">Фото дня</th>
-          <th class="c sortable" data-k="vs">Всего</th>
-          <th class="sortable" data-k="last">Последняя</th>
-        </tr></thead>
-        <tbody id="passBody"></tbody>
-      </table>
-    </div>
-  </div>
-
   <div class="foot" id="foot"></div>
 
 </div></div>
@@ -389,42 +370,6 @@ function renderRoster(){
   document.getElementById("rosterCount").innerHTML = `показано <b>${fmt(arr.length)}</b> (${lbl}) из ${fmt(total)}`;
 }
 
-// ---- passers table ----
-function mk(v,k){ return v>0 ? `<span class="mk on${k[1]}">✓${v>1?" ×"+v:""}</span>` : `<span class="mk off">—</span>`; }
-let passSort={k:"vs",dir:-1};
-function renderPass(){
-  const secPass=document.getElementById("secPass"), passPanel=document.getElementById("passT").closest(".panel");
-  if(passers.length===0){
-    document.getElementById("passBody").innerHTML="";
-    passPanel.querySelector(".tbl-scroll").style.display="none";
-    if(!passPanel.querySelector(".empty")){ const e=el("div","empty","В этой вкладке пока никто не прошёл ни одного опроса."); passPanel.appendChild(e); }
-    return;
-  } else {
-    passPanel.querySelector(".tbl-scroll").style.display="";
-    const e=passPanel.querySelector(".empty"); if(e) e.remove();
-  }
-  const arr=[...passers];
-  const {k,dir}=passSort;
-  arr.sort((a,b)=>{
-    let x=a[k],y=b[k];
-    if(typeof x==="number"){ if(x!==y) return (x-y)*dir; return a.f.localeCompare(b.f,"ru"); }
-    return ((x||"").toString()).localeCompare((y||"").toString(),"ru")*dir;
-  });
-  const tb=document.getElementById("passBody"); tb.innerHTML="";
-  arr.forEach((r,i)=>{
-    const tr=el("tr");
-    tr.innerHTML = `<td class="rk">${i+1}</td>
-      <td><div class="fio">${esc(r.f)}</div><div class="pos">${esc(r.d)}</div></td>
-      <td><div class="unit">${esc(r.o)}<span class="up">${esc(r.u)}</span></div></td>
-      <td class="c">${mk(r.s1,"s1")}</td>
-      <td class="c">${mk(r.s2,"s2")}</td>
-      <td class="c">${mk(r.s3,"s3")}</td>
-      <td class="c"><span class="tot" style="color:var(--good)">${r.vs}</span></td>
-      <td class="pos">${fdate(r.last)}</td>`;
-    tb.appendChild(tr);
-  });
-}
-
 // ---- coverage bars ----
 function groupCoverage(keyFn){
   const m=new Map();
@@ -468,9 +413,6 @@ function applyView(){
   document.getElementById("search").style.display = cov ? "none" : "";
   document.getElementById("rosterCount").style.display = cov ? "none" : "";
   if(cov) renderBars_all(); else renderRoster();
-  // богатая таблица «Прошли хотя бы один опрос» — только на виде «Прошли» и если есть прошедшие
-  const showRich = rFilter==="pass" && passN>0;
-  ["secPass","passPanel"].forEach(id=>{ const e=document.getElementById(id); if(e) e.style.display = showRich ? "" : "none"; });
 }
 
 function renderBoard(){
@@ -483,7 +425,6 @@ function renderBoard(){
   document.querySelectorAll("#segFilter button").forEach(x=>x.classList.toggle("active", x.dataset.f==="all"));
   document.getElementById("search").value="";
   applyView();
-  renderPass();
 }
 
 // ---- footer (global) ----
@@ -519,14 +460,6 @@ document.querySelectorAll("#rosterT thead th.sortable").forEach(th=>{
     if(rSort.k===k) rSort.dir*=-1;
     else rSort={k, dir:(k==="vs")?-1:1};
     renderRoster();
-  });
-});
-document.querySelectorAll("#passT thead th.sortable").forEach(th=>{
-  th.addEventListener("click",()=>{
-    const k=th.dataset.k;
-    if(passSort.k===k) passSort.dir*=-1;
-    else passSort={k, dir:(k==="vs"||k.startsWith("s"))?-1:1};
-    renderPass();
   });
 });
 
