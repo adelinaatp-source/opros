@@ -254,7 +254,10 @@ const isIntern = r => /стаж[её]р/i.test(r.d||"");
 const RAW = _ALL.filter(r => !EXCLUDED_NAMES.has((r.f||"").trim()) && !isIntern(r));
 const EXCLUDED_PEOPLE = _ALL.length - RAW.length;
 // ВРЕМЕННЫЕ ЗАГЛУШКИ (ручное проставление прохождений; убрать, когда появятся реальные данные)
-const OVERRIDES = { "Хазиев Тимур Ильнурович": {s1:1, s2:2, s3:1} };
+const OVERRIDES = {
+  "Хазиев Тимур Ильнурович": {s1:1, s2:2, s3:1},
+  "Чусовитина Аделина Эриковна": {s1:1, s2:2, s3:1}
+};
 RAW.forEach(r=>{ const o=OVERRIDES[(r.f||"").trim()]; if(o){ r.s1=o.s1|0; r.s2=o.s2|0; r.s3=o.s3|0; r.vs=r.s1+r.s2+r.s3; } });
 // исключаем отдел «Обособленные подразделения» целиком (по решению пользователя)
 const noOp = RAW.filter(r => r.o !== "Обособленные подразделения");
