@@ -104,9 +104,12 @@
   tbody tr:hover{background:var(--panel2)}
   tbody tr.pending{background:var(--bad-row);box-shadow:inset 3px 0 0 var(--bad)}
   tbody tr.pending:hover{background:color-mix(in srgb,var(--bad) 9%,var(--panel))}
+  tbody tr.partial{background:var(--warn-s);box-shadow:inset 3px 0 0 var(--warn)}
+  tbody tr.partial:hover{background:color-mix(in srgb,var(--warn) 13%,var(--panel))}
   td.c{text-align:center} td.r{text-align:right}
   .fio{font-weight:650;color:var(--ink);white-space:nowrap}
   tr.pending .fio{color:var(--bad)}
+  tr.partial .fio{color:var(--warn)}
   .pos{color:var(--muted);font-size:12px}
   .unit{color:var(--ink2);font-size:12.5px;white-space:nowrap}
   .unit .up{color:var(--muted);font-size:11px;display:block}
@@ -183,7 +186,7 @@
   <h2 class="sec">Сценарии опросов <span class="hint" id="hintSurv">— сколько сотрудников прошли и сколько ещё нет по каждому</span></h2>
   <div class="svcards" id="svcards"></div>
 
-  <h2 class="sec" id="secRoster">Реестр прохождения <span class="hint">— в колонках сценариев: <b style="color:var(--good)">✓</b> прошёл (×N — сколько раз), <b>—</b> ещё нет; красным — совсем не прошедшие</span></h2>
+  <h2 class="sec" id="secRoster">Реестр прохождения <span class="hint">— в колонках сценариев: <b style="color:var(--good)">✓</b> прошёл (×N — сколько раз), <b>—</b> ещё нет; <b style="color:var(--warn)">жёлтым</b> — прошли не все 3, <b style="color:var(--bad)">красным</b> — совсем не прошедшие</span></h2>
   <div class="controls">
     <div class="seg" id="segFilter">
       <button data-f="all" class="active">Все</button>
@@ -251,7 +254,8 @@ const SNAPSHOT = "05.08.2026 в 15:47 (Екб)";
 // исключённые из свода: поимённо (декрет / длительное отсутствие) + все стажёры (по должности)
 const EXCLUDED_NAMES = new Set(["Хазиахметова Элина Радиковна"]);
 const isIntern = r => /стаж[её]р/i.test(r.d||"");
-const RAW = _ALL.filter(r => !EXCLUDED_NAMES.has((r.f||"").trim()) && !isIntern(r));
+const isBot = r => /ловец/i.test(r.d||"") || /ловец/i.test(r.f||"");   // служебная учётка «ловец звонков»
+const RAW = _ALL.filter(r => !EXCLUDED_NAMES.has((r.f||"").trim()) && !isIntern(r) && !isBot(r));
 const EXCLUDED_PEOPLE = _ALL.length - RAW.length;
 // ВРЕМЕННЫЕ ЗАГЛУШКИ (ручное проставление прохождений; убрать, когда появятся реальные данные)
 const OVERRIDES = {
@@ -396,7 +400,8 @@ function renderRoster(){
   const frag=document.createDocumentFragment();
   arr.forEach(r=>{
     const pending = r.vs<=0;
-    const tr=el("tr"); tr.className = pending? "pending":"";
+    const partial = !pending && !(r.s1>0 && r.s2>0 && r.s3>0);   // прошёл, но не все 3
+    const tr=el("tr"); tr.className = pending? "pending" : (partial? "partial":"");
     const status = pending ? `<span class="badge-no">ещё не прошёл</span>` : `<span class="tot" style="color:var(--good)">${r.vs}</span>`;
     tr.innerHTML=`<td><div class="fio">${esc(r.f)}</div></td>
       <td><div class="unit">${esc(r.o)}<span class="up">${esc(r.u)}</span></div></td>
@@ -457,6 +462,7 @@ function renderOP(){
   tb.innerHTML="";
   OP_PASSERS.forEach(r=>{
     const tr=el("tr");
+    if(!(r.s1>0 && r.s2>0 && r.s3>0)) tr.className="partial";   // прошли не все 3 → жёлтым
     tr.innerHTML = `<td><div class="fio">${esc(r.f)}</div></td>
       <td class="pos">${esc(r.d)||"—"}</td>
       <td class="c">${dotmark(r.s1,"s1")}</td>
@@ -499,7 +505,7 @@ document.getElementById("foot").innerHTML =
   `<b>Данные:</b> выгрузка бота-интервьюера (Telegram-экспорт) + файл охвата <code>coverage.xlsx</code>, актуализировано ${SNAPSHOT}. `+
   `Учтено ${fmt(GTOTAL)} чел.: ${fmt(SUBSETS.staff.length)} сотрудников и ${fmt(SUBSETS.tovar.length)} товароведов — они на отдельной вкладке (отдел «Обособленные подразделения», ${fmt(EXCLUDED_OP)} ${plural(EXCLUDED_OP,"карточка","карточки","карточек")}, из таблицы удалён целиком${OP_PASSERS.length>0?`, но ${fmt(OP_PASSERS.length)} прошедших из ОП вынесены в отдельную таблицу на вкладке товароведов`:""}; объединены дубли продавцов-скупщиков — ${fmt(EXCLUDED_SCUP)} ${plural(EXCLUDED_SCUP,"лишняя карточка","лишние карточки","лишних карточек")} убрано). `+
   `Прошли хотя бы один опрос ${fmt(GPASS)} чел. (${fmt(GSESS)} сессий: ${GSBY.s1} — процесс, ${GSBY.s2} — доопрос, ${GSBY.s3} — фото дня); все прошедшие — среди сотрудников, товароведы пока не проходили. `+
-  `«Прошёл» = есть хотя бы одна завершённая сессия сценария; красным отмечены не прошедшие. ${EXCLUDED_PEOPLE>0?`Из свода исключ${EXCLUDED_PEOPLE===1?"ён":"ены"} ${fmt(EXCLUDED_PEOPLE)} ${plural(EXCLUDED_PEOPLE,"сотрудник","сотрудника","сотрудников")} (стажёры и сотрудники в длительном отсутствии). `:""}Штат и оргструктура — по Битрикс24. Страница внутренняя, не для внешней публикации.`;
+  `«Прошёл» = есть хотя бы одна завершённая сессия сценария; красным отмечены не прошедшие. ${EXCLUDED_PEOPLE>0?`Из свода исключ${EXCLUDED_PEOPLE===1?"ён":"ены"} ${fmt(EXCLUDED_PEOPLE)} ${plural(EXCLUDED_PEOPLE,"карточка","карточки","карточек")} (стажёры, служебные учётки и сотрудники в длительном отсутствии). `:""}Штат и оргструктура — по Битрикс24. Страница внутренняя, не для внешней публикации.`;
 
 // ---- tab switching ----
 document.getElementById("tabs").addEventListener("click",e=>{
