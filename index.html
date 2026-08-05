@@ -311,11 +311,12 @@ document.getElementById("cntTovar").textContent = fmt(SUBSETS.tovar.length);
 let ROWS = SUBSETS.staff;
 let TAB = "staff";
 // derived
-let total, passers, passN, noneN, sessTotal, sBy, pBy, unitsPassed, unitsTotal;
+let total, passers, passN, noneN, sessTotal, sBy, pBy, unitsPassed, unitsTotal, allThreeN;
 function recompute(){
   total = ROWS.length;
   passers = ROWS.filter(r=>r.vs>0);
   passN = passers.length;
+  allThreeN = ROWS.filter(r=>r.s1>0 && r.s2>0 && r.s3>0).length;
   noneN = total - passN;
   sessTotal = ROWS.reduce((a,r)=>a+r.vs,0);
   sBy = {s1:0,s2:0,s3:0}; pBy={s1:0,s2:0,s3:0};
@@ -328,7 +329,7 @@ function renderKPIs(){
   const kw = document.getElementById("kpis"); kw.innerHTML="";
   const kpis = [
     {n:fmt(total), l: TAB==="tovar" ? "Товароведы и скупщики, всего" : "Сотрудников во вкладке"},
-    {n:fmt(passN), sm:` / ${pct(passN,total)}%`, l:"Прошли опрос", cls:"good"},
+    {n:fmt(allThreeN), sm:` / ${pct(allThreeN,total)}%`, l:"Прошли все 3 опроса", cls:"good"},
     {n:fmt(sessTotal), l:"Всего пройдено сессий", cls:"accent"},
     {n:unitsPassed+" / "+unitsTotal, l:"Управлений охвачено"}
   ];
