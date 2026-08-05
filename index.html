@@ -323,7 +323,7 @@ function renderKPIs(){
   const kw = document.getElementById("kpis"); kw.innerHTML="";
   const kpis = [
     {n:fmt(total), l: TAB==="tovar" ? "Товароведы и скупщики, всего" : "Сотрудников во вкладке"},
-    {n:fmt(noneN), sm:` / ${pct(noneN,total)}%`, l:"Ещё не проходили опросов", cls:"warn"},
+    {n:fmt(passN), sm:` / ${pct(passN,total)}%`, l:"Прошли опрос", cls:"good"},
     {n:fmt(sessTotal), l:"Всего пройдено сессий", cls:"accent"},
     {n:unitsPassed+" / "+unitsTotal, l:"Управлений охвачено"}
   ];
