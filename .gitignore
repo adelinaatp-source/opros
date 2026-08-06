@@ -1,1 +1,6 @@
 _build/
+graphify-out/cache/
+temp/
+out/
+__pycache__/
+*.pyc
