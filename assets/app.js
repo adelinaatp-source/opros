@@ -11,9 +11,9 @@ const state = {
 };
 
 const SURVEY = {
-  s1: { label: "S1", name: "Основной опрос по процессу" },
-  s2: { label: "S2", name: "Доопрос" },
-  s3: { label: "S3", name: "Фото рабочего дня" },
+  s1: { label: "Основной опрос", name: "Основной опрос по процессу" },
+  s2: { label: "Доопрос", name: "Доопрос" },
+  s3: { label: "Фото рабочего дня", name: "Фото рабочего дня" },
 };
 
 const QUALITY_LABEL = {
@@ -114,13 +114,14 @@ function renderKpis() {
   const rows = rowsForTab();
   const passed = rows.filter((person) => person.vs > 0);
   const sessions = rows.reduce((sum, person) => sum + person.vs, 0);
+  const partialSessions = rows.reduce((sum, person) => sum + (person.partial_sessions || 0), 0);
   const scored = passed.filter((person) => person.quality.average != null);
   const average = scored.length ? scored.reduce((sum, person) => sum + person.quality.average, 0) / scored.length : null;
   const issues = rows.filter(nameIssue).length;
   const cards = [
     ["В реестре", formatNumber(rows.length), `${state.tab === "tovar" ? "товароведов и скупщиков" : "сотрудников"}`],
     ["Прошли хотя бы один", formatNumber(passed.length), `${rows.length ? percent(passed.length / rows.length * 100) : "—"} охвата`],
-    ["Завершённых сессий", formatNumber(sessions), `S1 + S2 + S3`],
+    ["Завершённых сессий", formatNumber(sessions), `${formatNumber(partialSessions)} незавершённых показаны отдельно`],
     ["Среднее качество", percent(average), `${formatNumber(issues)} ФИО требуют внимания`],
   ];
   byId("kpis").innerHTML = cards.map(([label, value, note]) => `
@@ -144,7 +145,7 @@ function renderScenarioCards() {
           <strong class="scenario-score">${percent(scenario.quality.average)}</strong>
         </div>
         <h3>${escapeHtml(scenario.name)}</h3>
-        <p>${escapeHtml(scenario.metric)} · ${formatNumber(scenario.sessions)} сессий всего</p>
+        <p>${escapeHtml(scenario.metric)} · ${formatNumber(scenario.sessions)} завершено${scenario.partial_sessions ? ` · ${formatNumber(scenario.partial_sessions)} незавершено` : ""}</p>
         <div class="progress"><span style="width:${Math.min(100, coverage)}%"></span></div>
         <div class="scenario-meta"><span>${formatNumber(completed)} из ${formatNumber(rows.length)}</span><span>охват ${percent(coverage)}</span></div>
       </article>
@@ -197,6 +198,7 @@ function filteredRows() {
     if (state.filter === "pass" && person.vs <= 0) return false;
     if (state.filter === "none" && person.vs > 0) return false;
     if (state.filter === "low" && !(person.vs > 0 && qualityClass(person) === "low")) return false;
+    if (state.filter === "partial" && !(person.partial_sessions > 0)) return false;
     if (state.filter === "fio" && !nameIssue(person)) return false;
     if (state.unit && person.u !== state.unit) return false;
     if (query && !`${person.f} ${person.d} ${person.o} ${person.u}`.toLocaleLowerCase("ru-RU").includes(query)) return false;
@@ -214,9 +216,11 @@ function sortRows(rows) {
   });
 }
 
-function scenarioMark(value, key) {
-  const label = value ? `✓${value > 1 ? ` ×${value}` : ""}` : "—";
-  return `<span class="scenario-mark ${value ? "done" : "off"}" title="${escapeHtml(SURVEY[key].name)}">${label}</span>`;
+function scenarioMark(value, key, partial = 0) {
+  const label = value ? `✓${value > 1 ? ` ×${value}` : ""}${partial ? ` · ~${partial}` : ""}` : partial ? `~${partial}` : "—";
+  const kind = value ? "done" : partial ? "partial" : "off";
+  const note = partial ? `; незавершённых попыток: ${partial}` : "";
+  return `<span class="scenario-mark ${kind}" title="${escapeHtml(SURVEY[key].name)}${escapeHtml(note)}">${label}</span>`;
 }
 
 function qualityPill(person) {
@@ -238,11 +242,11 @@ function renderRoster() {
         <td>${escapeHtml(person.u || "—")}<div class="person-sub">${escapeHtml(person.o || "—")}</div></td>
         <td>${escapeHtml(person.d || "—")}</td>
         <td class="center">${scenarioMark(person.s1, "s1")}</td>
-        <td class="center">${scenarioMark(person.s2, "s2")}</td>
+        <td class="center">${scenarioMark(person.s2, "s2", person.partial_sessions || 0)}</td>
         <td class="center">${scenarioMark(person.s3, "s3")}</td>
         <td>${qualityPill(person)}</td>
         <td>${formatDate(person.last)}</td>
-        <td>${person.vs ? `<button class="details-button" type="button" data-person="${escapeHtml(person.key)}">Ответы</button>` : ""}</td>
+        <td>${person.vs || person.partial_sessions ? `<button class="details-button" type="button" data-person="${escapeHtml(person.key)}">Ответы</button>` : ""}</td>
       </tr>
     `;
   }).join("");
@@ -306,17 +310,17 @@ function closeDrawer() {
 
 function metricLabel(key) {
   const labels = {
-    confidence: "Confidence",
+    confidence: "Уверенность описания",
     document_status: "Статус",
     asked: "Задано",
     closed: "Закрыто",
-    closed_soft: "Закрыто soft",
+    closed_soft: "Закрыто с оговорками",
     partial: "Частично",
-    reassigned: "Переадресовано",
+    reassigned: "Передано ответственному",
     open: "Открыто",
-    grounded: "Обосновано",
+    grounded: "Подтверждено конкретикой",
     completeness: "Полнота",
-    workload_assessed: "Загрузка оценена",
+    workload_assessed: "Оценка загрузки",
   };
   return labels[key] || key;
 }
@@ -347,6 +351,7 @@ async function showPerson(personKey) {
       return `
         <article class="detail-card">
           <span class="quality-pill ${escapeHtml(session.quality)}">${escapeHtml(SURVEY[session.scenario]?.label || session.scenario)} · ${percent(session.score)}</span>
+          <span class="completion-pill ${session.completed ? "completed" : "partial"}">${session.completed ? "Завершён" : "Незавершён"}</span>
           <h3>${escapeHtml(session.title || SURVEY[session.scenario]?.name || "Сессия")}</h3>
           <div class="person-sub">${formatDate(session.created_at)} · ${escapeHtml(session.session_id)}</div>
           <div class="metric-list">${metrics}</div>
@@ -362,16 +367,76 @@ async function showPerson(personKey) {
 
 function showMethod() {
   const method = state.report.quality_method;
-  openDrawer("Как считается качество", "Прозрачная формула", `
+  const summary = state.report.summary;
+  const scenarioRows = Object.values(state.report.scenarios).map((scenario) => `
+    <tr>
+      <td>${escapeHtml(scenario.name)}</td>
+      <td>${formatNumber(scenario.sessions)}</td>
+      <td>${formatNumber(scenario.partial_sessions || 0)}</td>
+      <td>${percent(scenario.quality.average)}</td>
+      <td>${formatNumber(scenario.quality.high)}</td>
+      <td>${formatNumber(scenario.quality.medium)}</td>
+      <td>${formatNumber(scenario.quality.low)}</td>
+    </tr>
+  `).join("");
+  const audit = state.report.fio_audit;
+  openDrawer("Справка по качеству", "Формулы, результаты и расшифровка терминов", `
     <article class="detail-card">
-      <h3>S1 · Основной опрос</h3><p>${escapeHtml(method.s1)}</p>
-      <h3>S2 · Доопрос</h3><p>${escapeHtml(method.s2)}</p>
-      <h3>S3 · Фото рабочего дня</h3><p>${escapeHtml(method.s3)}</p>
+      <h3>Как рассчитывается балл</h3>
+      <dl class="glossary-list compact">
+        <dt>Основной опрос по процессу</dt><dd>${escapeHtml(method.s1)}.</dd>
+        <dt>Доопрос</dt><dd>${escapeHtml(method.s2)}.</dd>
+        <dt>Фото рабочего дня</dt><dd>${escapeHtml(method.s3)}.</dd>
+      </dl>
     </article>
     <article class="detail-card">
       <h3>Пороговые уровни</h3>
       <p><span class="quality-pill high">Высокое ${escapeHtml(method.high)}</span> <span class="quality-pill medium">Среднее ${escapeHtml(method.medium)}</span> <span class="quality-pill low">Низкое ${escapeHtml(method.low)}</span></p>
       <p class="muted">${escapeHtml(method.warning)}</p>
+    </article>
+    <article class="detail-card">
+      <h3>Текущие проверенные результаты</h3>
+      <div class="reference-table-wrap">
+        <table class="reference-table">
+          <thead><tr><th>Опрос</th><th>Завершено</th><th>Не завершено</th><th>Среднее</th><th>Высокое</th><th>Среднее</th><th>Низкое</th></tr></thead>
+          <tbody>${scenarioRows}</tbody>
+          <tfoot><tr><th>Итого</th><th>${formatNumber(summary.sessions)}</th><th>${formatNumber(summary.partial_sessions)}</th><th>${percent(summary.quality.average)}</th><th>${formatNumber(summary.quality.high)}</th><th>${formatNumber(summary.quality.medium)}</th><th>${formatNumber(summary.quality.low)}</th></tr></tfoot>
+        </table>
+      </div>
+      <p class="muted">Незавершённые ответы сохраняются в деталях, но не считаются прохождением и не входят в официальный средний результат.</p>
+    </article>
+    <article class="detail-card">
+      <h3>Что именно сравнивается</h3>
+      <ul class="audit-list">
+        <li><strong>Баллы анкеты</strong> — результат одной завершённой анкеты.</li>
+        <li><strong>Качество сотрудника</strong> — среднее его завершённых анкет.</li>
+        <li><strong>Низкое качество</strong> — средний результат сотрудника ниже 50%.</li>
+        <li><strong>Распределение качества</strong> — количество отдельных завершённых анкет каждого уровня.</li>
+        <li><strong>Среднее на вкладке</strong> — среднее персональных результатов выбранной группы.</li>
+        <li><strong>Охват</strong> — доля людей хотя бы с одной завершённой анкетой.</li>
+      </ul>
+    </article>
+    <article class="detail-card">
+      <h3>Словарь показателей</h3>
+      <dl class="glossary-list">
+        <dt>Уверенность описания</dt><dd>Полнота описания основного процесса.</dd>
+        <dt>Задано</dt><dd>Общее количество вопросов в доопросе.</dd>
+        <dt>Закрыто</dt><dd>Получен полный ответ; вес в расчёте — 1.</dd>
+        <dt>Закрыто с оговорками</dt><dd>Ответ принят с небольшими ограничениями; вес — 0,75.</dd>
+        <dt>Частично</dt><dd>Получена только часть ответа; вес — 0,5.</dd>
+        <dt>Открыто</dt><dd>Ответ не получен; вес — 0.</dd>
+        <dt>Передано ответственному</dt><dd>Вопрос направлен другому сотруднику и отдельно показывается в деталях.</dd>
+        <dt>Подтверждено конкретикой</dt><dd>Ответ содержит факт, пример, документ или другое основание.</dd>
+        <dt>Полнота карты дня</dt><dd>Насколько полно описаны активности рабочего дня.</dd>
+        <dt>Завершено</dt><dd>Анкета учитывается в прохождении и официальном качестве.</dd>
+        <dt>Не завершено</dt><dd>Ответы сохранены, но прохождение не засчитано.</dd>
+        <dt>Нет оценки</dt><dd>В документе недостаточно данных для вычисления балла.</dd>
+      </dl>
+    </article>
+    <article class="detail-card">
+      <h3>Проверка ФИО</h3>
+      <p>${formatNumber(audit.issue_count)} основных сигналов: ${formatNumber((audit.duplicate_full_names_in_roster || []).length)} дубликатов полного ФИО, ${formatNumber((audit.bitrix_ids_with_name_variants || []).length)} идентификаторов с вариантами ФИО и ${formatNumber((audit.names_with_multiple_bitrix_ids || []).length)} ФИО с разными идентификаторами.</p>
+      <p class="muted">Неполные ФИО учитываются отдельно: ${formatNumber((audit.short_names_in_roster || []).length)}.</p>
     </article>
   `);
 }
@@ -437,7 +502,7 @@ async function start() {
     state.report = await response.json();
     if (state.report.schema_version !== 2 || !Array.isArray(state.report.people)) throw new Error("Неверная версия данных отчёта");
     byId("snapshot").textContent = state.report.snapshot;
-    byId("sourceHealth").textContent = `${formatNumber(state.report.summary.sessions)} сессий · JSON v${state.report.schema_version}`;
+    byId("sourceHealth").textContent = `${formatNumber(state.report.summary.sessions)} завершено · ${formatNumber(state.report.summary.partial_sessions)} незавершено · версия данных ${state.report.schema_version}`;
     const staff = rowsForTab("staff").length;
     const tovar = rowsForTab("tovar").length;
     byId("cntStaff").textContent = formatNumber(staff);
@@ -445,7 +510,7 @@ async function start() {
     renderQualityChart();
     renderFioSummary();
     renderBoard();
-    byId("foot").textContent = `Read-only источник KB-ARM-survey · ${state.report.snapshot} · исключено из свода: ${formatNumber(state.report.summary.excluded_people)} · детали ответов загружаются только по запросу.`;
+    byId("foot").textContent = `Источник KB-ARM-survey только для чтения · ${state.report.snapshot} · незавершённых попыток: ${formatNumber(state.report.summary.partial_sessions)} · исключено из свода: ${formatNumber(state.report.summary.excluded_people)} · детали ответов загружаются только по запросу.`;
     bindEvents();
   } catch (error) {
     byId("loadError").textContent = `${error.message}. Откройте сайт через GitHub Pages или локальный HTTP-сервер.`;

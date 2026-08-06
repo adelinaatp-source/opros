@@ -26,7 +26,7 @@ DEFAULT_DETAILS = PROJECT_ROOT / "data" / "details.json"
 DEFAULT_STATUS = PROJECT_ROOT / "data" / "update-status.json"
 DEFAULT_INDEX = PROJECT_ROOT / "temp" / "source-index.json"
 EKB_TZ = ZoneInfo("Asia/Yekaterinburg")
-INDEX_VERSION = 2
+INDEX_VERSION = 3
 SCHEMA_VERSION = 2
 
 LEGACY_DATA_RE = re.compile(r"const\s+_ALL\s*=\s*(?P<data>\[.*?\])\s*;", re.DOTALL)
@@ -36,9 +36,9 @@ SCENARIOS = {
     "workday_photo": ("s3", "сотрудник", "owner_bitrix_id"),
 }
 SCENARIO_INFO = {
-    "s1": {"tag": "S1", "name": "Основной опрос по процессу", "metric": "Уверенность описания"},
-    "s2": {"tag": "S2", "name": "Доопрос", "metric": "Индекс полноты ответов"},
-    "s3": {"tag": "S3", "name": "Фото рабочего дня", "metric": "Полнота карты дня"},
+    "s1": {"tag": "Процесс", "name": "Основной опрос по процессу", "metric": "Уверенность описания"},
+    "s2": {"tag": "Уточнение", "name": "Доопрос", "metric": "Индекс полноты ответов"},
+    "s3": {"tag": "Рабочий день", "name": "Фото рабочего дня", "metric": "Полнота карты дня"},
 }
 EXCLUDED_NAMES = {
     "Хазиахметова Элина Радиковна",
@@ -66,11 +66,16 @@ class Session:
     department: str
     created_at: datetime
     source_file: Path
+    completion_status: str = "completed"
     title: str = ""
     score: float | None = None
     quality: str = "unknown"
     metrics: tuple[tuple[str, object], ...] = ()
     answers: tuple[tuple[str, str, str], ...] = ()
+
+    @property
+    def completed(self) -> bool:
+        return self.completion_status == "completed"
 
 
 def unquote(value: str) -> str:
@@ -294,6 +299,7 @@ def session_from_cache(relative: str, payload: dict[str, object]) -> Session:
         department=str(payload.get("department", "")),
         created_at=parse_datetime(str(payload["created_at"]), datetime.now(timezone.utc)),
         source_file=Path(relative),
+        completion_status=str(payload.get("completion_status", "completed")),
         title=str(payload.get("title", "")),
         score=payload.get("score") if isinstance(payload.get("score"), (int, float)) else None,
         quality=str(payload.get("quality", "unknown")),
@@ -367,10 +373,6 @@ def discover_sessions(source: Path, index_path: Path | None = None) -> tuple[lis
                 next_entries[relative] = {"size": stat.st_size, "mtime_ns": stat.st_mtime_ns, "status": "ignored"}
                 continue
             field, person_field, id_field = SCENARIOS[scenario]
-            if scenario == "gap_survey" and meta.get("session_status") != "completed":
-                diagnostics["ignored_files"] = int(diagnostics["ignored_files"]) + 1
-                next_entries[relative] = {"size": stat.st_size, "mtime_ns": stat.st_mtime_ns, "status": "ignored"}
-                continue
             name, supplied_role, supplied_department = split_person(meta.get(person_field, ""))
             session_id = meta.get("session_id", "").strip()
             if not name or not session_id:
@@ -378,6 +380,9 @@ def discover_sessions(source: Path, index_path: Path | None = None) -> tuple[lis
                 next_entries[relative] = {"size": stat.st_size, "mtime_ns": stat.st_mtime_ns, "status": "malformed"}
                 continue
             analysis = analyze_document(meta, body, field)
+            completion_status = "completed"
+            if scenario == "gap_survey":
+                completion_status = meta.get("session_status", "").strip() or "incomplete"
             session = Session(
                 scenario_field=field,
                 session_id=session_id,
@@ -387,6 +392,7 @@ def discover_sessions(source: Path, index_path: Path | None = None) -> tuple[lis
                 department=department_from(meta, field, supplied_department),
                 created_at=parse_datetime(meta.get("created_at", meta.get("date", "")), datetime.fromtimestamp(stat.st_mtime, timezone.utc)),
                 source_file=Path(relative),
+                completion_status=completion_status,
                 **analysis,
             )
         next_entries[relative] = {
@@ -407,7 +413,11 @@ def discover_sessions(source: Path, index_path: Path | None = None) -> tuple[lis
         save_source_index(index_path, source, next_entries)
     sessions = sorted(sessions_by_key.values(), key=lambda item: (item.created_at, item.scenario_field, item.name))
     diagnostics["unique_sessions"] = len(sessions)
-    diagnostics["sessions_by_scenario"] = dict(sorted(Counter(item.scenario_field for item in sessions).items()))
+    completed = [item for item in sessions if item.completed]
+    diagnostics["completed_sessions"] = len(completed)
+    diagnostics["partial_sessions"] = len(sessions) - len(completed)
+    diagnostics["sessions_by_scenario"] = dict(sorted(Counter(item.scenario_field for item in completed).items()))
+    diagnostics["all_sessions_by_scenario"] = dict(sorted(Counter(item.scenario_field for item in sessions).items()))
     return sessions, diagnostics
 
 
@@ -553,8 +563,9 @@ def refresh_roster(roster: list[dict[str, object]], sessions: list[Session]) -> 
         match_types[match_type] += 1
         row = refreshed[index]
         latest = max(person_sessions, key=lambda item: item.created_at)
+        completed_sessions = [item for item in person_sessions if item.completed]
         for field in ("s1", "s2", "s3"):
-            row[field] = int(row.get(field, 0)) + sum(1 for item in person_sessions if item.scenario_field == field)
+            row[field] = int(row.get(field, 0)) + sum(1 for item in completed_sessions if item.scenario_field == field)
         row["vs"] = int(row["s1"]) + int(row["s2"]) + int(row["s3"])
         previous_last = parse_datetime(str(row.get("last", "")), datetime.min.replace(tzinfo=timezone.utc))
         if latest.created_at >= previous_last:
@@ -573,7 +584,7 @@ def refresh_roster(roster: list[dict[str, object]], sessions: list[Session]) -> 
         else:
             person_meta[index] = {"person_key": f"roster:{index}", "name_check": match_type, "sessions": list(person_sessions)}
     totals = {field: sum(int(row.get(field, 0)) for row in refreshed) for field in ("s1", "s2", "s3")}
-    source_totals = Counter(item.scenario_field for item in sessions)
+    source_totals = Counter(item.scenario_field for item in sessions if item.completed)
     if any(totals[field] != source_totals[field] for field in ("s1", "s2", "s3")):
         raise ValueError(f"Не все сессии перенесены: источник={dict(source_totals)}, реестр={totals}")
     return refreshed, {
@@ -585,6 +596,7 @@ def refresh_roster(roster: list[dict[str, object]], sessions: list[Session]) -> 
         "roster_rows_before": len(roster),
         "roster_rows_after": len(refreshed),
         "sessions_applied_to_roster": totals,
+        "partial_sessions_applied_to_roster": sum(1 for item in sessions if not item.completed),
     }
 
 
@@ -618,10 +630,12 @@ def is_excluded(row: dict[str, object]) -> str:
 
 def person_payload(row: dict[str, object], index: int, meta: dict[str, object] | None) -> tuple[dict[str, object], dict[str, object] | None]:
     sessions: list[Session] = list(meta.get("sessions", [])) if meta else []
+    completed_sessions = [session for session in sessions if session.completed]
+    partial_sessions = [session for session in sessions if not session.completed]
     by_scenario: dict[str, list[Session]] = defaultdict(list)
-    for session in sessions:
+    for session in completed_sessions:
         by_scenario[session.scenario_field].append(session)
-    quality = aggregate_quality(sessions)
+    quality = aggregate_quality(completed_sessions)
     key = str(meta.get("person_key")) if meta else f"roster:{index}"
     person = {
         "key": key,
@@ -635,6 +649,8 @@ def person_payload(row: dict[str, object], index: int, meta: dict[str, object] |
         "s3": int(row.get("s3", 0)),
         "vs": int(row.get("vs", 0)),
         "last": row.get("last", ""),
+        "partial_sessions": len(partial_sessions),
+        "partial_quality": aggregate_quality(partial_sessions),
         "name_check": str(meta.get("name_check", "not_in_source")) if meta else "not_in_source",
         "quality": quality,
         "scenario_quality": {field: aggregate_quality(items) for field, items in by_scenario.items()},
@@ -648,6 +664,8 @@ def person_payload(row: dict[str, object], index: int, meta: dict[str, object] |
             "scenario": session.scenario_field,
             "session_id": session.session_id,
             "created_at": session.created_at.isoformat(timespec="seconds"),
+            "completed": session.completed,
+            "completion_status": session.completion_status,
             "title": session.title,
             "score": session.score,
             "quality": session.quality,
@@ -673,13 +691,24 @@ def build_payloads(roster: list[dict[str, object]], sessions: list[Session], dia
         if is_excluded(row)
         for session in person_meta.get(index, {}).get("sessions", [])
     }
-    included_sessions = [session for session in sessions if session not in excluded_sessions]
+    included_all_sessions = [session for session in sessions if session not in excluded_sessions]
+    included_sessions = [session for session in included_all_sessions if session.completed]
+    included_partial_sessions = [session for session in included_all_sessions if not session.completed]
+    excluded_completed_sessions = [session for session in excluded_sessions if session.completed]
+    excluded_partial_sessions = [session for session in excluded_sessions if not session.completed]
     latest = max(item.created_at for item in sessions).astimezone(EKB_TZ)
     snapshot = latest.strftime("%d.%m.%Y в %H:%M (Екб)")
     scenario_payload = {}
     for field, info in SCENARIO_INFO.items():
         subset = [session for session in included_sessions if session.scenario_field == field]
-        scenario_payload[field] = {**info, "sessions": len(subset), "quality": aggregate_quality(subset)}
+        partial_subset = [session for session in included_partial_sessions if session.scenario_field == field]
+        scenario_payload[field] = {
+            **info,
+            "sessions": len(subset),
+            "partial_sessions": len(partial_subset),
+            "quality": aggregate_quality(subset),
+            "partial_quality": aggregate_quality(partial_subset),
+        }
     fio = fio_audit(roster, sessions)
     fio["unmatched_or_new_people"] = diagnostics["new_people"]
     fio["ambiguous_people"] = diagnostics["ambiguous_people_added_as_new"]
@@ -702,6 +731,7 @@ def build_payloads(roster: list[dict[str, object]], sessions: list[Session], dia
             "passed_people": sum(1 for person in visible if person["vs"] > 0),
             "not_passed_people": sum(1 for person in visible if person["vs"] == 0),
             "sessions": len(included_sessions),
+            "partial_sessions": len(included_partial_sessions),
             "quality": aggregate_quality(included_sessions),
             "fio_issues": fio["issue_count"],
             "excluded_people": len(people) - len(visible),
@@ -710,9 +740,9 @@ def build_payloads(roster: list[dict[str, object]], sessions: list[Session], dia
             "high": "75–100",
             "medium": "50–74,9",
             "low": "ниже 50",
-            "s1": "confidence из документа × 100",
-            "s2": "(closed + 0,75×closed-soft + 0,5×partial) / asked × 100",
-            "s3": "поле полнота из документа × 100",
+            "s1": "уверенность описания из документа × 100",
+            "s2": "(полностью закрытые + 0,75 × закрытые с оговорками + 0,5 × частичные) / всего задано × 100",
+            "s3": "полнота карты рабочего дня из документа × 100",
             "warning": "Это индекс полноты/обоснованности, а не экспертная оценка истинности ответа.",
         },
         "scenarios": scenario_payload,
@@ -726,9 +756,17 @@ def build_payloads(roster: list[dict[str, object]], sessions: list[Session], dia
         "source": "KB-ARM-survey (read-only)",
         "source_files": diagnostics["files_seen"],
         "unique_sessions": diagnostics["unique_sessions"],
+        "completed_sessions": diagnostics.get("completed_sessions", sum(1 for item in sessions if item.completed)),
+        "partial_sessions": diagnostics.get("partial_sessions", sum(1 for item in sessions if not item.completed)),
         "sessions_by_scenario": diagnostics["sessions_by_scenario"],
+        "all_sessions_by_scenario": diagnostics.get(
+            "all_sessions_by_scenario",
+            dict(sorted(Counter(item.scenario_field for item in sessions).items())),
+        ),
         "included_sessions": len(included_sessions),
-        "excluded_sessions": len(excluded_sessions),
+        "included_partial_sessions": len(included_partial_sessions),
+        "excluded_sessions": len(excluded_completed_sessions),
+        "excluded_partial_sessions": len(excluded_partial_sessions),
         "included_sessions_by_scenario": dict(sorted(Counter(item.scenario_field for item in included_sessions).items())),
         "ignored_files": diagnostics["ignored_files"],
         "duplicate_sessions": diagnostics["duplicate_sessions"],

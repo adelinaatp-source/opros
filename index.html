@@ -23,7 +23,7 @@
     </header>
 
     <div class="notice warning" id="qualityNotice" role="note">
-      Индекс качества показывает полноту и обоснованность материалов. Он не заменяет экспертную проверку правильности ответа.
+      Индекс качества показывает полноту и обоснованность материалов. Он не заменяет экспертную проверку правильности ответа. Незавершённые попытки видны отдельно и не считаются прохождением.
     </div>
     <div class="notice error hidden" id="loadError" role="alert"></div>
 
@@ -41,7 +41,7 @@
             <p class="eyebrow">Сценарии</p>
             <h2>Охват и качество материалов</h2>
           </div>
-          <button class="text-button" id="showMethod" type="button">Как считается качество</button>
+          <button class="text-button" id="showMethod" type="button">Справка по качеству</button>
         </div>
         <div class="scenario-grid" id="scenarioCards"></div>
       </section>
@@ -83,6 +83,7 @@
             <button type="button" data-f="none">Не прошли</button>
             <button type="button" data-f="pass">Прошли</button>
             <button type="button" data-f="low">Низкое качество</button>
+            <button type="button" data-f="partial">Есть незавершённые</button>
             <button type="button" data-f="fio">Проверить ФИО</button>
             <button type="button" data-f="cov">Охват</button>
           </div>
@@ -100,9 +101,9 @@
                 <th class="sortable" data-k="f">ФИО</th>
                 <th class="sortable" data-k="u">Управление / отдел</th>
                 <th class="sortable" data-k="d">Должность</th>
-                <th class="center sortable" data-k="s1">S1</th>
-                <th class="center sortable" data-k="s2">S2</th>
-                <th class="center sortable" data-k="s3">S3</th>
+                <th class="center sortable" data-k="s1">Основной опрос</th>
+                <th class="center sortable" data-k="s2">Доопрос</th>
+                <th class="center sortable" data-k="s3">Фото рабочего дня</th>
                 <th class="sortable" data-k="quality">Качество</th>
                 <th class="sortable" data-k="last">Обновлено</th>
                 <th><span class="sr-only">Действия</span></th>

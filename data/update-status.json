@@ -1,30 +1,39 @@
 {
   "schema_version": 2,
-  "snapshot": "06.08.2026 в 11:52 (Екб)",
+  "snapshot": "06.08.2026 в 13:22 (Екб)",
   "source": "KB-ARM-survey (read-only)",
-  "source_files": 999,
-  "unique_sessions": 885,
+  "source_files": 1019,
+  "unique_sessions": 1019,
+  "completed_sessions": 904,
+  "partial_sessions": 115,
   "sessions_by_scenario": {
-    "s1": 354,
-    "s2": 293,
-    "s3": 238
+    "s1": 362,
+    "s2": 300,
+    "s3": 242
   },
-  "included_sessions": 880,
-  "excluded_sessions": 5,
+  "all_sessions_by_scenario": {
+    "s1": 362,
+    "s2": 415,
+    "s3": 242
+  },
+  "included_sessions": 898,
+  "included_partial_sessions": 114,
+  "excluded_sessions": 6,
+  "excluded_partial_sessions": 1,
   "included_sessions_by_scenario": {
-    "s1": 352,
-    "s2": 291,
-    "s3": 237
+    "s1": 360,
+    "s2": 298,
+    "s3": 240
   },
-  "ignored_files": 114,
+  "ignored_files": 0,
   "duplicate_sessions": 0,
   "malformed_files": [],
   "fio": {
     "match_types": {
-      "exact": 245,
+      "exact": 254,
       "duplicate_exact": 28,
       "family": 1
     },
-    "issue_count": 37
+    "issue_count": 36
   }
 }

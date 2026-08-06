@@ -19,7 +19,13 @@ from update_site import (  # noqa: E402
 )
 
 
-def session(field: str, session_id: str, name: str, person_id: str = "42") -> Session:
+def session(
+    field: str,
+    session_id: str,
+    name: str,
+    person_id: str = "42",
+    completion_status: str = "completed",
+) -> Session:
     return Session(
         scenario_field=field,
         session_id=session_id,
@@ -29,12 +35,49 @@ def session(field: str, session_id: str, name: str, person_id: str = "42") -> Se
         department="Отдел",
         created_at=datetime(2026, 8, 6, tzinfo=timezone.utc),
         source_file=Path(f"{session_id}.md"),
+        completion_status=completion_status,
         score=80.0,
         quality="high",
     )
 
 
 class UpdateSiteTests(unittest.TestCase):
+    def test_partial_gap_is_kept_for_details_but_not_counted_as_completed(self):
+        roster = [
+            {"f": "Иванов Иван Иванович", "d": "Аналитик", "o": "Отдел", "u": "Управление", "t": "T1"},
+        ]
+        sessions = [
+            session(
+                "s2",
+                "partial-gap",
+                "Иванов Иван Иванович",
+                completion_status="interrupted-partial",
+            ),
+        ]
+
+        refreshed, diagnostics = refresh_roster(roster, sessions)
+        diagnostics.update({
+            "files_seen": 1,
+            "unique_sessions": 1,
+            "completed_sessions": 0,
+            "partial_sessions": 1,
+            "sessions_by_scenario": {},
+            "all_sessions_by_scenario": {"s2": 1},
+            "ignored_files": 0,
+            "duplicate_sessions": 0,
+            "malformed_files": [],
+        })
+        report, details, status = build_payloads(refreshed, sessions, diagnostics)
+
+        self.assertEqual((refreshed[0]["s2"], refreshed[0]["vs"]), (0, 0))
+        self.assertEqual(report["summary"]["sessions"], 0)
+        self.assertEqual(report["summary"]["partial_sessions"], 1)
+        self.assertEqual(report["people"][0]["partial_sessions"], 1)
+        detail = details["people"]["roster:0"]["sessions"][0]
+        self.assertFalse(detail["completed"])
+        self.assertEqual(detail["completion_status"], "interrupted-partial")
+        self.assertEqual((status["included_sessions"], status["included_partial_sessions"]), (0, 1))
+
     def test_name_normalization_handles_yo_and_punctuation(self):
         self.assertEqual(normalize_name(" Белозёрова-Светлана "), "белозерова светлана")
 
@@ -179,6 +222,43 @@ confidence: 0.8
         self.assertEqual(first["ignored_files"], 1)
         self.assertEqual(second["index_hits"], 2)
         self.assertEqual(second["index_misses"], 0)
+
+    def test_discovery_keeps_partial_gap_session_with_answers(self):
+        project_temp = Path(__file__).resolve().parents[1] / "temp"
+        project_temp.mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=project_temp) as temp:
+            root = Path(temp)
+            partial = root / "partial-gap.md"
+            partial.write_text(
+                """---
+respondent: "Иванов Иван Иванович, Аналитик, Отдел"
+respondent_bitrix_id: 42
+scenario: gap_survey
+session_status: interrupted-partial
+session_id: partial-gap-1
+created_at: 2026-08-06T03:00:00Z
+questions_asked: 2
+questions_closed: 1
+questions_partial: 1
+---
+# Незавершённый доопрос
+
+| № | Вопрос | Ответ | Статус |
+|---|---|---|---|
+| 1 | Что мешает процессу? | Долгое согласование | Закрыт |
+""",
+                encoding="utf-8",
+            )
+
+            sessions, diagnostics = discover_sessions(root, index_path=None)
+
+        self.assertEqual(len(sessions), 1)
+        self.assertFalse(sessions[0].completed)
+        self.assertEqual(sessions[0].completion_status, "interrupted-partial")
+        self.assertTrue(sessions[0].answers)
+        self.assertEqual(diagnostics["completed_sessions"], 0)
+        self.assertEqual(diagnostics["partial_sessions"], 1)
+        self.assertEqual(diagnostics["ignored_files"], 0)
 
 
 if __name__ == "__main__":
