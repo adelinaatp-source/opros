@@ -1008,7 +1008,7 @@
       "label": "Что ещё нужно для безопасной публикации",
       "file_type": "document",
       "source_file": "IMPROVEMENTS.md",
-      "source_location": "L23",
+      "source_location": "L24",
       "_origin": "ast"
     },
     {
@@ -1016,7 +1016,7 @@
       "label": "Следующие полезные улучшения",
       "file_type": "document",
       "source_file": "IMPROVEMENTS.md",
-      "source_location": "L30",
+      "source_location": "L31",
       "_origin": "ast"
     },
     {
@@ -1024,7 +1024,7 @@
       "label": "Ограничения",
       "file_type": "document",
       "source_file": "IMPROVEMENTS.md",
-      "source_location": "L39",
+      "source_location": "L40",
       "_origin": "ast"
     },
     {
@@ -1060,11 +1060,19 @@
       "_origin": "ast"
     },
     {
-      "id": "readme_правила_подсчёта",
-      "label": "Правила подсчёта",
+      "id": "readme_как_считается_качество",
+      "label": "Как считается качество",
       "file_type": "document",
       "source_file": "README.md",
       "source_location": "L43",
+      "_origin": "ast"
+    },
+    {
+      "id": "readme_как_считается_количество_опрошенных",
+      "label": "Как считается количество опрошенных",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L61",
       "_origin": "ast"
     },
     {
@@ -1072,7 +1080,7 @@
       "label": "Автообновление",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L56",
+      "source_location": "L82",
       "_origin": "ast"
     },
     {
@@ -1080,7 +1088,7 @@
       "label": "Конфиденциальность",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L64",
+      "source_location": "L92",
       "_origin": "ast"
     },
     {
@@ -1161,6 +1169,46 @@
       "file_type": "document",
       "source_file": "graphify-out/memory/query_20260806_083659_добавить_справку_по_качеству_по_русски_без_пользов.md",
       "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана",
+      "label": "query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана.md",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана.md",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана_q_откуда_взята_формула_балла_и_была_ли_она_придумана_codex",
+      "label": "Q: Откуда взята формула балла и была ли она придумана Codex",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана.md",
+      "source_location": "L11",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана_answer",
+      "label": "Answer",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана.md",
+      "source_location": "L13",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана_outcome",
+      "label": "Outcome",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана.md",
+      "source_location": "L17",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана_source_nodes",
+      "label": "Source Nodes",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана.md",
+      "source_location": "L22",
       "_origin": "ast"
     }
   ],
@@ -4465,7 +4513,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "IMPROVEMENTS.md",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4475,7 +4523,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "IMPROVEMENTS.md",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4485,7 +4533,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "IMPROVEMENTS.md",
-      "source_location": "L39",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4521,7 +4569,7 @@
     },
     {
       "source": "readme_мониторинг_опросов_arm",
-      "target": "readme_правила_подсчёта",
+      "target": "readme_как_считается_качество",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
@@ -4531,11 +4579,21 @@
     },
     {
       "source": "readme_мониторинг_опросов_arm",
+      "target": "readme_как_считается_количество_опрошенных",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "readme_мониторинг_опросов_arm",
       "target": "readme_автообновление",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L56",
+      "source_location": "L82",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4545,7 +4603,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L64",
+      "source_location": "L92",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4626,6 +4684,46 @@
       "confidence": "EXTRACTED",
       "source_file": "graphify-out/memory/query_20260806_083659_добавить_справку_по_качеству_по_русски_без_пользов.md",
       "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана",
+      "target": "graphify_out_memory_query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана_q_откуда_взята_формула_балла_и_была_ли_она_придумана_codex",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана_q_откуда_взята_формула_балла_и_была_ли_она_придумана_codex",
+      "target": "graphify_out_memory_query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана_answer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана_q_откуда_взята_формула_балла_и_была_ли_она_придумана_codex",
+      "target": "graphify_out_memory_query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана_outcome",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана_q_откуда_взята_формула_балла_и_была_ли_она_придумана_codex",
+      "target": "graphify_out_memory_query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана_source_nodes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана.md",
+      "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast"
     },
