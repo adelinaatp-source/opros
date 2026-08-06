@@ -260,7 +260,8 @@ const EXCLUDED_NAMES = new Set([
 ]);
 const isIntern = r => /стаж[её]р/i.test(r.d||"");
 const isBot = r => /ловец|вебхук|учётк|учетк/i.test(((r.d||"")+" "+(r.f||"")));   // служебные учётки (ловец звонков, сервисная учётка автоматизатора и т.п.)
-const RAW = _ALL.filter(r => !EXCLUDED_NAMES.has((r.f||"").trim()) && !isIntern(r) && !isBot(r));
+const isCourier = r => /курьер/i.test(r.d||"");   // курьеры — вне свода (по должности)
+const RAW = _ALL.filter(r => !EXCLUDED_NAMES.has((r.f||"").trim()) && !isIntern(r) && !isBot(r) && !isCourier(r));
 const EXCLUDED_PEOPLE = _ALL.length - RAW.length;
 // ВРЕМЕННЫЕ ЗАГЛУШКИ (ручное проставление прохождений; убрать, когда появятся реальные данные)
 const OVERRIDES = {
