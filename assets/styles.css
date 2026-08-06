@@ -114,7 +114,7 @@ th.sortable { cursor: pointer; }
 tbody tr { transition: background .12s ease; }
 tbody tr:hover { background: rgb(108 199 255 / 5%); }
 .person-name { font-weight: 750; }
-.person-sub, .muted { color: var(--muted); font-size: 11px; }
+.person-sub, .muted, .position-missing { color: var(--muted); font-size: 11px; }
 .center { text-align: center; }
 .scenario-mark { display: inline-flex; align-items: center; justify-content: center; min-width: 28px; height: 26px; border-radius: 8px; font-weight: 800; }
 .scenario-mark.done { color: var(--high); background: rgb(55 212 155 / 10%); }

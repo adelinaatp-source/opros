@@ -337,7 +337,7 @@ function renderRoster() {
           <div class="person-sub">${issue ? `<span class="name-pill issue">${escapeHtml(NAME_CHECK_LABEL[person.name_check] || "Проверить ФИО")}</span>` : "ФИО проверено"}</div>
         </td>
         <td>${escapeHtml(person.u || "—")}<div class="person-sub">${escapeHtml(person.o || "—")}</div></td>
-        <td>${escapeHtml(person.d || "—")}</td>
+        <td>${person.d ? escapeHtml(person.d) : '<span class="position-missing">Не указана в кадровом реестре</span>'}</td>
         <td class="center">${scenarioMark(person.s1, "s1")}</td>
         <td class="center">${scenarioMark(person.s2, "s2", person.partial_sessions || 0)}</td>
         <td class="center">${scenarioMark(person.s3, "s3")}</td>

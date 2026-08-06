@@ -465,11 +465,17 @@ def load_roster(roster_path: Path, html_path: Path) -> tuple[list[dict[str, obje
 
 def select_roster_index(roster: list[dict[str, object]], name: str) -> tuple[int | None, str]:
     normalized = normalize_name(name)
-    exact = [index for index, row in enumerate(roster) if normalize_name(str(row.get("f", ""))) == normalized]
+    exact = [
+        index
+        for index, row in enumerate(roster)
+        if normalized in {normalize_name(str(row.get("f", ""))), normalize_name(str(row.get("hr_name", "")))}
+    ]
     if exact:
         selected = max(
             exact,
             key=lambda index: (
+                not bool(str(roster[index].get("hr_alias_of", "")).strip()),
+                normalize_name(str(roster[index].get("f", ""))) == normalized,
                 bool(str(roster[index].get("d", "")).strip()),
                 bool(str(roster[index].get("o", "")).strip()),
                 bool(str(roster[index].get("u", "")).strip()),
@@ -477,11 +483,28 @@ def select_roster_index(roster: list[dict[str, object]], name: str) -> tuple[int
                 -index,
             ),
         )
+        alias_target = normalize_name(str(roster[selected].get("hr_alias_of", "")))
+        if alias_target:
+            primary_targets = [
+                index
+                for index, row in enumerate(roster)
+                if not str(row.get("hr_alias_of", "")).strip()
+                and normalize_name(str(row.get("f", ""))) == alias_target
+            ]
+            if len(primary_targets) == 1:
+                return primary_targets[0], "hr_alias"
         return selected, "exact" if len(exact) == 1 else "duplicate_exact"
     key = family_key(name)
-    family = [index for index, row in enumerate(roster) if family_key(str(row.get("f", ""))) == key]
+    family = [
+        index
+        for index, row in enumerate(roster)
+        if key in {family_key(str(row.get("f", ""))), family_key(str(row.get("hr_name", "")))}
+    ]
     if len(family) == 1:
         return family[0], "family"
+    primary_family = [index for index in family if not str(roster[index].get("hr_alias_of", "")).strip()]
+    if len(primary_family) == 1:
+        return primary_family[0], "family"
     return None, "ambiguous" if len(family) > 1 or len(exact) > 1 else "new"
 
 
@@ -617,7 +640,9 @@ def is_excluded(row: dict[str, object]) -> str:
     role = str(row.get("d", ""))
     if name in EXCLUDED_NAMES:
         return "ручное исключение"
-    if re.search(r"стаж[её]р", role, re.I):
+    if str(row.get("hr_alias_of", "")).strip():
+        return "дубликат кадровой записи"
+    if re.search(r"стаж[её]р", role + " " + name, re.I):
         return "стажёр"
     if re.search(r"курьер", role, re.I):
         return "курьер"

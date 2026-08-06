@@ -428,6 +428,102 @@
       "_origin": "ast"
     },
     {
+      "id": "scripts_import_roster_xlsx",
+      "label": "import_roster_xlsx.py",
+      "file_type": "code",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_import_roster_xlsx_normalize",
+      "label": "normalize()",
+      "file_type": "code",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L23",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_import_roster_xlsx_family_given_key",
+      "label": "family_given_key()",
+      "file_type": "code",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L29",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_import_roster_xlsx_meaningful_name_tokens",
+      "label": "meaningful_name_tokens()",
+      "file_type": "code",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L33",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_import_roster_xlsx_clean_text",
+      "label": "clean_text()",
+      "file_type": "code",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L37",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_import_roster_xlsx_column_number",
+      "label": "_column_number()",
+      "file_type": "code",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L42",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_import_roster_xlsx_read_xlsx_sheet",
+      "label": "read_xlsx_sheet()",
+      "file_type": "code",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L52",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_import_roster_xlsx_py_path",
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_import_roster_xlsx_load_directory",
+      "label": "load_directory()",
+      "file_type": "code",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L100",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_import_roster_xlsx_should_replace_org",
+      "label": "should_replace_org()",
+      "file_type": "code",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L117",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_import_roster_xlsx_synchronize_roster",
+      "label": "synchronize_roster()",
+      "file_type": "code",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L127",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_import_roster_xlsx_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L243",
+      "_origin": "ast"
+    },
+    {
       "id": "scripts_run_update",
       "label": "run-update.ps1",
       "file_type": "code",
@@ -500,7 +596,7 @@
       "_origin": "ast"
     },
     {
-      "id": "path",
+      "id": "scripts_update_site_py_path",
       "label": "Path",
       "file_type": "code",
       "source_file": "",
@@ -720,7 +816,7 @@
       "label": "fio_audit()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L488",
+      "source_location": "L511",
       "_origin": "ast"
     },
     {
@@ -728,7 +824,7 @@
       "label": "refresh_roster()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L514",
+      "source_location": "L537",
       "_origin": "ast"
     },
     {
@@ -736,7 +832,7 @@
       "label": "aggregate_quality()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L603",
+      "source_location": "L626",
       "_origin": "ast"
     },
     {
@@ -744,7 +840,7 @@
       "label": "is_excluded()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L615",
+      "source_location": "L638",
       "_origin": "ast"
     },
     {
@@ -752,7 +848,7 @@
       "label": "person_payload()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L631",
+      "source_location": "L656",
       "_origin": "ast"
     },
     {
@@ -760,7 +856,7 @@
       "label": "build_payloads()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L682",
+      "source_location": "L707",
       "_origin": "ast"
     },
     {
@@ -768,7 +864,7 @@
       "label": "update()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L799",
+      "source_location": "L824",
       "_origin": "ast"
     },
     {
@@ -776,7 +872,7 @@
       "label": "parse_args()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L848",
+      "source_location": "L873",
       "_origin": "ast"
     },
     {
@@ -792,7 +888,7 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L859",
+      "source_location": "L884",
       "_origin": "ast"
     },
     {
@@ -900,11 +996,27 @@
       "_origin": "ast"
     },
     {
+      "id": "scripts_validate_site_roster",
+      "label": "roster",
+      "file_type": "code",
+      "source_file": "scripts/validate_site.js",
+      "source_location": "L17",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_validate_site_forbiddenrosterfields",
+      "label": "forbiddenRosterFields",
+      "file_type": "code",
+      "source_file": "scripts/validate_site.js",
+      "source_location": "L70",
+      "_origin": "ast"
+    },
+    {
       "id": "scripts_validate_site_sessiontotal",
       "label": "sessionTotal",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L73",
+      "source_location": "L81",
       "_origin": "ast"
     },
     {
@@ -912,7 +1024,7 @@
       "label": "partialTotal",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L78",
+      "source_location": "L86",
       "_origin": "ast"
     },
     {
@@ -920,7 +1032,7 @@
       "label": "conductedTotal",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L83",
+      "source_location": "L91",
       "_origin": "ast"
     },
     {
@@ -928,7 +1040,7 @@
       "label": "counted",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L91",
+      "source_location": "L99",
       "_origin": "ast"
     },
     {
@@ -936,7 +1048,15 @@
       "label": "countedPartial",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L96",
+      "source_location": "L104",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_validate_site_aliaseswithsessions",
+      "label": "aliasesWithSessions",
+      "file_type": "code",
+      "source_file": "scripts/validate_site.js",
+      "source_location": "L109",
       "_origin": "ast"
     },
     {
@@ -944,7 +1064,7 @@
       "label": "normalizeName()",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L101",
+      "source_location": "L117",
       "_origin": "ast"
     },
     {
@@ -952,7 +1072,7 @@
       "label": "isTovar()",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L106",
+      "source_location": "L122",
       "_origin": "ast"
     },
     {
@@ -960,7 +1080,7 @@
       "label": "visibleByName",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L107",
+      "source_location": "L123",
       "_origin": "ast"
     },
     {
@@ -968,7 +1088,7 @@
       "label": "dashboardRows",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L117",
+      "source_location": "L133",
       "_origin": "ast"
     },
     {
@@ -976,7 +1096,7 @@
       "label": "filterGroups",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L118",
+      "source_location": "L134",
       "_origin": "ast"
     },
     {
@@ -984,7 +1104,7 @@
       "label": "scenarioAverage()",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L122",
+      "source_location": "L138",
       "_origin": "ast"
     },
     {
@@ -992,7 +1112,7 @@
       "label": "staffScenarioQuality",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L135",
+      "source_location": "L151",
       "_origin": "ast"
     },
     {
@@ -1000,7 +1120,7 @@
       "label": "tovarScenarioQuality",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L136",
+      "source_location": "L152",
       "_origin": "ast"
     },
     {
@@ -1008,7 +1128,63 @@
       "label": "filterTotals",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L140",
+      "source_location": "L156",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_test_import_roster_xlsx",
+      "label": "test_import_roster_xlsx.py",
+      "file_type": "code",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_test_import_roster_xlsx_importrostertests",
+      "label": "ImportRosterTests",
+      "file_type": "code",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L10",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_test_import_roster_xlsx_importrostertests_test_updates_position_by_exact_name_without_removing_rows",
+      "label": ".test_updates_position_by_exact_name_without_removing_rows()",
+      "file_type": "code",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L11",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_test_import_roster_xlsx_importrostertests_test_uses_unique_family_and_given_name_for_short_fio",
+      "label": ".test_uses_unique_family_and_given_name_for_short_fio()",
+      "file_type": "code",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L22",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_test_import_roster_xlsx_importrostertests_test_does_not_guess_when_family_and_given_name_are_ambiguous",
+      "label": ".test_does_not_guess_when_family_and_given_name_are_ambiguous()",
+      "file_type": "code",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L34",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_test_import_roster_xlsx_importrostertests_test_matches_reordered_name_and_ignores_role_noise",
+      "label": ".test_matches_reordered_name_and_ignores_role_noise()",
+      "file_type": "code",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L46",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_test_import_roster_xlsx_importrostertests_test_marks_short_duplicate_as_alias_without_deleting_it",
+      "label": ".test_marks_short_duplicate_as_alias_without_deleting_it()",
+      "file_type": "code",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L55",
       "_origin": "ast"
     },
     {
@@ -1108,11 +1284,19 @@
       "_origin": "ast"
     },
     {
+      "id": "tests_test_update_site_updatesitetests_test_short_alias_sessions_are_applied_to_primary_hr_row",
+      "label": ".test_short_alias_sessions_are_applied_to_primary_hr_row()",
+      "file_type": "code",
+      "source_file": "tests/test_update_site.py",
+      "source_location": "L103",
+      "_origin": "ast"
+    },
+    {
       "id": "tests_test_update_site_updatesitetests_test_excluded_people_do_not_change_dashboard_totals",
       "label": ".test_excluded_people_do_not_change_dashboard_totals()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L101",
+      "source_location": "L134",
       "_origin": "ast"
     },
     {
@@ -1120,7 +1304,7 @@
       "label": ".test_gap_quality_uses_documented_weighted_formula()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L127",
+      "source_location": "L160",
       "_origin": "ast"
     },
     {
@@ -1128,7 +1312,7 @@
       "label": ".test_extracts_exact_answer_rows_from_gap_table()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L143",
+      "source_location": "L176",
       "_origin": "ast"
     },
     {
@@ -1136,7 +1320,7 @@
       "label": ".test_refresh_uses_bitrix_identity_and_does_not_add_duplicate_fio()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L154",
+      "source_location": "L187",
       "_origin": "ast"
     },
     {
@@ -1144,7 +1328,7 @@
       "label": ".test_conflicting_bitrix_id_does_not_mix_different_people()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L171",
+      "source_location": "L204",
       "_origin": "ast"
     },
     {
@@ -1152,7 +1336,7 @@
       "label": ".test_two_bitrix_ids_for_same_fio_are_summed_without_losing_sessions()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L187",
+      "source_location": "L220",
       "_origin": "ast"
     },
     {
@@ -1160,7 +1344,7 @@
       "label": ".test_discovery_caches_sessions_and_ignored_documents()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L201",
+      "source_location": "L234",
       "_origin": "ast"
     },
     {
@@ -1168,7 +1352,7 @@
       "label": ".test_discovery_keeps_partial_gap_session_with_answers()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L234",
+      "source_location": "L267",
       "_origin": "ast"
     },
     {
@@ -1256,7 +1440,7 @@
       "label": "Что ещё нужно для безопасной публикации",
       "file_type": "document",
       "source_file": "IMPROVEMENTS.md",
-      "source_location": "L24",
+      "source_location": "L26",
       "_origin": "ast"
     },
     {
@@ -1264,7 +1448,7 @@
       "label": "Следующие полезные улучшения",
       "file_type": "document",
       "source_file": "IMPROVEMENTS.md",
-      "source_location": "L31",
+      "source_location": "L33",
       "_origin": "ast"
     },
     {
@@ -1272,7 +1456,7 @@
       "label": "Ограничения",
       "file_type": "document",
       "source_file": "IMPROVEMENTS.md",
-      "source_location": "L40",
+      "source_location": "L42",
       "_origin": "ast"
     },
     {
@@ -1308,11 +1492,19 @@
       "_origin": "ast"
     },
     {
+      "id": "readme_обновление_должностей_из_кадрового_excel",
+      "label": "Обновление должностей из кадрового Excel",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L43",
+      "_origin": "ast"
+    },
+    {
       "id": "readme_как_считается_качество",
       "label": "Как считается качество",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L43",
+      "source_location": "L64",
       "_origin": "ast"
     },
     {
@@ -1320,7 +1512,7 @@
       "label": "Как считается количество опрошенных",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L62",
+      "source_location": "L83",
       "_origin": "ast"
     },
     {
@@ -1328,7 +1520,7 @@
       "label": "Автообновление",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L86",
+      "source_location": "L107",
       "_origin": "ast"
     },
     {
@@ -1336,7 +1528,7 @@
       "label": "Конфиденциальность",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L96",
+      "source_location": "L117",
       "_origin": "ast"
     },
     {
@@ -3568,6 +3760,370 @@
       "_origin": "ast"
     },
     {
+      "source": "scripts_import_roster_xlsx",
+      "target": "argparse",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "json",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "re",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "unicodedata",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "xml_etree_elementtree",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "collections",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "zipfile",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "scripts_import_roster_xlsx_normalize",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "scripts_import_roster_xlsx_family_given_key",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "scripts_import_roster_xlsx_meaningful_name_tokens",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "scripts_import_roster_xlsx_clean_text",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "scripts_import_roster_xlsx_column_number",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "scripts_import_roster_xlsx_read_xlsx_sheet",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx_read_xlsx_sheet",
+      "target": "scripts_import_roster_xlsx_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "scripts_import_roster_xlsx_load_directory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx_load_directory",
+      "target": "scripts_import_roster_xlsx_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "scripts_import_roster_xlsx_should_replace_org",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L117",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "scripts_import_roster_xlsx_synchronize_roster",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L127",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx",
+      "target": "scripts_import_roster_xlsx_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L243",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx_family_given_key",
+      "target": "scripts_import_roster_xlsx_normalize",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx_meaningful_name_tokens",
+      "target": "scripts_import_roster_xlsx_normalize",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx_clean_text",
+      "target": "scripts_import_roster_xlsx_normalize",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx_read_xlsx_sheet",
+      "target": "scripts_import_roster_xlsx_column_number",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L94",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx_load_directory",
+      "target": "scripts_import_roster_xlsx_read_xlsx_sheet",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L101",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx_load_directory",
+      "target": "scripts_import_roster_xlsx_clean_text",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx_should_replace_org",
+      "target": "scripts_import_roster_xlsx_normalize",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L118",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx_synchronize_roster",
+      "target": "scripts_import_roster_xlsx_normalize",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L134",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx_synchronize_roster",
+      "target": "scripts_import_roster_xlsx_family_given_key",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L137",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx_synchronize_roster",
+      "target": "scripts_import_roster_xlsx_meaningful_name_tokens",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L165",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx_synchronize_roster",
+      "target": "scripts_import_roster_xlsx_clean_text",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L182",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx_synchronize_roster",
+      "target": "scripts_import_roster_xlsx_should_replace_org",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L194",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx_main",
+      "target": "scripts_import_roster_xlsx_load_directory",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L254",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_import_roster_xlsx_main",
+      "target": "scripts_import_roster_xlsx_synchronize_roster",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/import_roster_xlsx.py",
+      "source_location": "L255",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "scripts_run_update",
       "target": "scripts_run_update_write_updatelog",
       "relation": "contains",
@@ -3781,7 +4337,7 @@
     },
     {
       "source": "scripts_update_site_read_document",
-      "target": "path",
+      "target": "scripts_update_site_py_path",
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
@@ -3802,7 +4358,7 @@
     },
     {
       "source": "scripts_update_site_parse_frontmatter",
-      "target": "path",
+      "target": "scripts_update_site_py_path",
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
@@ -3883,7 +4439,7 @@
     },
     {
       "source": "scripts_update_site_load_source_index",
-      "target": "path",
+      "target": "scripts_update_site_py_path",
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
@@ -3904,7 +4460,7 @@
     },
     {
       "source": "scripts_update_site_write_json",
-      "target": "path",
+      "target": "scripts_update_site_py_path",
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
@@ -3925,7 +4481,7 @@
     },
     {
       "source": "scripts_update_site_save_source_index",
-      "target": "path",
+      "target": "scripts_update_site_py_path",
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
@@ -4049,7 +4605,7 @@
     },
     {
       "source": "scripts_update_site_discover_sessions",
-      "target": "path",
+      "target": "scripts_update_site_py_path",
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
@@ -4142,7 +4698,7 @@
     },
     {
       "source": "scripts_update_site_load_roster",
-      "target": "path",
+      "target": "scripts_update_site_py_path",
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
@@ -4167,7 +4723,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L488",
+      "source_location": "L511",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4178,7 +4734,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L488",
+      "source_location": "L511",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4188,7 +4744,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L514",
+      "source_location": "L537",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4199,7 +4755,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L514",
+      "source_location": "L537",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4209,7 +4765,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L603",
+      "source_location": "L626",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4220,7 +4776,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L603",
+      "source_location": "L626",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4230,7 +4786,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L615",
+      "source_location": "L638",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4240,7 +4796,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L631",
+      "source_location": "L656",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4250,7 +4806,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L682",
+      "source_location": "L707",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4261,7 +4817,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L682",
+      "source_location": "L707",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4271,18 +4827,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L799",
+      "source_location": "L824",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
       "source": "scripts_update_site_update",
-      "target": "path",
+      "target": "scripts_update_site_py_path",
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L799",
+      "source_location": "L824",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4292,7 +4848,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L848",
+      "source_location": "L873",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4303,7 +4859,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L848",
+      "source_location": "L873",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4313,7 +4869,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L859",
+      "source_location": "L884",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4473,7 +5029,7 @@
     },
     {
       "source": "scripts_update_site_session_from_cache",
-      "target": "path",
+      "target": "scripts_update_site_py_path",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -4583,7 +5139,7 @@
     },
     {
       "source": "scripts_update_site_discover_sessions",
-      "target": "path",
+      "target": "scripts_update_site_py_path",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -4709,7 +5265,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L481",
+      "source_location": "L497",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4720,7 +5276,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L494",
+      "source_location": "L517",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4731,46 +5287,13 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L496",
+      "source_location": "L519",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
       "source": "scripts_update_site_fio_audit",
       "target": "scripts_update_site_name_tokens",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/update_site.py",
-      "source_location": "L510",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "scripts_update_site_refresh_roster",
-      "target": "scripts_update_site_clean_person_name",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/update_site.py",
-      "source_location": "L516",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "scripts_update_site_refresh_roster",
-      "target": "scripts_update_site_family_key",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/update_site.py",
-      "source_location": "L527",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "scripts_update_site_refresh_roster",
-      "target": "scripts_update_site_normalize_name",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -4781,12 +5304,45 @@
     },
     {
       "source": "scripts_update_site_refresh_roster",
+      "target": "scripts_update_site_clean_person_name",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/update_site.py",
+      "source_location": "L539",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_update_site_refresh_roster",
+      "target": "scripts_update_site_family_key",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/update_site.py",
+      "source_location": "L550",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_update_site_refresh_roster",
+      "target": "scripts_update_site_normalize_name",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/update_site.py",
+      "source_location": "L556",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_update_site_refresh_roster",
       "target": "scripts_update_site_canonical_name",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L542",
+      "source_location": "L565",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4797,7 +5353,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L543",
+      "source_location": "L566",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4808,7 +5364,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L570",
+      "source_location": "L593",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4819,7 +5375,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L578",
+      "source_location": "L601",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4830,7 +5386,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L638",
+      "source_location": "L663",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4841,7 +5397,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L658",
+      "source_location": "L683",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4852,7 +5408,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L687",
+      "source_location": "L712",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4863,7 +5419,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L694",
+      "source_location": "L719",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4874,7 +5430,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L708",
+      "source_location": "L733",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4885,7 +5441,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L727",
+      "source_location": "L752",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4896,7 +5452,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L730",
+      "source_location": "L755",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4907,7 +5463,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L810",
+      "source_location": "L835",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4918,7 +5474,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L811",
+      "source_location": "L836",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4929,7 +5485,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L815",
+      "source_location": "L840",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4940,7 +5496,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L816",
+      "source_location": "L841",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4951,7 +5507,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L819",
+      "source_location": "L844",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4962,7 +5518,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L821",
+      "source_location": "L846",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4973,7 +5529,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L860",
+      "source_location": "L885",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4984,7 +5540,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L862",
+      "source_location": "L887",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5143,11 +5699,31 @@
     },
     {
       "source": "scripts_validate_site",
+      "target": "scripts_validate_site_roster",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/validate_site.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_validate_site",
+      "target": "scripts_validate_site_forbiddenrosterfields",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/validate_site.js",
+      "source_location": "L70",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_validate_site",
       "target": "scripts_validate_site_sessiontotal",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L73",
+      "source_location": "L81",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5157,7 +5733,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L78",
+      "source_location": "L86",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5167,7 +5743,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L83",
+      "source_location": "L91",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5177,7 +5753,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L91",
+      "source_location": "L99",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5187,7 +5763,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L96",
+      "source_location": "L104",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_validate_site",
+      "target": "scripts_validate_site_aliaseswithsessions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/validate_site.js",
+      "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5197,7 +5783,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L101",
+      "source_location": "L117",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5207,7 +5793,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L106",
+      "source_location": "L122",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5217,7 +5803,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L107",
+      "source_location": "L123",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5227,7 +5813,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L117",
+      "source_location": "L133",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5237,7 +5823,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L118",
+      "source_location": "L134",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5247,7 +5833,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L122",
+      "source_location": "L138",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5257,7 +5843,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L135",
+      "source_location": "L151",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5267,7 +5853,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L136",
+      "source_location": "L152",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5277,7 +5863,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L140",
+      "source_location": "L156",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5288,7 +5874,111 @@
       "context": "argument",
       "confidence": "INFERRED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L120",
+      "source_location": "L136",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_import_roster_xlsx",
+      "target": "sys",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_import_roster_xlsx",
+      "target": "unittest",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_import_roster_xlsx",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_import_roster_xlsx",
+      "target": "import_roster_xlsx",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_import_roster_xlsx",
+      "target": "tests_test_import_roster_xlsx_importrostertests",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_import_roster_xlsx_importrostertests",
+      "target": "tests_test_import_roster_xlsx_importrostertests_test_updates_position_by_exact_name_without_removing_rows",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_import_roster_xlsx_importrostertests",
+      "target": "tests_test_import_roster_xlsx_importrostertests_test_uses_unique_family_and_given_name_for_short_fio",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_import_roster_xlsx_importrostertests",
+      "target": "tests_test_import_roster_xlsx_importrostertests_test_does_not_guess_when_family_and_given_name_are_ambiguous",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_import_roster_xlsx_importrostertests",
+      "target": "tests_test_import_roster_xlsx_importrostertests_test_matches_reordered_name_and_ignores_role_noise",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_import_roster_xlsx_importrostertests",
+      "target": "tests_test_import_roster_xlsx_importrostertests_test_marks_short_duplicate_as_alias_without_deleting_it",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5504,11 +6194,21 @@
     },
     {
       "source": "tests_test_update_site_updatesitetests",
+      "target": "tests_test_update_site_updatesitetests_test_short_alias_sessions_are_applied_to_primary_hr_row",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_update_site.py",
+      "source_location": "L103",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_update_site_updatesitetests",
       "target": "tests_test_update_site_updatesitetests_test_excluded_people_do_not_change_dashboard_totals",
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L101",
+      "source_location": "L134",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5518,7 +6218,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L127",
+      "source_location": "L160",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5528,7 +6228,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L143",
+      "source_location": "L176",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5538,7 +6238,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L154",
+      "source_location": "L187",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5548,7 +6248,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L171",
+      "source_location": "L204",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5558,7 +6258,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L187",
+      "source_location": "L220",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5568,7 +6268,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L201",
+      "source_location": "L234",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5578,7 +6278,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L234",
+      "source_location": "L267",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5594,13 +6294,24 @@
       "_origin": "ast"
     },
     {
+      "source": "tests_test_update_site_updatesitetests_test_short_alias_sessions_are_applied_to_primary_hr_row",
+      "target": "tests_test_update_site_session",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_update_site.py",
+      "source_location": "L126",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "tests_test_update_site_updatesitetests_test_excluded_people_do_not_change_dashboard_totals",
       "target": "tests_test_update_site_session",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L107",
+      "source_location": "L140",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5611,7 +6322,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L160",
+      "source_location": "L193",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5622,7 +6333,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L177",
+      "source_location": "L210",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5633,7 +6344,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L192",
+      "source_location": "L225",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5723,7 +6434,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "IMPROVEMENTS.md",
-      "source_location": "L24",
+      "source_location": "L26",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5733,7 +6444,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "IMPROVEMENTS.md",
-      "source_location": "L31",
+      "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5743,7 +6454,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "IMPROVEMENTS.md",
-      "source_location": "L40",
+      "source_location": "L42",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5779,7 +6490,7 @@
     },
     {
       "source": "readme_мониторинг_опросов_arm",
-      "target": "readme_как_считается_качество",
+      "target": "readme_обновление_должностей_из_кадрового_excel",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
@@ -5789,11 +6500,21 @@
     },
     {
       "source": "readme_мониторинг_опросов_arm",
+      "target": "readme_как_считается_качество",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "readme_мониторинг_опросов_arm",
       "target": "readme_как_считается_количество_опрошенных",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L62",
+      "source_location": "L83",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5803,7 +6524,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L86",
+      "source_location": "L107",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5813,7 +6534,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L96",
+      "source_location": "L117",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6148,6 +6869,66 @@
       "_origin": "ast"
     },
     {
+      "source": "tests_test_import_roster_xlsx_importrostertests_test_updates_position_by_exact_name_without_removing_rows",
+      "target": "scripts_import_roster_xlsx_synchronize_roster",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_import_roster_xlsx_importrostertests_test_uses_unique_family_and_given_name_for_short_fio",
+      "target": "scripts_import_roster_xlsx_synchronize_roster",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_import_roster_xlsx_importrostertests_test_does_not_guess_when_family_and_given_name_are_ambiguous",
+      "target": "scripts_import_roster_xlsx_synchronize_roster",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_import_roster_xlsx_importrostertests_test_matches_reordered_name_and_ignores_role_noise",
+      "target": "scripts_import_roster_xlsx_synchronize_roster",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_import_roster_xlsx_importrostertests_test_marks_short_duplicate_as_alias_without_deleting_it",
+      "target": "scripts_import_roster_xlsx_synchronize_roster",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_import_roster_xlsx.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "tests_test_update_site_session",
       "target": "scripts_update_site_session",
       "relation": "calls",
@@ -6168,18 +6949,6 @@
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
       "source_location": "L36",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "tests_test_update_site_session",
-      "target": "path",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "tests/test_update_site.py",
-      "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6244,6 +7013,18 @@
       "_origin": "ast"
     },
     {
+      "source": "tests_test_update_site_updatesitetests_test_short_alias_sessions_are_applied_to_primary_hr_row",
+      "target": "scripts_update_site_refresh_roster",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_update_site.py",
+      "source_location": "L124",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "tests_test_update_site_updatesitetests_test_excluded_people_do_not_change_dashboard_totals",
       "target": "scripts_update_site_refresh_roster",
       "relation": "calls",
@@ -6251,7 +7032,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L111",
+      "source_location": "L144",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6263,7 +7044,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L120",
+      "source_location": "L153",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6275,7 +7056,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L137",
+      "source_location": "L170",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6287,7 +7068,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L150",
+      "source_location": "L183",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6299,7 +7080,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L164",
+      "source_location": "L197",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6311,7 +7092,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L181",
+      "source_location": "L214",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6323,19 +7104,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L196",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "tests_test_update_site_updatesitetests_test_discovery_caches_sessions_and_ignored_documents",
-      "target": "path",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "tests/test_update_site.py",
-      "source_location": "L202",
+      "source_location": "L229",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6347,19 +7116,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L224",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "tests_test_update_site_updatesitetests_test_discovery_keeps_partial_gap_session_with_answers",
-      "target": "path",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "tests/test_update_site.py",
-      "source_location": "L235",
+      "source_location": "L257",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -6371,7 +7128,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L261",
+      "source_location": "L294",
       "weight": 1.0,
       "_origin": "ast"
     }

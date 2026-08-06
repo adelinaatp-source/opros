@@ -96,7 +96,40 @@ class UpdateSiteTests(unittest.TestCase):
 
     def test_couriers_are_excluded_from_dashboard(self):
         self.assertEqual(is_excluded({"f": "Иванов Иван", "d": "Курьер", "o": "Отдел"}), "курьер")
+        self.assertEqual(is_excluded({"f": "Стажер Стажер", "d": "", "o": "Отдел"}), "стажёр")
+        self.assertEqual(is_excluded({"f": "Иванов Иван", "hr_alias_of": "Иванов Иван Иванович"}), "дубликат кадровой записи")
         self.assertEqual(is_excluded({"f": "Иванов Иван", "d": "Аналитик", "o": "Отдел"}), "")
+
+    def test_short_alias_sessions_are_applied_to_primary_hr_row(self):
+        roster = [
+            {
+                "f": "Белозёрова Светлана Анатольевна",
+                "hr_name": "Белозёрова Светлана Анатольевна",
+                "d": "Бухгалтер",
+                "o": "Отдел",
+                "u": "Управление",
+                "t": "T1",
+            },
+            {
+                "f": "Белозёрова Светлана",
+                "hr_name": "Белозёрова Светлана Анатольевна",
+                "hr_alias_of": "Белозёрова Светлана Анатольевна",
+                "d": "Бухгалтер",
+                "o": "Отдел",
+                "u": "Управление",
+                "t": "T1",
+            },
+        ]
+
+        refreshed, diagnostics = refresh_roster(
+            roster,
+            [session("s1", "short-alias", "Белозёрова Светлана")],
+        )
+
+        self.assertEqual(refreshed[0]["vs"], 1)
+        self.assertEqual(refreshed[1]["vs"], 0)
+        self.assertIn(0, diagnostics["person_meta"])
+        self.assertNotIn(1, diagnostics["person_meta"])
 
     def test_excluded_people_do_not_change_dashboard_totals(self):
         roster = [

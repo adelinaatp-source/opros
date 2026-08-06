@@ -14,6 +14,7 @@ const styles = readProjectFile("assets/styles.css");
 const report = JSON.parse(readProjectFile("data/report.json"));
 const details = JSON.parse(readProjectFile("data/details.json"));
 const status = JSON.parse(readProjectFile("data/update-status.json"));
+const roster = JSON.parse(readProjectFile("data/roster.json"));
 
 new vm.Script(app, { filename: "assets/app.js" });
 
@@ -45,7 +46,7 @@ for (const marker of [
   if (!html.includes(marker)) throw new Error(`Не найден обязательный элемент: ${marker}`);
 }
 
-for (const marker of ["data/report.json", "data/details.json", "renderScenarioScope", "renderQualityChart", "renderFilterCounts", "renderSessionLogic", "sourceFileName", "showPerson", "showFioAudit"]) {
+for (const marker of ["data/report.json", "data/details.json", "renderScenarioScope", "renderQualityChart", "renderFilterCounts", "renderSessionLogic", "sourceFileName", "showPerson", "showFioAudit", "Не указана в кадровом реестре"]) {
   if (!app.includes(marker)) throw new Error(`Не найден JS-контракт: ${marker}`);
 }
 
@@ -62,6 +63,13 @@ if (!styles.includes("@media") || !styles.includes(".quality-chart") || !styles.
 
 if (report.schema_version !== 2 || details.schema_version !== 2 || status.schema_version !== 2) {
   throw new Error("Неверная версия JSON-схемы");
+}
+if (!Array.isArray(roster) || roster.length !== report.people.length) {
+  throw new Error(`Кадровый реестр и карточки не сходятся: roster=${roster.length}, people=${report.people.length}`);
+}
+const forbiddenRosterFields = roster.flatMap((row) => Object.keys(row)).filter((key) => /phone|tel|телефон/i.test(key));
+if (forbiddenRosterFields.length) {
+  throw new Error(`В кадровый JSON попали телефонные поля: ${[...new Set(forbiddenRosterFields)].join(", ")}`);
 }
 if (!Array.isArray(report.people) || report.people.length === 0) throw new Error("Реестр сотрудников пуст");
 if (!report.quality_method?.warning) throw new Error("Не описано ограничение индекса качества");
@@ -96,6 +104,14 @@ if (counted !== report.summary.sessions) {
 const countedPartial = report.people.filter((person) => !person.excluded_reason).reduce((sum, person) => sum + (person.partial_sessions || 0), 0);
 if (countedPartial !== report.summary.partial_sessions) {
   throw new Error(`Person partial totals differ: people=${countedPartial}, report=${report.summary.partial_sessions}`);
+}
+
+const aliasesWithSessions = report.people.filter(
+  (person) => person.excluded_reason === "дубликат кадровой записи"
+    && (person.conducted_sessions || 0) > 0,
+);
+if (aliasesWithSessions.length) {
+  throw new Error(`Сессии ошибочно привязаны к кадровым дублям: ${aliasesWithSessions.map((person) => person.f).join(", ")}`);
 }
 
 const normalizeName = (value) => String(value || "")
