@@ -1,0 +1,67 @@
+{
+  "scripts/run-update.ps1": {
+    "mtime": 1785999028.5292397,
+    "ast_hash": "3be0c212a02dfd36595e2d9d4bc0093b",
+    "semantic_hash": ""
+  },
+  "scripts/update_site.py": {
+    "mtime": 1785999071.1688871,
+    "ast_hash": "f9cf72c4c3d8420680648655597c036a",
+    "semantic_hash": ""
+  },
+  "scripts/validate_site.js": {
+    "mtime": 1785999071.1698875,
+    "ast_hash": "144587076c3ec4f679a04b899bb665c8",
+    "semantic_hash": ""
+  },
+  "tests/test_update_site.py": {
+    "mtime": 1785999086.509767,
+    "ast_hash": "547adf80b5d8d1cdb6bab6630415b915",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1785999028.5292397,
+    "ast_hash": "ddb9e89c6ba214b5102deffff172f462",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1785995630.5885315,
+    "ast_hash": "bd573b68c44b4fdda7c2717dafe208f0",
+    "semantic_hash": ""
+  },
+  "IMPROVEMENTS.md": {
+    "mtime": 1785999028.5302396,
+    "ast_hash": "6c8bc5e3d649275c4fd31874c507c7b9",
+    "semantic_hash": ""
+  },
+  "assets/app.js": {
+    "mtime": 1785995767.2237058,
+    "ast_hash": "1067a4778b08cc74135e54c0d6f8aee7",
+    "semantic_hash": ""
+  },
+  "data/details.json": {
+    "mtime": 1785998987.6375442,
+    "ast_hash": "ca759794d1972eb7d7f0979548c2d4d5",
+    "semantic_hash": ""
+  },
+  "data/report.json": {
+    "mtime": 1785999107.0133896,
+    "ast_hash": "c4b46f67a7d8c29dd43d71460c20ad06",
+    "semantic_hash": ""
+  },
+  "data/roster.json": {
+    "mtime": 1785998091.6380885,
+    "ast_hash": "d5cfe56ece304896416825cd96aa6023",
+    "semantic_hash": ""
+  },
+  "data/update-status.json": {
+    "mtime": 1785999107.068375,
+    "ast_hash": "c64038ccc288211546934191beb2efc0",
+    "semantic_hash": ""
+  },
+  "tests/test_site_architecture.py": {
+    "mtime": 1785995110.314736,
+    "ast_hash": "c9dbc88de09d6821719de534f490a8d4",
+    "semantic_hash": ""
+  }
+}
