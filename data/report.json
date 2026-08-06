@@ -1,16 +1,16 @@
 {
   "schema_version": 2,
-  "snapshot": "06.08.2026 в 11:44 (Екб)",
+  "snapshot": "06.08.2026 в 11:52 (Екб)",
   "summary": {
     "people": 387,
-    "passed_people": 268,
-    "not_passed_people": 119,
-    "sessions": 875,
+    "passed_people": 269,
+    "not_passed_people": 118,
+    "sessions": 880,
     "quality": {
-      "average": 57.9,
+      "average": 57.8,
       "high": 87,
-      "medium": 596,
-      "low": 192,
+      "medium": 599,
+      "low": 194,
       "unknown": 0
     },
     "fio_issues": 37,
@@ -30,11 +30,11 @@
       "tag": "S1",
       "name": "Основной опрос по процессу",
       "metric": "Уверенность описания",
-      "sessions": 350,
+      "sessions": 352,
       "quality": {
         "average": 62.5,
         "high": 13,
-        "medium": 311,
+        "medium": 313,
         "low": 26,
         "unknown": 0
       }
@@ -43,12 +43,12 @@
       "tag": "S2",
       "name": "Доопрос",
       "metric": "Индекс полноты ответов",
-      "sessions": 288,
+      "sessions": 291,
       "quality": {
-        "average": 48.6,
+        "average": 48.5,
         "high": 16,
-        "medium": 149,
-        "low": 123,
+        "medium": 150,
+        "low": 125,
         "unknown": 0
       }
     },
@@ -755,16 +755,16 @@
       "u": "Финансовое управление",
       "t": "T1",
       "s1": 1,
-      "s2": 0,
+      "s2": 1,
       "s3": 1,
-      "vs": 2,
-      "last": "2026-08-06T06:33:50+00:00",
+      "vs": 3,
+      "last": "2026-08-06T06:49:14+00:00",
       "name_check": "exact",
       "quality": {
-        "average": 69.0,
+        "average": 53.3,
         "high": 0,
         "medium": 2,
-        "low": 0,
+        "low": 1,
         "unknown": 0
       },
       "scenario_quality": {
@@ -780,6 +780,13 @@
           "high": 0,
           "medium": 1,
           "low": 0,
+          "unknown": 0
+        },
+        "s2": {
+          "average": 21.9,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
           "unknown": 0
         }
       },
@@ -6669,24 +6676,24 @@
       "o": "Отдел технической поддержки",
       "u": "Управление цифрового развития",
       "t": "T1",
-      "s1": 1,
+      "s1": 2,
       "s2": 0,
       "s3": 1,
-      "vs": 2,
-      "last": "2026-08-05T08:36:08+00:00",
+      "vs": 3,
+      "last": "2026-08-06T06:45:43+00:00",
       "name_check": "exact",
       "quality": {
-        "average": 58.5,
+        "average": 58.3,
         "high": 0,
-        "medium": 2,
+        "medium": 3,
         "low": 0,
         "unknown": 0
       },
       "scenario_quality": {
         "s1": {
-          "average": 62.0,
+          "average": 60.0,
           "high": 0,
-          "medium": 1,
+          "medium": 2,
           "low": 0,
           "unknown": 0
         },
@@ -9605,16 +9612,16 @@
       "u": "Финансовое управление",
       "t": "T2",
       "s1": 1,
-      "s2": 0,
+      "s2": 1,
       "s3": 1,
-      "vs": 2,
-      "last": "2026-08-06T06:44:07+00:00",
+      "vs": 3,
+      "last": "2026-08-06T06:51:40+00:00",
       "name_check": "exact",
       "quality": {
-        "average": 66.0,
+        "average": 50.9,
         "high": 0,
         "medium": 2,
-        "low": 0,
+        "low": 1,
         "unknown": 0
       },
       "scenario_quality": {
@@ -9630,6 +9637,13 @@
           "high": 0,
           "medium": 1,
           "low": 0,
+          "unknown": 0
+        },
+        "s2": {
+          "average": 20.8,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
           "unknown": 0
         }
       },
@@ -12759,24 +12773,24 @@
       "o": "Отдел технической поддержки",
       "u": "Управление цифрового развития",
       "t": "T2",
-      "s1": 1,
+      "s1": 2,
       "s2": 2,
       "s3": 1,
-      "vs": 4,
-      "last": "2026-08-05T10:10:55+00:00",
+      "vs": 5,
+      "last": "2026-08-06T06:50:18+00:00",
       "name_check": "exact",
       "quality": {
-        "average": 51.2,
+        "average": 53.4,
         "high": 0,
-        "medium": 2,
+        "medium": 3,
         "low": 2,
         "unknown": 0
       },
       "scenario_quality": {
         "s1": {
-          "average": 68.0,
+          "average": 65.0,
           "high": 0,
-          "medium": 1,
+          "medium": 2,
           "low": 0,
           "unknown": 0
         },
@@ -15097,19 +15111,27 @@
       "u": "Коммерческое управление",
       "t": "T1",
       "s1": 0,
-      "s2": 0,
+      "s2": 1,
       "s3": 0,
-      "vs": 0,
-      "last": "",
-      "name_check": "not_in_source",
+      "vs": 1,
+      "last": "2026-08-06T06:52:26+00:00",
+      "name_check": "exact",
       "quality": {
-        "average": null,
+        "average": 56.8,
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0,
         "unknown": 0
       },
-      "scenario_quality": {},
+      "scenario_quality": {
+        "s2": {
+          "average": 56.8,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "unknown": 0
+        }
+      },
       "excluded_reason": ""
     },
     {
