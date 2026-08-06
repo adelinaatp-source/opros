@@ -663,6 +663,7 @@ def person_payload(row: dict[str, object], index: int, meta: dict[str, object] |
         detail_sessions.append({
             "scenario": session.scenario_field,
             "session_id": session.session_id,
+            "source_file": session.source_file.as_posix(),
             "created_at": session.created_at.isoformat(timespec="seconds"),
             "completed": session.completed,
             "completion_status": session.completion_status,

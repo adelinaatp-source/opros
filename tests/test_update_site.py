@@ -76,6 +76,7 @@ class UpdateSiteTests(unittest.TestCase):
         detail = details["people"]["roster:0"]["sessions"][0]
         self.assertFalse(detail["completed"])
         self.assertEqual(detail["completion_status"], "interrupted-partial")
+        self.assertEqual(detail["source_file"], "partial-gap.md")
         self.assertEqual((status["included_sessions"], status["included_partial_sessions"]), (0, 1))
 
     def test_name_normalization_handles_yo_and_punctuation(self):

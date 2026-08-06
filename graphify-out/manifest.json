@@ -5,18 +5,18 @@
     "semantic_hash": ""
   },
   "scripts/update_site.py": {
-    "mtime": 1786005185.319982,
-    "ast_hash": "f8413848007c5087b6271763f7627f26",
+    "mtime": 1786010562.4974146,
+    "ast_hash": "0acaf0e1054905160b3b6bc98370a317",
     "semantic_hash": ""
   },
   "scripts/validate_site.js": {
-    "mtime": 1786009915.6739366,
-    "ast_hash": "1f0db2bc2a44243bf8bc09721ccc5a39",
+    "mtime": 1786010568.0194356,
+    "ast_hash": "13a493f103fae86f0d6796ec8dcba8bc",
     "semantic_hash": ""
   },
   "tests/test_update_site.py": {
-    "mtime": 1786003691.1769493,
-    "ast_hash": "70b226c8c32ffa99da87617b34751b07",
+    "mtime": 1786010492.9905853,
+    "ast_hash": "bdf3e031e91369c2dfa6b536fb14ad6b",
     "semantic_hash": ""
   },
   "README.md": {
@@ -35,18 +35,18 @@
     "semantic_hash": ""
   },
   "assets/app.js": {
-    "mtime": 1786009915.6728063,
-    "ast_hash": "78d9581459fe4bfd6f9c91aa241e1515",
+    "mtime": 1786010564.5847936,
+    "ast_hash": "637e6c8dc2c6852a177e432f16f4e1e3",
     "semantic_hash": ""
   },
   "data/details.json": {
-    "mtime": 1786005284.5692677,
-    "ast_hash": "110871371d2818a64a5cd02e6264d9e1",
+    "mtime": 1786010611.2735307,
+    "ast_hash": "c5639cf790eb30e3a794317251233132",
     "semantic_hash": ""
   },
   "data/report.json": {
-    "mtime": 1786005284.4290988,
-    "ast_hash": "5b75d71e054757954af1d9ebf0ab8a6c",
+    "mtime": 1786010611.1285293,
+    "ast_hash": "beb81d5b4326961da6f6ebcf93d44827",
     "semantic_hash": ""
   },
   "data/roster.json": {
@@ -55,8 +55,8 @@
     "semantic_hash": ""
   },
   "data/update-status.json": {
-    "mtime": 1786005284.5735502,
-    "ast_hash": "382998f1da5fab959fcbeef3a9642517",
+    "mtime": 1786010611.2785313,
+    "ast_hash": "3c2b2f474dc2b615dbbb3474efed2773",
     "semantic_hash": ""
   },
   "tests/test_site_architecture.py": {
@@ -92,6 +92,11 @@
   "graphify-out/memory/query_20260806_094533_\u043a\u0430\u043a_\u0440\u0430\u0431\u043e\u0442\u0430\u044e\u0442_\u0444\u0438\u043b\u044c\u0442\u0440\u044b_\u0440\u0435\u0435\u0441\u0442\u0440\u0430_\u0438_\u043f\u043e\u0447\u0435\u043c\u0443_\u043e\u0445\u0432\u0430\u0442_\u043f\u043e\u043a\u0430\u0437\u044b.md": {
     "mtime": 1786009533.340876,
     "ast_hash": "47897a49e648eda3387ad7d2ed07d755",
+    "semantic_hash": ""
+  },
+  "graphify-out/memory/query_20260806_095245_\u043f\u043e\u0447\u0435\u043c\u0443_\u043f\u0440\u043e\u0446\u0435\u043d\u0442\u044b_\u043a\u0430\u0447\u0435\u0441\u0442\u0432\u0430_\u0441\u0446\u0435\u043d\u0430\u0440\u0438\u0435\u0432_\u043d\u0435_\u043c\u0435\u043d\u044f\u043b\u0438\u0441\u044c_\u043f\u0440\u0438.md": {
+    "mtime": 1786009965.8142002,
+    "ast_hash": "0d22d6b5ee544eb69c3eab83767b5e32",
     "semantic_hash": ""
   }
 }

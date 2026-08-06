@@ -45,7 +45,7 @@ for (const marker of [
   if (!html.includes(marker)) throw new Error(`Не найден обязательный элемент: ${marker}`);
 }
 
-for (const marker of ["data/report.json", "data/details.json", "renderScenarioScope", "renderQualityChart", "renderFilterCounts", "renderSessionLogic", "showPerson", "showFioAudit"]) {
+for (const marker of ["data/report.json", "data/details.json", "renderScenarioScope", "renderQualityChart", "renderFilterCounts", "renderSessionLogic", "sourceFileName", "showPerson", "showFioAudit"]) {
   if (!app.includes(marker)) throw new Error(`Не найден JS-контракт: ${marker}`);
 }
 
@@ -147,6 +147,11 @@ for (const [name, rows] of Object.entries(filterGroups)) {
 for (const person of report.people.filter((item) => item.vs > 0 || item.partial_sessions > 0)) {
   if (!details.people[person.key]) throw new Error(`Нет деталей для ${person.key}`);
   const sessions = details.people[person.key].sessions || [];
+  for (const session of sessions) {
+    if (!session.source_file || !String(session.source_file).trim()) {
+      throw new Error(`У сессии ${session.session_id || "без ID"} не указано имя исходного файла`);
+    }
+  }
   const completed = sessions.filter((session) => session.completed).length;
   const partial = sessions.filter((session) => !session.completed).length;
   if (completed !== person.vs || partial !== (person.partial_sessions || 0)) {

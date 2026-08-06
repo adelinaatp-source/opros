@@ -144,6 +144,8 @@ footer { padding: 22px 4px 0; color: var(--muted); font-size: 11px; }
 .drawer-body { padding: 22px; }
 .detail-card { margin-bottom: 13px; padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
 .detail-card h3 { margin: 0 0 4px; font-size: 15px; }
+.session-source { display: flex; gap: 7px; align-items: baseline; margin-top: 7px; color: var(--muted); font-size: 10px; }
+.session-source code { overflow-wrap: anywhere; color: var(--accent); font-family: Consolas, "Courier New", monospace; }
 .metric-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
 .metric { padding: 4px 7px; background: var(--surface-2); border-radius: 7px; color: #c6d6e9; font-size: 10px; }
 .answer-note { margin: 12px 0 8px; color: var(--muted); font-size: 10px; line-height: 1.45; }

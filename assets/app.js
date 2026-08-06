@@ -341,6 +341,11 @@ function renderRoster() {
   byId("rosterCount").innerHTML = `показано <strong>${formatNumber(rows.length)}</strong> из ${formatNumber(all.length)} человек · ${formatNumber(sessions.total)} сессий (${formatNumber(sessions.completed)} завершено + ${formatNumber(sessions.partial)} незавершено)`;
 }
 
+function sourceFileName(value) {
+  const parts = String(value || "").split(/[\\/]/).filter(Boolean);
+  return parts.at(-1) || "Имя файла не указано";
+}
+
 function renderCoverage() {
   const groups = new Map();
   const people = rowsForTab();
@@ -539,6 +544,7 @@ async function showPerson(personKey) {
           <span class="completion-pill ${session.completed ? "completed" : "partial"}">${session.completed ? "Завершён" : "Незавершён"}</span>
           <h3>${escapeHtml(session.title || SURVEY[session.scenario]?.name || "Сессия")}</h3>
           <div class="person-sub">${formatDate(session.created_at)} · ${escapeHtml(session.session_id)}</div>
+          <div class="session-source"><span>Файл</span><code title="${escapeHtml(session.source_file || "")}">${escapeHtml(sourceFileName(session.source_file))}</code></div>
           <div class="metric-list">${metrics}</div>
           ${answers}
           <section class="calculation-card">

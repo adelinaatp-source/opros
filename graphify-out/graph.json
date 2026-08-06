@@ -268,11 +268,19 @@
       "_origin": "ast"
     },
     {
+      "id": "assets_app_sourcefilename",
+      "label": "sourceFileName()",
+      "file_type": "code",
+      "source_file": "assets/app.js",
+      "source_location": "L344",
+      "_origin": "ast"
+    },
+    {
       "id": "assets_app_rendercoverage",
       "label": "renderCoverage()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L344",
+      "source_location": "L349",
       "_origin": "ast"
     },
     {
@@ -280,7 +288,7 @@
       "label": "applyView()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L372",
+      "source_location": "L377",
       "_origin": "ast"
     },
     {
@@ -288,7 +296,7 @@
       "label": "renderBoard()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L381",
+      "source_location": "L386",
       "_origin": "ast"
     },
     {
@@ -296,7 +304,7 @@
       "label": "openDrawer()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L392",
+      "source_location": "L397",
       "_origin": "ast"
     },
     {
@@ -304,7 +312,7 @@
       "label": "closeDrawer()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L402",
+      "source_location": "L407",
       "_origin": "ast"
     },
     {
@@ -312,7 +320,7 @@
       "label": "metricLabel()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L408",
+      "source_location": "L413",
       "_origin": "ast"
     },
     {
@@ -320,7 +328,7 @@
       "label": "formatDecimal()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L425",
+      "source_location": "L430",
       "_origin": "ast"
     },
     {
@@ -328,7 +336,7 @@
       "label": "answerQuality()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L431",
+      "source_location": "L436",
       "_origin": "ast"
     },
     {
@@ -336,7 +344,7 @@
       "label": "qualityCalculation()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L465",
+      "source_location": "L470",
       "_origin": "ast"
     },
     {
@@ -344,7 +352,7 @@
       "label": "loadDetails()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L491",
+      "source_location": "L496",
       "_origin": "ast"
     },
     {
@@ -352,7 +360,7 @@
       "label": "showPerson()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L499",
+      "source_location": "L504",
       "_origin": "ast"
     },
     {
@@ -360,7 +368,7 @@
       "label": "showMethod()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L568",
+      "source_location": "L574",
       "_origin": "ast"
     },
     {
@@ -368,7 +376,7 @@
       "label": "auditSection()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L644",
+      "source_location": "L650",
       "_origin": "ast"
     },
     {
@@ -376,7 +384,7 @@
       "label": "showFioAudit()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L649",
+      "source_location": "L655",
       "_origin": "ast"
     },
     {
@@ -384,7 +392,7 @@
       "label": "bindEvents()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L661",
+      "source_location": "L667",
       "_origin": "ast"
     },
     {
@@ -392,7 +400,7 @@
       "label": "start()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L698",
+      "source_location": "L704",
       "_origin": "ast"
     },
     {
@@ -728,7 +736,7 @@
       "label": "build_payloads()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L678",
+      "source_location": "L679",
       "_origin": "ast"
     },
     {
@@ -736,7 +744,7 @@
       "label": "update()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L779",
+      "source_location": "L780",
       "_origin": "ast"
     },
     {
@@ -744,7 +752,7 @@
       "label": "parse_args()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L828",
+      "source_location": "L829",
       "_origin": "ast"
     },
     {
@@ -760,7 +768,7 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L839",
+      "source_location": "L840",
       "_origin": "ast"
     },
     {
@@ -1040,7 +1048,7 @@
       "label": ".test_name_normalization_handles_yo_and_punctuation()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L81",
+      "source_location": "L82",
       "_origin": "ast"
     },
     {
@@ -1048,7 +1056,7 @@
       "label": ".test_removes_hr_annotations_from_fio()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L84",
+      "source_location": "L85",
       "_origin": "ast"
     },
     {
@@ -1056,7 +1064,7 @@
       "label": ".test_couriers_are_excluded_from_dashboard()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L89",
+      "source_location": "L90",
       "_origin": "ast"
     },
     {
@@ -1064,7 +1072,7 @@
       "label": ".test_excluded_people_do_not_change_dashboard_totals()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L93",
+      "source_location": "L94",
       "_origin": "ast"
     },
     {
@@ -1072,7 +1080,7 @@
       "label": ".test_gap_quality_uses_documented_weighted_formula()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L119",
+      "source_location": "L120",
       "_origin": "ast"
     },
     {
@@ -1080,7 +1088,7 @@
       "label": ".test_extracts_exact_answer_rows_from_gap_table()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L135",
+      "source_location": "L136",
       "_origin": "ast"
     },
     {
@@ -1088,7 +1096,7 @@
       "label": ".test_refresh_uses_bitrix_identity_and_does_not_add_duplicate_fio()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L146",
+      "source_location": "L147",
       "_origin": "ast"
     },
     {
@@ -1096,7 +1104,7 @@
       "label": ".test_conflicting_bitrix_id_does_not_mix_different_people()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L163",
+      "source_location": "L164",
       "_origin": "ast"
     },
     {
@@ -1104,7 +1112,7 @@
       "label": ".test_two_bitrix_ids_for_same_fio_are_summed_without_losing_sessions()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L179",
+      "source_location": "L180",
       "_origin": "ast"
     },
     {
@@ -1112,7 +1120,7 @@
       "label": ".test_discovery_caches_sessions_and_ignored_documents()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L193",
+      "source_location": "L194",
       "_origin": "ast"
     },
     {
@@ -1120,7 +1128,7 @@
       "label": ".test_discovery_keeps_partial_gap_session_with_answers()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L226",
+      "source_location": "L227",
       "_origin": "ast"
     },
     {
@@ -1474,6 +1482,46 @@
       "source_file": "graphify-out/memory/query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы.md",
       "source_location": "L20",
       "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при",
+      "label": "query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при.md",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при.md",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при_q_почему_проценты_качества_сценариев_не_менялись_при_переключении_групп",
+      "label": "Q: Почему проценты качества сценариев не менялись при переключении групп?",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при.md",
+      "source_location": "L11",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при_answer",
+      "label": "Answer",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при.md",
+      "source_location": "L13",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при_outcome",
+      "label": "Outcome",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при.md",
+      "source_location": "L17",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при_source_nodes",
+      "label": "Source Nodes",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при.md",
+      "source_location": "L22",
+      "_origin": "ast"
     }
   ],
   "links": [
@@ -1799,7 +1847,7 @@
     },
     {
       "source": "assets_app",
-      "target": "assets_app_rendercoverage",
+      "target": "assets_app_sourcefilename",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
@@ -1809,11 +1857,21 @@
     },
     {
       "source": "assets_app",
+      "target": "assets_app_rendercoverage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L349",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app",
       "target": "assets_app_applyview",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L372",
+      "source_location": "L377",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1823,7 +1881,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L381",
+      "source_location": "L386",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1833,7 +1891,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L392",
+      "source_location": "L397",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1843,7 +1901,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L402",
+      "source_location": "L407",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1853,7 +1911,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L408",
+      "source_location": "L413",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1863,7 +1921,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L425",
+      "source_location": "L430",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1873,7 +1931,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L431",
+      "source_location": "L436",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1883,7 +1941,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L465",
+      "source_location": "L470",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1893,7 +1951,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L491",
+      "source_location": "L496",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1903,7 +1961,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L499",
+      "source_location": "L504",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1913,7 +1971,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L568",
+      "source_location": "L574",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1923,7 +1981,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L644",
+      "source_location": "L650",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1933,7 +1991,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L649",
+      "source_location": "L655",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1943,7 +2001,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L661",
+      "source_location": "L667",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1953,7 +2011,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L698",
+      "source_location": "L704",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2646,7 +2704,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L346",
+      "source_location": "L351",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2657,7 +2715,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L357",
+      "source_location": "L362",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2668,7 +2726,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L361",
+      "source_location": "L366",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2679,7 +2737,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L361",
+      "source_location": "L366",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2690,7 +2748,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L363",
+      "source_location": "L368",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2701,7 +2759,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L367",
+      "source_location": "L372",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2712,7 +2770,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L374",
+      "source_location": "L379",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2723,7 +2781,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L378",
+      "source_location": "L383",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2734,7 +2792,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L378",
+      "source_location": "L383",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2745,7 +2803,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L382",
+      "source_location": "L387",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2756,7 +2814,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L383",
+      "source_location": "L388",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2767,7 +2825,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L384",
+      "source_location": "L389",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2778,7 +2836,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L385",
+      "source_location": "L390",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2789,7 +2847,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L386",
+      "source_location": "L391",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2800,7 +2858,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L387",
+      "source_location": "L392",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2811,7 +2869,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L388",
+      "source_location": "L393",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2822,7 +2880,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L389",
+      "source_location": "L394",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2833,7 +2891,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L393",
+      "source_location": "L398",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2844,7 +2902,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L403",
+      "source_location": "L408",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2855,7 +2913,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L460",
+      "source_location": "L465",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2866,7 +2924,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L475",
+      "source_location": "L480",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2877,7 +2935,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L475",
+      "source_location": "L480",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2888,7 +2946,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L500",
+      "source_location": "L505",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2899,7 +2957,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L502",
+      "source_location": "L507",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2910,7 +2968,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L506",
+      "source_location": "L511",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2921,7 +2979,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L506",
+      "source_location": "L511",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2932,7 +2990,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L508",
+      "source_location": "L513",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2943,7 +3001,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L535",
+      "source_location": "L540",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2954,7 +3012,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L538",
+      "source_location": "L543",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2965,7 +3023,18 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L541",
+      "source_location": "L546",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_showperson",
+      "target": "assets_app_sourcefilename",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L547",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2976,7 +3045,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L562",
+      "source_location": "L568",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2987,7 +3056,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L573",
+      "source_location": "L579",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2998,7 +3067,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L574",
+      "source_location": "L580",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3009,7 +3078,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L576",
+      "source_location": "L582",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3020,7 +3089,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L583",
+      "source_location": "L589",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3031,7 +3100,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L645",
+      "source_location": "L651",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3042,7 +3111,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L646",
+      "source_location": "L652",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3053,7 +3122,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L652",
+      "source_location": "L658",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3064,7 +3133,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L658",
+      "source_location": "L664",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3075,7 +3144,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L658",
+      "source_location": "L664",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3086,7 +3155,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L662",
+      "source_location": "L668",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3097,7 +3166,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L672",
+      "source_location": "L678",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3108,7 +3177,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L679",
+      "source_location": "L685",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3119,7 +3188,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L681",
+      "source_location": "L687",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3130,7 +3199,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L685",
+      "source_location": "L691",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3141,7 +3210,7 @@
       "context": "argument",
       "confidence": "INFERRED",
       "source_file": "assets/app.js",
-      "source_location": "L691",
+      "source_location": "L697",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3152,7 +3221,7 @@
       "context": "argument",
       "confidence": "INFERRED",
       "source_file": "assets/app.js",
-      "source_location": "L692",
+      "source_location": "L698",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3163,7 +3232,7 @@
       "context": "argument",
       "confidence": "INFERRED",
       "source_file": "assets/app.js",
-      "source_location": "L693",
+      "source_location": "L699",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3174,7 +3243,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L695",
+      "source_location": "L701",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3185,7 +3254,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L704",
+      "source_location": "L710",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3196,7 +3265,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L705",
+      "source_location": "L711",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3207,7 +3276,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L706",
+      "source_location": "L712",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3218,7 +3287,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L710",
+      "source_location": "L716",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3229,7 +3298,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L711",
+      "source_location": "L717",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3240,7 +3309,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L713",
+      "source_location": "L719",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3927,7 +3996,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L678",
+      "source_location": "L679",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3938,7 +4007,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L678",
+      "source_location": "L679",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3948,7 +4017,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L779",
+      "source_location": "L780",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3959,7 +4028,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L779",
+      "source_location": "L780",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3969,7 +4038,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L828",
+      "source_location": "L829",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3980,7 +4049,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L828",
+      "source_location": "L829",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3990,7 +4059,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L839",
+      "source_location": "L840",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4529,7 +4598,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L683",
+      "source_location": "L684",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4540,7 +4609,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L691",
+      "source_location": "L692",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4551,7 +4620,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L709",
+      "source_location": "L710",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4562,7 +4631,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L712",
+      "source_location": "L713",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4573,7 +4642,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L790",
+      "source_location": "L791",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4584,7 +4653,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L791",
+      "source_location": "L792",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4595,7 +4664,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L795",
+      "source_location": "L796",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4606,7 +4675,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L796",
+      "source_location": "L797",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4617,7 +4686,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L799",
+      "source_location": "L800",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4628,7 +4697,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L801",
+      "source_location": "L802",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4639,7 +4708,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L840",
+      "source_location": "L841",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4650,7 +4719,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L842",
+      "source_location": "L843",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5124,7 +5193,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L81",
+      "source_location": "L82",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5134,7 +5203,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L84",
+      "source_location": "L85",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5144,7 +5213,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L89",
+      "source_location": "L90",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5154,7 +5223,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L93",
+      "source_location": "L94",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5164,7 +5233,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L119",
+      "source_location": "L120",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5174,7 +5243,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L135",
+      "source_location": "L136",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5184,7 +5253,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L146",
+      "source_location": "L147",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5194,7 +5263,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L163",
+      "source_location": "L164",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5204,7 +5273,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L179",
+      "source_location": "L180",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5214,7 +5283,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L193",
+      "source_location": "L194",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5224,7 +5293,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L226",
+      "source_location": "L227",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5246,7 +5315,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L99",
+      "source_location": "L100",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5257,7 +5326,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L152",
+      "source_location": "L153",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5268,7 +5337,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L169",
+      "source_location": "L170",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5279,7 +5348,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L184",
+      "source_location": "L185",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5644,6 +5713,46 @@
       "_origin": "ast"
     },
     {
+      "source": "graphify_out_memory_query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при",
+      "target": "graphify_out_memory_query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при_q_почему_проценты_качества_сценариев_не_менялись_при_переключении_групп",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при_q_почему_проценты_качества_сценариев_не_менялись_при_переключении_групп",
+      "target": "graphify_out_memory_query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при_answer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при_q_почему_проценты_качества_сценариев_не_менялись_при_переключении_групп",
+      "target": "graphify_out_memory_query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при_outcome",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при_q_почему_проценты_качества_сценариев_не_менялись_при_переключении_групп",
+      "target": "graphify_out_memory_query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при_source_nodes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_095245_почему_проценты_качества_сценариев_не_менялись_при.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "tests_test_update_site_updatesitetests",
       "target": "scripts_update_site_session",
       "relation": "uses",
@@ -5721,7 +5830,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L82",
+      "source_location": "L83",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5733,7 +5842,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L85",
+      "source_location": "L86",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5745,7 +5854,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L90",
+      "source_location": "L91",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5757,7 +5866,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L103",
+      "source_location": "L104",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5769,7 +5878,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L112",
+      "source_location": "L113",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5781,7 +5890,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L129",
+      "source_location": "L130",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5793,7 +5902,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L142",
+      "source_location": "L143",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5805,7 +5914,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L156",
+      "source_location": "L157",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5817,7 +5926,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L173",
+      "source_location": "L174",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5829,7 +5938,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L188",
+      "source_location": "L189",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5841,7 +5950,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L194",
+      "source_location": "L195",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5853,7 +5962,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L216",
+      "source_location": "L217",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5865,7 +5974,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L227",
+      "source_location": "L228",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5877,7 +5986,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L253",
+      "source_location": "L254",
       "weight": 1.0,
       "_origin": "ast"
     }

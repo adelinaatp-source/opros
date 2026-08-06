@@ -1,17 +1,17 @@
 {
   "schema_version": 2,
-  "snapshot": "06.08.2026 в 13:22 (Екб)",
+  "snapshot": "06.08.2026 в 14:47 (Екб)",
   "summary": {
     "people": 387,
-    "passed_people": 275,
-    "not_passed_people": 112,
-    "sessions": 898,
-    "partial_sessions": 114,
+    "passed_people": 276,
+    "not_passed_people": 111,
+    "sessions": 919,
+    "partial_sessions": 116,
     "quality": {
-      "average": 57.9,
-      "high": 89,
-      "medium": 612,
-      "low": 197,
+      "average": 58.1,
+      "high": 92,
+      "medium": 627,
+      "low": 200,
       "unknown": 0
     },
     "fio_issues": 36,
@@ -31,13 +31,13 @@
       "tag": "Процесс",
       "name": "Основной опрос по процессу",
       "metric": "Уверенность описания",
-      "sessions": 360,
+      "sessions": 371,
       "partial_sessions": 0,
       "quality": {
         "average": 62.6,
-        "high": 14,
-        "medium": 320,
-        "low": 26,
+        "high": 15,
+        "medium": 329,
+        "low": 27,
         "unknown": 0
       },
       "partial_quality": {
@@ -52,20 +52,20 @@
       "tag": "Уточнение",
       "name": "Доопрос",
       "metric": "Индекс полноты ответов",
-      "sessions": 298,
-      "partial_sessions": 114,
+      "sessions": 299,
+      "partial_sessions": 116,
       "quality": {
-        "average": 48.5,
+        "average": 48.6,
         "high": 16,
-        "medium": 154,
+        "medium": 155,
         "low": 128,
         "unknown": 0
       },
       "partial_quality": {
-        "average": 35.8,
+        "average": 35.5,
         "high": 3,
         "medium": 43,
-        "low": 64,
+        "low": 66,
         "unknown": 4
       }
     },
@@ -73,13 +73,13 @@
       "tag": "Рабочий день",
       "name": "Фото рабочего дня",
       "metric": "Полнота карты дня",
-      "sessions": 240,
+      "sessions": 249,
       "partial_sessions": 0,
       "quality": {
-        "average": 62.5,
-        "high": 59,
-        "medium": 138,
-        "low": 43,
+        "average": 62.7,
+        "high": 61,
+        "medium": 143,
+        "low": 45,
         "unknown": 0
       },
       "partial_quality": {
@@ -386,10 +386,10 @@
       "u": "Коммерческое управление",
       "t": "T2",
       "s1": 2,
-      "s2": 3,
+      "s2": 4,
       "s3": 1,
-      "vs": 6,
-      "last": "2026-08-06T04:18:56+00:00",
+      "vs": 7,
+      "last": "2026-08-06T09:36:48+00:00",
       "partial_sessions": 0,
       "partial_quality": {
         "average": null,
@@ -400,17 +400,17 @@
       },
       "name_check": "exact",
       "quality": {
-        "average": 55.6,
+        "average": 57.0,
         "high": 1,
-        "medium": 3,
+        "medium": 4,
         "low": 2,
         "unknown": 0
       },
       "scenario_quality": {
         "s2": {
-          "average": 46.1,
+          "average": 51.0,
           "high": 0,
-          "medium": 1,
+          "medium": 2,
           "low": 2,
           "unknown": 0
         },
@@ -1074,11 +1074,11 @@
       "o": "Товароведы",
       "u": "Коммерческое управление",
       "t": "T1",
-      "s1": 0,
+      "s1": 1,
       "s2": 0,
       "s3": 0,
-      "vs": 0,
-      "last": "",
+      "vs": 1,
+      "last": "2026-08-06T08:37:02+00:00",
       "partial_sessions": 0,
       "partial_quality": {
         "average": null,
@@ -1087,15 +1087,23 @@
         "low": 0,
         "unknown": 0
       },
-      "name_check": "not_in_source",
+      "name_check": "exact",
       "quality": {
-        "average": null,
+        "average": 68.0,
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0,
         "unknown": 0
       },
-      "scenario_quality": {},
+      "scenario_quality": {
+        "s1": {
+          "average": 68.0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "unknown": 0
+        }
+      },
       "excluded_reason": ""
     },
     {
@@ -1138,9 +1146,9 @@
       "t": "T1",
       "s1": 1,
       "s2": 0,
-      "s3": 0,
-      "vs": 1,
-      "last": "2026-08-05T10:01:22+00:00",
+      "s3": 1,
+      "vs": 2,
+      "last": "2026-08-06T09:06:17+00:00",
       "partial_sessions": 1,
       "partial_quality": {
         "average": 66.7,
@@ -1151,15 +1159,22 @@
       },
       "name_check": "exact",
       "quality": {
-        "average": 62.0,
+        "average": 63.5,
         "high": 0,
-        "medium": 1,
+        "medium": 2,
         "low": 0,
         "unknown": 0
       },
       "scenario_quality": {
         "s1": {
           "average": 62.0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "unknown": 0
+        },
+        "s3": {
+          "average": 65.0,
           "high": 0,
           "medium": 1,
           "low": 0,
@@ -1495,11 +1510,11 @@
       "o": "Планово-экономический отдел",
       "u": "Финансовое управление",
       "t": "T2",
-      "s1": 1,
+      "s1": 2,
       "s2": 1,
       "s3": 1,
-      "vs": 3,
-      "last": "2026-08-05T12:15:14+00:00",
+      "vs": 4,
+      "last": "2026-08-06T08:40:13+00:00",
       "partial_sessions": 1,
       "partial_quality": {
         "average": 33.3,
@@ -1510,9 +1525,9 @@
       },
       "name_check": "exact",
       "quality": {
-        "average": 53.7,
+        "average": 55.8,
         "high": 0,
-        "medium": 2,
+        "medium": 3,
         "low": 1,
         "unknown": 0
       },
@@ -1534,7 +1549,7 @@
         "s1": {
           "average": 62.0,
           "high": 0,
-          "medium": 1,
+          "medium": 2,
           "low": 0,
           "unknown": 0
         }
@@ -4298,9 +4313,9 @@
       "t": "T2",
       "s1": 1,
       "s2": 1,
-      "s3": 0,
-      "vs": 2,
-      "last": "2026-08-06T07:45:56+00:00",
+      "s3": 1,
+      "vs": 3,
+      "last": "2026-08-06T09:20:07+00:00",
       "partial_sessions": 0,
       "partial_quality": {
         "average": null,
@@ -4311,9 +4326,9 @@
       },
       "name_check": "exact",
       "quality": {
-        "average": 73.5,
+        "average": 73.0,
         "high": 1,
-        "medium": 1,
+        "medium": 2,
         "low": 0,
         "unknown": 0
       },
@@ -4326,6 +4341,13 @@
           "unknown": 0
         },
         "s1": {
+          "average": 72.0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "unknown": 0
+        },
+        "s3": {
           "average": 72.0,
           "high": 0,
           "medium": 1,
@@ -4587,11 +4609,11 @@
       "o": "Товароведы",
       "u": "Коммерческое управление",
       "t": "T1",
-      "s1": 0,
+      "s1": 1,
       "s2": 1,
-      "s3": 0,
-      "vs": 1,
-      "last": "2026-08-06T05:54:21+00:00",
+      "s3": 1,
+      "vs": 3,
+      "last": "2026-08-06T09:41:52+00:00",
       "partial_sessions": 0,
       "partial_quality": {
         "average": null,
@@ -4602,15 +4624,29 @@
       },
       "name_check": "exact",
       "quality": {
-        "average": 50.0,
+        "average": 60.7,
         "high": 0,
-        "medium": 1,
+        "medium": 3,
         "low": 0,
         "unknown": 0
       },
       "scenario_quality": {
         "s2": {
           "average": 50.0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "unknown": 0
+        },
+        "s1": {
+          "average": 62.0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "unknown": 0
+        },
+        "s3": {
+          "average": 70.0,
           "high": 0,
           "medium": 1,
           "low": 0,
@@ -4672,11 +4708,11 @@
       "o": "Отдел технической поддержки",
       "u": "Управление цифрового развития",
       "t": "T2",
-      "s1": 1,
+      "s1": 2,
       "s2": 1,
       "s3": 1,
-      "vs": 3,
-      "last": "2026-08-05T08:00:17+00:00",
+      "vs": 4,
+      "last": "2026-08-06T08:48:08+00:00",
       "partial_sessions": 0,
       "partial_quality": {
         "average": null,
@@ -4687,9 +4723,9 @@
       },
       "name_check": "exact",
       "quality": {
-        "average": 59.7,
+        "average": 61.3,
         "high": 0,
-        "medium": 3,
+        "medium": 4,
         "low": 0,
         "unknown": 0
       },
@@ -4702,9 +4738,9 @@
           "unknown": 0
         },
         "s1": {
-          "average": 58.0,
+          "average": 62.0,
           "high": 0,
-          "medium": 1,
+          "medium": 2,
           "low": 0,
           "unknown": 0
         },
@@ -7425,9 +7461,9 @@
       "t": "T1",
       "s1": 3,
       "s2": 1,
-      "s3": 0,
-      "vs": 4,
-      "last": "2026-08-05T07:09:20+00:00",
+      "s3": 1,
+      "vs": 5,
+      "last": "2026-08-06T09:26:36+00:00",
       "partial_sessions": 0,
       "partial_quality": {
         "average": null,
@@ -7438,8 +7474,8 @@
       },
       "name_check": "exact",
       "quality": {
-        "average": 61.6,
-        "high": 0,
+        "average": 64.9,
+        "high": 1,
         "medium": 4,
         "low": 0,
         "unknown": 0
@@ -7458,6 +7494,13 @@
           "medium": 1,
           "low": 0,
           "unknown": 0
+        },
+        "s3": {
+          "average": 78.0,
+          "high": 1,
+          "medium": 0,
+          "low": 0,
+          "unknown": 0
         }
       },
       "excluded_reason": ""
@@ -7469,11 +7512,11 @@
       "o": "Товароведы",
       "u": "Коммерческое управление",
       "t": "T1",
-      "s1": 0,
+      "s1": 1,
       "s2": 1,
-      "s3": 0,
-      "vs": 1,
-      "last": "2026-08-06T08:22:05+00:00",
+      "s3": 1,
+      "vs": 3,
+      "last": "2026-08-06T09:47:38+00:00",
       "partial_sessions": 0,
       "partial_quality": {
         "average": null,
@@ -7484,9 +7527,9 @@
       },
       "name_check": "exact",
       "quality": {
-        "average": 50.0,
-        "high": 0,
-        "medium": 1,
+        "average": 64.7,
+        "high": 1,
+        "medium": 2,
         "low": 0,
         "unknown": 0
       },
@@ -7495,6 +7538,20 @@
           "average": 50.0,
           "high": 0,
           "medium": 1,
+          "low": 0,
+          "unknown": 0
+        },
+        "s3": {
+          "average": 68.0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "unknown": 0
+        },
+        "s1": {
+          "average": 76.0,
+          "high": 1,
+          "medium": 0,
           "low": 0,
           "unknown": 0
         }
@@ -9278,16 +9335,16 @@
       "s2": 0,
       "s3": 0,
       "vs": 0,
-      "last": "",
-      "partial_sessions": 0,
+      "last": "2026-08-06T09:32:40+00:00",
+      "partial_sessions": 1,
       "partial_quality": {
-        "average": null,
+        "average": 16.7,
         "high": 0,
         "medium": 0,
-        "low": 0,
+        "low": 1,
         "unknown": 0
       },
-      "name_check": "not_in_source",
+      "name_check": "exact",
       "quality": {
         "average": null,
         "high": 0,
@@ -10110,11 +10167,11 @@
       "o": "Товароведы",
       "u": "Коммерческое управление",
       "t": "T1",
-      "s1": 0,
+      "s1": 1,
       "s2": 1,
       "s3": 1,
-      "vs": 2,
-      "last": "2026-08-05T08:27:15+00:00",
+      "vs": 3,
+      "last": "2026-08-06T09:24:01+00:00",
       "partial_sessions": 0,
       "partial_quality": {
         "average": null,
@@ -10125,9 +10182,9 @@
       },
       "name_check": "exact",
       "quality": {
-        "average": 61.5,
+        "average": 63.7,
         "high": 0,
-        "medium": 2,
+        "medium": 3,
         "low": 0,
         "unknown": 0
       },
@@ -10141,6 +10198,13 @@
         },
         "s3": {
           "average": 70.0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "unknown": 0
+        },
+        "s1": {
+          "average": 68.0,
           "high": 0,
           "medium": 1,
           "low": 0,
@@ -10272,24 +10336,24 @@
       "o": "Супервайзеры",
       "u": "Коммерческое управление",
       "t": "T2",
-      "s1": 1,
+      "s1": 2,
       "s2": 1,
       "s3": 1,
-      "vs": 3,
-      "last": "2026-08-05T13:43:53+00:00",
-      "partial_sessions": 0,
+      "vs": 4,
+      "last": "2026-08-06T09:37:12+00:00",
+      "partial_sessions": 1,
       "partial_quality": {
-        "average": null,
+        "average": 30.0,
         "high": 0,
         "medium": 0,
-        "low": 0,
+        "low": 1,
         "unknown": 0
       },
       "name_check": "exact",
       "quality": {
-        "average": 58.3,
+        "average": 57.5,
         "high": 0,
-        "medium": 3,
+        "medium": 4,
         "low": 0,
         "unknown": 0
       },
@@ -10302,9 +10366,9 @@
           "unknown": 0
         },
         "s1": {
-          "average": 62.0,
+          "average": 58.5,
           "high": 0,
-          "medium": 1,
+          "medium": 2,
           "low": 0,
           "unknown": 0
         },
@@ -10845,11 +10909,11 @@
       "o": "Товароведы",
       "u": "Коммерческое управление",
       "t": "T1",
-      "s1": 0,
+      "s1": 1,
       "s2": 1,
       "s3": 0,
-      "vs": 1,
-      "last": "2026-08-05T08:55:45+00:00",
+      "vs": 2,
+      "last": "2026-08-06T09:16:55+00:00",
       "partial_sessions": 0,
       "partial_quality": {
         "average": null,
@@ -10860,15 +10924,22 @@
       },
       "name_check": "exact",
       "quality": {
-        "average": 50.0,
+        "average": 59.0,
         "high": 0,
-        "medium": 1,
+        "medium": 2,
         "low": 0,
         "unknown": 0
       },
       "scenario_quality": {
         "s2": {
           "average": 50.0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "unknown": 0
+        },
+        "s1": {
+          "average": 68.0,
           "high": 0,
           "medium": 1,
           "low": 0,
@@ -11583,9 +11654,9 @@
       "t": "T1",
       "s1": 1,
       "s2": 1,
-      "s3": 0,
-      "vs": 2,
-      "last": "2026-08-06T06:18:27+00:00",
+      "s3": 1,
+      "vs": 3,
+      "last": "2026-08-06T08:33:29+00:00",
       "partial_sessions": 0,
       "partial_quality": {
         "average": null,
@@ -11596,8 +11667,8 @@
       },
       "name_check": "exact",
       "quality": {
-        "average": 51.9,
-        "high": 0,
+        "average": 61.9,
+        "high": 1,
         "medium": 1,
         "low": 1,
         "unknown": 0
@@ -11614,6 +11685,13 @@
           "average": 62.0,
           "high": 0,
           "medium": 1,
+          "low": 0,
+          "unknown": 0
+        },
+        "s3": {
+          "average": 82.0,
+          "high": 1,
+          "medium": 0,
           "low": 0,
           "unknown": 0
         }
@@ -12491,11 +12569,11 @@
       "o": "Товароведы",
       "u": "Коммерческое управление",
       "t": "T1",
-      "s1": 0,
+      "s1": 1,
       "s2": 1,
-      "s3": 0,
-      "vs": 1,
-      "last": "2026-08-06T06:33:16+00:00",
+      "s3": 1,
+      "vs": 3,
+      "last": "2026-08-06T09:43:21+00:00",
       "partial_sessions": 0,
       "partial_quality": {
         "average": null,
@@ -12506,15 +12584,29 @@
       },
       "name_check": "exact",
       "quality": {
-        "average": 46.9,
+        "average": 45.6,
         "high": 0,
         "medium": 0,
-        "low": 1,
+        "low": 3,
         "unknown": 0
       },
       "scenario_quality": {
         "s2": {
           "average": 46.9,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "unknown": 0
+        },
+        "s1": {
+          "average": 45.0,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "unknown": 0
+        },
+        "s3": {
+          "average": 45.0,
           "high": 0,
           "medium": 0,
           "low": 1,
@@ -16049,11 +16141,11 @@
       "o": "Товароведы",
       "u": "Коммерческое управление",
       "t": "T1",
-      "s1": 0,
+      "s1": 1,
       "s2": 1,
       "s3": 0,
-      "vs": 1,
-      "last": "2026-08-06T08:10:49+00:00",
+      "vs": 2,
+      "last": "2026-08-06T09:38:50+00:00",
       "partial_sessions": 0,
       "partial_quality": {
         "average": null,
@@ -16064,15 +16156,22 @@
       },
       "name_check": "exact",
       "quality": {
-        "average": 63.6,
+        "average": 65.8,
         "high": 0,
-        "medium": 1,
+        "medium": 2,
         "low": 0,
         "unknown": 0
       },
       "scenario_quality": {
         "s2": {
           "average": 63.6,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "unknown": 0
+        },
+        "s1": {
+          "average": 68.0,
           "high": 0,
           "medium": 1,
           "low": 0,
@@ -16834,9 +16933,9 @@
       "t": "T1",
       "s1": 1,
       "s2": 1,
-      "s3": 0,
-      "vs": 2,
-      "last": "2026-08-06T08:04:19+00:00",
+      "s3": 1,
+      "vs": 3,
+      "last": "2026-08-06T08:46:02+00:00",
       "partial_sessions": 0,
       "partial_quality": {
         "average": null,
@@ -16847,9 +16946,9 @@
       },
       "name_check": "exact",
       "quality": {
-        "average": 47.0,
+        "average": 54.7,
         "high": 0,
-        "medium": 1,
+        "medium": 2,
         "low": 1,
         "unknown": 0
       },
@@ -16863,6 +16962,13 @@
         },
         "s1": {
           "average": 62.0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "unknown": 0
+        },
+        "s3": {
+          "average": 70.0,
           "high": 0,
           "medium": 1,
           "low": 0,
@@ -18728,11 +18834,11 @@
       "o": "Товароведы",
       "u": "Коммерческое управление",
       "t": "T1",
-      "s1": 0,
+      "s1": 1,
       "s2": 1,
-      "s3": 0,
-      "vs": 1,
-      "last": "2026-08-06T06:52:26+00:00",
+      "s3": 1,
+      "vs": 3,
+      "last": "2026-08-06T09:31:56+00:00",
       "partial_sessions": 0,
       "partial_quality": {
         "average": null,
@@ -18743,15 +18849,29 @@
       },
       "name_check": "exact",
       "quality": {
-        "average": 56.8,
+        "average": 54.6,
         "high": 0,
-        "medium": 1,
-        "low": 0,
+        "medium": 2,
+        "low": 1,
         "unknown": 0
       },
       "scenario_quality": {
         "s2": {
           "average": 56.8,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "unknown": 0
+        },
+        "s3": {
+          "average": 45.0,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "unknown": 0
+        },
+        "s1": {
+          "average": 62.0,
           "high": 0,
           "medium": 1,
           "low": 0,
