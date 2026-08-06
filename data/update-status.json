@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "snapshot": "06.08.2026 в 11:27 (Екб)",
+  "source": "KB-ARM-survey (read-only)",
+  "source_files": 983,
+  "unique_sessions": 869,
+  "sessions_by_scenario": {
+    "s1": 348,
+    "s2": 286,
+    "s3": 235
+  },
+  "ignored_files": 114,
+  "duplicate_sessions": 0,
+  "malformed_files": [],
+  "fio": {
+    "match_types": {
+      "exact": 240,
+      "duplicate_exact": 28,
+      "family": 1
+    },
+    "issue_count": 37
+  }
+}

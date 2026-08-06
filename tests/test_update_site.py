@@ -1,4 +1,3 @@
-import json
 import sys
 import tempfile
 import unittest
@@ -9,92 +8,145 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
 from update_site import (  # noqa: E402
     Session,
-    assert_filter_contract,
+    analyze_document,
+    clean_person_name,
     discover_sessions,
+    extract_answers,
     normalize_name,
     refresh_roster,
-    render_html,
 )
+
+
+def session(field: str, session_id: str, name: str, person_id: str = "42") -> Session:
+    return Session(
+        scenario_field=field,
+        session_id=session_id,
+        person_id=person_id,
+        name=name,
+        role="Аналитик",
+        department="Отдел",
+        created_at=datetime(2026, 8, 6, tzinfo=timezone.utc),
+        source_file=Path(f"{session_id}.md"),
+        score=80.0,
+        quality="high",
+    )
 
 
 class UpdateSiteTests(unittest.TestCase):
     def test_name_normalization_handles_yo_and_punctuation(self):
         self.assertEqual(normalize_name(" Белозёрова-Светлана "), "белозерова светлана")
 
-    def test_refresh_deduplicates_short_roster_card_by_family(self):
+    def test_removes_hr_annotations_from_fio(self):
+        self.assertEqual(clean_person_name("Ахметьянова Евгения в отпуске до Семеновна"), "Ахметьянова Евгения Семеновна")
+        self.assertEqual(clean_person_name("Ахметшина Эльвира Отпуск с Фуатовна"), "Ахметшина Эльвира Фуатовна")
+        self.assertEqual(clean_person_name("Гадельшин Вильданотпуск Ильвирович"), "Гадельшин Вильдан Ильвирович")
+
+    def test_gap_quality_uses_documented_weighted_formula(self):
+        meta = {
+            "questions_asked": "10",
+            "questions_closed": "2",
+            "questions_closed_soft": "4",
+            "questions_partial": "2",
+            "questions_reassigned": "1",
+            "questions_open": "1",
+            "questions_grounded": "6",
+        }
+        result = analyze_document(meta, "# Доопрос", "s2")
+
+        self.assertEqual(result["score"], 60.0)
+        self.assertEqual(result["quality"], "medium")
+        self.assertEqual(dict(result["metrics"])["grounded"], 6)
+
+    def test_extracts_exact_answer_rows_from_gap_table(self):
+        body = """# Протокол
+## 2. Реестр решений
+| ID вопроса | Формулировка | Ответ (конкретика) | Статус |
+|---|---|---|---|
+| GAP-01 | Кто согласует? | Руководитель отдела. | closed |
+"""
+        answers = extract_answers(body, "s2")
+
+        self.assertEqual(answers, (("Кто согласует?", "Руководитель отдела.", "closed"),))
+
+    def test_refresh_uses_bitrix_identity_and_does_not_add_duplicate_fio(self):
         roster = [
-            {"f": "Багрова Виктория Сергеевнв", "d": "Товаровед", "o": "Товароведы", "u": "Коммерческое", "s1": 9, "s2": 9, "s3": 9, "vs": 27, "last": "old"},
-            {"f": "Иванов Иван Иванович", "d": "", "o": "Отдел", "u": "Управление", "s1": 1, "s2": 0, "s3": 0, "vs": 1, "last": "old"},
+            {"f": "Иванов Иван Иванович", "d": "", "o": "Отдел", "u": "Управление", "t": "T1"},
+            {"f": "Иванов Иван Иванович", "d": "Аналитик", "o": "Отдел", "u": "Управление", "t": "T1"},
         ]
         sessions = [
-            Session("s1", "one", "Багрова Виктория Сергеевна", "", "Товароведы", datetime(2026, 8, 6, tzinfo=timezone.utc), Path("one.md")),
-            Session("s3", "two", "Багрова Виктория Сергеевна", "", "Товароведы", datetime(2026, 8, 6, 1, tzinfo=timezone.utc), Path("two.md")),
-            Session("s2", "three", "Багрова Виктория", "", "Товароведы", datetime(2026, 8, 6, 2, tzinfo=timezone.utc), Path("three.md")),
+            session("s1", "one", "Иванов Иван Иванович"),
+            session("s2", "two", "Иванов Иван Иванович"),
         ]
 
         refreshed, diagnostics = refresh_roster(roster, sessions)
 
         self.assertEqual(len(refreshed), 2)
-        self.assertEqual((refreshed[0]["s1"], refreshed[0]["s2"], refreshed[0]["s3"]), (1, 1, 1))
-        self.assertEqual(refreshed[0]["vs"], 3)
-        self.assertEqual(refreshed[1]["vs"], 0)
+        self.assertEqual(diagnostics["match_types"], {"duplicate_exact": 1})
         self.assertEqual(diagnostics["new_people"], [])
+        self.assertEqual(sum(row["vs"] for row in refreshed), 2)
 
-    def test_discovery_deduplicates_process_documents_by_session(self):
-        temp_root = Path(__file__).resolve().parents[1] / "temp"
-        temp_root.mkdir(exist_ok=True)
-        with tempfile.TemporaryDirectory(dir=temp_root) as temp:
+    def test_conflicting_bitrix_id_does_not_mix_different_people(self):
+        roster = [
+            {"f": "Иванов Иван Иванович", "d": "", "o": "Отдел", "u": "Управление", "t": "T1"},
+            {"f": "Петров Пётр Петрович", "d": "", "o": "Отдел", "u": "Управление", "t": "T1"},
+        ]
+        sessions = [
+            session("s1", "one", "Иванов Иван Иванович", person_id="598"),
+            session("s2", "two", "Петров Пётр Петрович", person_id="598"),
+        ]
+
+        refreshed, diagnostics = refresh_roster(roster, sessions)
+
+        self.assertEqual(diagnostics["people_in_source"], 2)
+        self.assertEqual((refreshed[0]["s1"], refreshed[0]["s2"]), (1, 0))
+        self.assertEqual((refreshed[1]["s1"], refreshed[1]["s2"]), (0, 1))
+
+    def test_two_bitrix_ids_for_same_fio_are_summed_without_losing_sessions(self):
+        roster = [
+            {"f": "Иванов Иван Иванович", "d": "", "o": "Отдел", "u": "Управление", "t": "T1"},
+        ]
+        sessions = [
+            session("s1", "one", "Иванов Иван Иванович", person_id="42"),
+            session("s2", "two", "Иванов Иван Иванович", person_id="43"),
+        ]
+
+        refreshed, diagnostics = refresh_roster(roster, sessions)
+
+        self.assertEqual(diagnostics["people_in_source"], 2)
+        self.assertEqual((refreshed[0]["s1"], refreshed[0]["s2"], refreshed[0]["vs"]), (1, 1, 2))
+
+    def test_discovery_caches_sessions_and_ignored_documents(self):
+        project_temp = Path(__file__).resolve().parents[1] / "temp"
+        project_temp.mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=project_temp) as temp:
             root = Path(temp)
-            folder = root / "общие" / "01A-методология"
-            folder.mkdir(parents=True)
-            frontmatter = """---
+            completed = root / "completed.md"
+            completed.write_text(
+                """---
 owner: "Иванов Иван Иванович, Аналитик, Отдел"
+owner_bitrix_id: 42
 scenario: process_survey
 session_id: session-1
 created_at: 2026-08-06T03:00:00Z
+confidence: 0.8
 ---
 # Документ
-"""
-            (folder / "one.md").write_text(frontmatter, encoding="utf-8")
-            (folder / "two.md").write_text(frontmatter, encoding="utf-8")
-
-            index_path = root / "source-index.json"
-            sessions, diagnostics = discover_sessions(root, index_path=index_path)
-            cached_sessions, cached_diagnostics = discover_sessions(root, index_path=index_path)
-            (folder / "two.md").write_text(
-                frontmatter.replace("session-1", "session-2") + "# Изменено\n",
+""",
                 encoding="utf-8",
             )
-            updated_sessions, updated_diagnostics = discover_sessions(root, index_path=index_path)
+            ignored = root / "ignored.md"
+            ignored.write_text("# Обычная заметка\n", encoding="utf-8")
+            index_path = root / "source-index.json"
+
+            sessions, first = discover_sessions(root, index_path=index_path)
+            cached_sessions, second = discover_sessions(root, index_path=index_path)
 
         self.assertEqual(len(sessions), 1)
         self.assertEqual(sessions, cached_sessions)
-        self.assertEqual(diagnostics["duplicate_sessions"], 1)
-        self.assertEqual(diagnostics["sessions_by_scenario"], {"s1": 1})
-        self.assertEqual(diagnostics["index_misses"], 2)
-        self.assertEqual(cached_diagnostics["index_hits"], 2)
-        self.assertEqual(cached_diagnostics["index_misses"], 0)
-        self.assertEqual(len(updated_sessions), 2)
-        self.assertEqual(updated_diagnostics["index_hits"], 1)
-        self.assertEqual(updated_diagnostics["index_misses"], 1)
-
-    def test_render_changes_only_data_block_and_snapshot(self):
-        roster = [{"f": "Иванов Иван", "s1": 1, "s2": 0, "s3": 0, "vs": 1, "last": ""}]
-        original = """<button id="tabs"></button>
-<div id="segFilter"><button data-f="all"></button><button data-f="none"></button><button data-f="pass"></button><button data-f="cov"></button></div>
-<select id="selUnit"></select><input id="search">
-<script>
-const _ALL = []
-;
-const SNAPSHOT = "старый";
-let rFilter="all", rQuery="", rUnit="", rSort={};
-</script>"""
-
-        rendered = render_html(original, roster, "06.08.2026 в 08:50 (Екб)")
-        assert_filter_contract(original, rendered)
-
-        self.assertIn(json.dumps(roster, ensure_ascii=False, separators=(",", ":")), rendered)
-        self.assertIn('const SNAPSHOT = "06.08.2026 в 08:50 (Екб)";', rendered)
+        self.assertEqual(first["index_misses"], 2)
+        self.assertEqual(first["ignored_files"], 1)
+        self.assertEqual(second["index_hits"], 2)
+        self.assertEqual(second["index_misses"], 0)
 
 
 if __name__ == "__main__":
