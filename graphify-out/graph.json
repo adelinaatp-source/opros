@@ -356,6 +356,78 @@
       "_origin": "ast"
     },
     {
+      "id": "improvements",
+      "label": "IMPROVEMENTS.md",
+      "file_type": "document",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "improvements_улучшения_проекта_обновления_отчёта",
+      "label": "Улучшения проекта обновления отчёта",
+      "file_type": "document",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "improvements_уже_реализовано",
+      "label": "Уже реализовано",
+      "file_type": "document",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L3",
+      "_origin": "ast"
+    },
+    {
+      "id": "improvements_обязательные_ближайшие_улучшения",
+      "label": "Обязательные ближайшие улучшения",
+      "file_type": "document",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L18",
+      "_origin": "ast"
+    },
+    {
+      "id": "improvements_надёжность_и_наблюдаемость",
+      "label": "Надёжность и наблюдаемость",
+      "file_type": "document",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L25",
+      "_origin": "ast"
+    },
+    {
+      "id": "improvements_качество_данных",
+      "label": "Качество данных",
+      "file_type": "document",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L36",
+      "_origin": "ast"
+    },
+    {
+      "id": "improvements_производительность",
+      "label": "Производительность",
+      "file_type": "document",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L45",
+      "_origin": "ast"
+    },
+    {
+      "id": "improvements_безопасность_сопровождения",
+      "label": "Безопасность сопровождения",
+      "file_type": "document",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L52",
+      "_origin": "ast"
+    },
+    {
+      "id": "improvements_предлагаемый_порядок",
+      "label": "Предлагаемый порядок",
+      "file_type": "document",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L59",
+      "_origin": "ast"
+    },
+    {
       "id": "readme",
       "label": "README.md",
       "file_type": "document",
@@ -1454,6 +1526,86 @@
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
       "source_location": "L81",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "improvements",
+      "target": "improvements_улучшения_проекта_обновления_отчёта",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "improvements_улучшения_проекта_обновления_отчёта",
+      "target": "improvements_уже_реализовано",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "improvements_улучшения_проекта_обновления_отчёта",
+      "target": "improvements_обязательные_ближайшие_улучшения",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "improvements_улучшения_проекта_обновления_отчёта",
+      "target": "improvements_надёжность_и_наблюдаемость",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "improvements_улучшения_проекта_обновления_отчёта",
+      "target": "improvements_качество_данных",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "improvements_улучшения_проекта_обновления_отчёта",
+      "target": "improvements_производительность",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "improvements_улучшения_проекта_обновления_отчёта",
+      "target": "improvements_безопасность_сопровождения",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "improvements_улучшения_проекта_обновления_отчёта",
+      "target": "improvements_предлагаемый_порядок",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "IMPROVEMENTS.md",
+      "source_location": "L59",
       "weight": 1.0,
       "_origin": "ast"
     },
