@@ -9,9 +9,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from update_site import (  # noqa: E402
     Session,
     analyze_document,
+    build_payloads,
     clean_person_name,
     discover_sessions,
     extract_answers,
+    is_excluded,
     normalize_name,
     refresh_roster,
 )
@@ -40,6 +42,36 @@ class UpdateSiteTests(unittest.TestCase):
         self.assertEqual(clean_person_name("Ахметьянова Евгения в отпуске до Семеновна"), "Ахметьянова Евгения Семеновна")
         self.assertEqual(clean_person_name("Ахметшина Эльвира Отпуск с Фуатовна"), "Ахметшина Эльвира Фуатовна")
         self.assertEqual(clean_person_name("Гадельшин Вильданотпуск Ильвирович"), "Гадельшин Вильдан Ильвирович")
+
+    def test_couriers_are_excluded_from_dashboard(self):
+        self.assertEqual(is_excluded({"f": "Иванов Иван", "d": "Курьер", "o": "Отдел"}), "курьер")
+        self.assertEqual(is_excluded({"f": "Иванов Иван", "d": "Аналитик", "o": "Отдел"}), "")
+
+    def test_excluded_people_do_not_change_dashboard_totals(self):
+        roster = [
+            {"f": "Курьеров Кирилл Кириллович", "d": "Курьер", "o": "Отдел", "u": "Управление", "t": "T1"},
+            {"f": "Иванов Иван Иванович", "d": "Аналитик", "o": "Отдел", "u": "Управление", "t": "T1"},
+        ]
+        sessions = [
+            session("s1", "courier", "Курьеров Кирилл Кириллович", person_id="41"),
+            session("s2", "analyst", "Иванов Иван Иванович", person_id="42"),
+        ]
+
+        refreshed, diagnostics = refresh_roster(roster, sessions)
+        diagnostics.update({
+            "files_seen": 2,
+            "unique_sessions": 2,
+            "sessions_by_scenario": {"s1": 1, "s2": 1},
+            "ignored_files": 0,
+            "duplicate_sessions": 0,
+            "malformed_files": [],
+        })
+        report, _, status = build_payloads(refreshed, sessions, diagnostics)
+
+        self.assertEqual(report["summary"]["sessions"], 1)
+        self.assertEqual(report["scenarios"]["s1"]["sessions"], 0)
+        self.assertEqual(report["scenarios"]["s2"]["sessions"], 1)
+        self.assertEqual((status["unique_sessions"], status["included_sessions"], status["excluded_sessions"]), (2, 1, 1))
 
     def test_gap_quality_uses_documented_weighted_formula(self):
         meta = {

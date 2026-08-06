@@ -336,7 +336,7 @@
       "label": "Write-UpdateLog()",
       "file_type": "code",
       "source_file": "scripts/run-update.ps1",
-      "source_location": "L19",
+      "source_location": "L20",
       "_origin": "ast"
     },
     {
@@ -344,7 +344,7 @@
       "label": "Invoke-Checked()",
       "file_type": "code",
       "source_file": "scripts/run-update.ps1",
-      "source_location": "L25",
+      "source_location": "L26",
       "_origin": "ast"
     },
     {
@@ -360,7 +360,7 @@
       "label": "Session",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L59",
+      "source_location": "L60",
       "_origin": "ast"
     },
     {
@@ -368,7 +368,7 @@
       "label": "unquote()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L75",
+      "source_location": "L76",
       "_origin": "ast"
     },
     {
@@ -376,7 +376,7 @@
       "label": "split_document()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L87",
+      "source_location": "L88",
       "_origin": "ast"
     },
     {
@@ -384,7 +384,7 @@
       "label": "read_document()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L104",
+      "source_location": "L105",
       "_origin": "ast"
     },
     {
@@ -400,7 +400,7 @@
       "label": "parse_frontmatter()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L108",
+      "source_location": "L109",
       "_origin": "ast"
     },
     {
@@ -408,7 +408,7 @@
       "label": "number()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L112",
+      "source_location": "L113",
       "_origin": "ast"
     },
     {
@@ -416,7 +416,7 @@
       "label": "integer()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L119",
+      "source_location": "L120",
       "_origin": "ast"
     },
     {
@@ -424,7 +424,7 @@
       "label": "quality_label()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L123",
+      "source_location": "L124",
       "_origin": "ast"
     },
     {
@@ -432,7 +432,7 @@
       "label": "clean_cell()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L133",
+      "source_location": "L134",
       "_origin": "ast"
     },
     {
@@ -440,7 +440,7 @@
       "label": "extract_answers()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L138",
+      "source_location": "L139",
       "_origin": "ast"
     },
     {
@@ -448,7 +448,7 @@
       "label": "analyze_document()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L171",
+      "source_location": "L172",
       "_origin": "ast"
     },
     {
@@ -456,7 +456,7 @@
       "label": "load_source_index()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L216",
+      "source_location": "L217",
       "_origin": "ast"
     },
     {
@@ -464,7 +464,7 @@
       "label": "write_json()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L226",
+      "source_location": "L227",
       "_origin": "ast"
     },
     {
@@ -472,7 +472,7 @@
       "label": "save_source_index()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L240",
+      "source_location": "L241",
       "_origin": "ast"
     },
     {
@@ -480,7 +480,7 @@
       "label": "parse_datetime()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L244",
+      "source_location": "L245",
       "_origin": "ast"
     },
     {
@@ -496,7 +496,7 @@
       "label": "split_person()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L257",
+      "source_location": "L258",
       "_origin": "ast"
     },
     {
@@ -504,7 +504,7 @@
       "label": "clean_person_name()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L266",
+      "source_location": "L267",
       "_origin": "ast"
     },
     {
@@ -512,7 +512,7 @@
       "label": "department_from()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L271",
+      "source_location": "L272",
       "_origin": "ast"
     },
     {
@@ -520,7 +520,7 @@
       "label": "role_from()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L281",
+      "source_location": "L282",
       "_origin": "ast"
     },
     {
@@ -528,7 +528,7 @@
       "label": "session_from_cache()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L286",
+      "source_location": "L287",
       "_origin": "ast"
     },
     {
@@ -536,7 +536,7 @@
       "label": "session_to_cache()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L304",
+      "source_location": "L305",
       "_origin": "ast"
     },
     {
@@ -544,7 +544,7 @@
       "label": "discover_sessions()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L313",
+      "source_location": "L314",
       "_origin": "ast"
     },
     {
@@ -552,7 +552,7 @@
       "label": "normalize_name()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L413",
+      "source_location": "L414",
       "_origin": "ast"
     },
     {
@@ -560,7 +560,7 @@
       "label": "name_tokens()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L419",
+      "source_location": "L420",
       "_origin": "ast"
     },
     {
@@ -568,7 +568,7 @@
       "label": "family_key()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L423",
+      "source_location": "L424",
       "_origin": "ast"
     },
     {
@@ -576,7 +576,7 @@
       "label": "canonical_name()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L427",
+      "source_location": "L428",
       "_origin": "ast"
     },
     {
@@ -584,7 +584,7 @@
       "label": "load_legacy_roster()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L432",
+      "source_location": "L433",
       "_origin": "ast"
     },
     {
@@ -592,7 +592,7 @@
       "label": "load_roster()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L442",
+      "source_location": "L443",
       "_origin": "ast"
     },
     {
@@ -600,7 +600,7 @@
       "label": "select_roster_index()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L455",
+      "source_location": "L456",
       "_origin": "ast"
     },
     {
@@ -608,7 +608,7 @@
       "label": "fio_audit()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L477",
+      "source_location": "L478",
       "_origin": "ast"
     },
     {
@@ -616,7 +616,7 @@
       "label": "refresh_roster()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L503",
+      "source_location": "L504",
       "_origin": "ast"
     },
     {
@@ -624,7 +624,7 @@
       "label": "aggregate_quality()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L590",
+      "source_location": "L591",
       "_origin": "ast"
     },
     {
@@ -632,7 +632,7 @@
       "label": "is_excluded()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L602",
+      "source_location": "L603",
       "_origin": "ast"
     },
     {
@@ -640,7 +640,7 @@
       "label": "person_payload()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L616",
+      "source_location": "L619",
       "_origin": "ast"
     },
     {
@@ -648,7 +648,7 @@
       "label": "build_payloads()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L657",
+      "source_location": "L660",
       "_origin": "ast"
     },
     {
@@ -656,7 +656,7 @@
       "label": "update()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L729",
+      "source_location": "L741",
       "_origin": "ast"
     },
     {
@@ -664,7 +664,7 @@
       "label": "parse_args()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L778",
+      "source_location": "L790",
       "_origin": "ast"
     },
     {
@@ -680,15 +680,15 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "scripts/update_site.py",
-      "source_location": "L789",
+      "source_location": "L801",
       "_origin": "ast"
     },
     {
-      "id": "scripts_update_site_rationale_139",
+      "id": "scripts_update_site_rationale_140",
       "label": "Извлекает содержательные строки таблиц, не публикуя весь исходный документ.",
       "file_type": "rationale",
       "source_file": "scripts/update_site.py",
-      "source_location": "L139",
+      "source_location": "L140",
       "_origin": "ast"
     },
     {
@@ -824,7 +824,7 @@
       "label": "session()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L20",
+      "source_location": "L22",
       "_origin": "ast"
     },
     {
@@ -832,7 +832,7 @@
       "label": "UpdateSiteTests",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L35",
+      "source_location": "L37",
       "_origin": "ast"
     },
     {
@@ -840,7 +840,7 @@
       "label": ".test_name_normalization_handles_yo_and_punctuation()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L36",
+      "source_location": "L38",
       "_origin": "ast"
     },
     {
@@ -848,7 +848,23 @@
       "label": ".test_removes_hr_annotations_from_fio()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L39",
+      "source_location": "L41",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_test_update_site_updatesitetests_test_couriers_are_excluded_from_dashboard",
+      "label": ".test_couriers_are_excluded_from_dashboard()",
+      "file_type": "code",
+      "source_file": "tests/test_update_site.py",
+      "source_location": "L46",
+      "_origin": "ast"
+    },
+    {
+      "id": "tests_test_update_site_updatesitetests_test_excluded_people_do_not_change_dashboard_totals",
+      "label": ".test_excluded_people_do_not_change_dashboard_totals()",
+      "file_type": "code",
+      "source_file": "tests/test_update_site.py",
+      "source_location": "L50",
       "_origin": "ast"
     },
     {
@@ -856,7 +872,7 @@
       "label": ".test_gap_quality_uses_documented_weighted_formula()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L44",
+      "source_location": "L76",
       "_origin": "ast"
     },
     {
@@ -864,7 +880,7 @@
       "label": ".test_extracts_exact_answer_rows_from_gap_table()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L60",
+      "source_location": "L92",
       "_origin": "ast"
     },
     {
@@ -872,7 +888,7 @@
       "label": ".test_refresh_uses_bitrix_identity_and_does_not_add_duplicate_fio()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L71",
+      "source_location": "L103",
       "_origin": "ast"
     },
     {
@@ -880,7 +896,7 @@
       "label": ".test_conflicting_bitrix_id_does_not_mix_different_people()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L88",
+      "source_location": "L120",
       "_origin": "ast"
     },
     {
@@ -888,7 +904,7 @@
       "label": ".test_two_bitrix_ids_for_same_fio_are_summed_without_losing_sessions()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L104",
+      "source_location": "L136",
       "_origin": "ast"
     },
     {
@@ -896,7 +912,7 @@
       "label": ".test_discovery_caches_sessions_and_ignored_documents()",
       "file_type": "code",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L118",
+      "source_location": "L150",
       "_origin": "ast"
     },
     {
@@ -1000,7 +1016,7 @@
       "label": "Конфиденциальность",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L63",
+      "source_location": "L64",
       "_origin": "ast"
     }
   ],
@@ -2325,7 +2341,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run-update.ps1",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2335,7 +2351,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run-update.ps1",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2345,7 +2361,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "scripts/run-update.ps1",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2487,7 +2503,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L59",
+      "source_location": "L60",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2497,7 +2513,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L75",
+      "source_location": "L76",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2507,7 +2523,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L87",
+      "source_location": "L88",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2517,7 +2533,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L104",
+      "source_location": "L105",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2528,7 +2544,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L104",
+      "source_location": "L105",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2538,7 +2554,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L108",
+      "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2549,7 +2565,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L108",
+      "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2559,7 +2575,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L112",
+      "source_location": "L113",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2569,7 +2585,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L119",
+      "source_location": "L120",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2579,7 +2595,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L123",
+      "source_location": "L124",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2589,7 +2605,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L133",
+      "source_location": "L134",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2599,7 +2615,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L138",
+      "source_location": "L139",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2609,7 +2625,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L171",
+      "source_location": "L172",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2619,7 +2635,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L216",
+      "source_location": "L217",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2630,7 +2646,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L216",
+      "source_location": "L217",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2640,7 +2656,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L226",
+      "source_location": "L227",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2651,7 +2667,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L226",
+      "source_location": "L227",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2661,7 +2677,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L240",
+      "source_location": "L241",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2672,7 +2688,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L240",
+      "source_location": "L241",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2682,7 +2698,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L244",
+      "source_location": "L245",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2693,7 +2709,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L244",
+      "source_location": "L245",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2703,7 +2719,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L257",
+      "source_location": "L258",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2713,7 +2729,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L266",
+      "source_location": "L267",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2723,7 +2739,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L271",
+      "source_location": "L272",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2733,7 +2749,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L281",
+      "source_location": "L282",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2743,7 +2759,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L286",
+      "source_location": "L287",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2754,7 +2770,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L286",
+      "source_location": "L287",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2764,7 +2780,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L304",
+      "source_location": "L305",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2775,7 +2791,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L304",
+      "source_location": "L305",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2785,7 +2801,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L313",
+      "source_location": "L314",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2796,7 +2812,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L313",
+      "source_location": "L314",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2807,7 +2823,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L313",
+      "source_location": "L314",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2817,7 +2833,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L413",
+      "source_location": "L414",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2827,7 +2843,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L419",
+      "source_location": "L420",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2837,7 +2853,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L423",
+      "source_location": "L424",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2847,7 +2863,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L427",
+      "source_location": "L428",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2858,7 +2874,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L427",
+      "source_location": "L428",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2868,7 +2884,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L432",
+      "source_location": "L433",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2878,7 +2894,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L442",
+      "source_location": "L443",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2889,7 +2905,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L442",
+      "source_location": "L443",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2899,7 +2915,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L455",
+      "source_location": "L456",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2909,7 +2925,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L477",
+      "source_location": "L478",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2920,7 +2936,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L477",
+      "source_location": "L478",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2930,7 +2946,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L503",
+      "source_location": "L504",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2941,7 +2957,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L503",
+      "source_location": "L504",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2951,7 +2967,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L590",
+      "source_location": "L591",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2962,7 +2978,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L590",
+      "source_location": "L591",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2972,7 +2988,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L602",
+      "source_location": "L603",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2982,7 +2998,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L616",
+      "source_location": "L619",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2992,7 +3008,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L657",
+      "source_location": "L660",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3003,7 +3019,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L657",
+      "source_location": "L660",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3013,7 +3029,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L729",
+      "source_location": "L741",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3024,7 +3040,7 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L729",
+      "source_location": "L741",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3034,7 +3050,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L778",
+      "source_location": "L790",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3045,7 +3061,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L778",
+      "source_location": "L790",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3055,7 +3071,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L789",
+      "source_location": "L801",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3066,7 +3082,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L100",
+      "source_location": "L101",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3077,7 +3093,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L105",
+      "source_location": "L106",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3088,7 +3104,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L109",
+      "source_location": "L110",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3099,7 +3115,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L120",
+      "source_location": "L121",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3110,7 +3126,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L145",
+      "source_location": "L146",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3121,7 +3137,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L173",
+      "source_location": "L174",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3132,7 +3148,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L177",
+      "source_location": "L178",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3143,7 +3159,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L181",
+      "source_location": "L182",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3154,7 +3170,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L210",
+      "source_location": "L211",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3165,7 +3181,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L212",
+      "source_location": "L213",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3176,7 +3192,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L241",
+      "source_location": "L242",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3187,7 +3203,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L260",
+      "source_location": "L261",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3198,7 +3214,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L287",
+      "source_location": "L288",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3209,7 +3225,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L294",
+      "source_location": "L295",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3220,7 +3236,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L295",
+      "source_location": "L296",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3231,7 +3247,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L316",
+      "source_location": "L317",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3242,7 +3258,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L358",
+      "source_location": "L359",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3253,7 +3269,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L361",
+      "source_location": "L362",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3264,7 +3280,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L373",
+      "source_location": "L374",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3275,7 +3291,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L379",
+      "source_location": "L380",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3286,7 +3302,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L380",
+      "source_location": "L381",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3297,7 +3313,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L385",
+      "source_location": "L386",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3308,24 +3324,13 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L386",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "scripts_update_site_discover_sessions",
-      "target": "scripts_update_site_parse_datetime",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/update_site.py",
       "source_location": "L387",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
       "source": "scripts_update_site_discover_sessions",
-      "target": "path",
+      "target": "scripts_update_site_parse_datetime",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -3336,12 +3341,23 @@
     },
     {
       "source": "scripts_update_site_discover_sessions",
+      "target": "path",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/update_site.py",
+      "source_location": "L389",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_update_site_discover_sessions",
       "target": "scripts_update_site_session_to_cache",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L394",
+      "source_location": "L395",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3352,7 +3368,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L396",
+      "source_location": "L397",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3363,7 +3379,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L406",
+      "source_location": "L407",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3374,7 +3390,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L414",
+      "source_location": "L415",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3385,7 +3401,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L420",
+      "source_location": "L421",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3396,7 +3412,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L424",
+      "source_location": "L425",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3407,7 +3423,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L429",
+      "source_location": "L430",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3418,7 +3434,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L449",
+      "source_location": "L450",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3429,7 +3445,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L451",
+      "source_location": "L452",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3440,7 +3456,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L456",
+      "source_location": "L457",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3451,7 +3467,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L470",
+      "source_location": "L471",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3462,7 +3478,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L483",
+      "source_location": "L484",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3473,7 +3489,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L485",
+      "source_location": "L486",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3484,7 +3500,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L499",
+      "source_location": "L500",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3495,7 +3511,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L505",
+      "source_location": "L506",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3506,7 +3522,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L516",
+      "source_location": "L517",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3517,7 +3533,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L522",
+      "source_location": "L523",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3528,7 +3544,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L531",
+      "source_location": "L532",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3539,7 +3555,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L532",
+      "source_location": "L533",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3550,7 +3566,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L558",
+      "source_location": "L559",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3561,7 +3577,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L566",
+      "source_location": "L567",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3572,7 +3588,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L621",
+      "source_location": "L624",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3583,7 +3599,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L638",
+      "source_location": "L641",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3594,13 +3610,13 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L662",
+      "source_location": "L665",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
       "source": "scripts_update_site_build_payloads",
-      "target": "scripts_update_site_aggregate_quality",
+      "target": "scripts_update_site_is_excluded",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -3611,12 +3627,23 @@
     },
     {
       "source": "scripts_update_site_build_payloads",
+      "target": "scripts_update_site_aggregate_quality",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/update_site.py",
+      "source_location": "L682",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_update_site_build_payloads",
       "target": "scripts_update_site_fio_audit",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L674",
+      "source_location": "L683",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3627,7 +3654,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L740",
+      "source_location": "L752",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3638,7 +3665,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L741",
+      "source_location": "L753",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3649,7 +3676,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L745",
+      "source_location": "L757",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3660,7 +3687,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L746",
+      "source_location": "L758",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3671,7 +3698,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L749",
+      "source_location": "L761",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3682,7 +3709,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L751",
+      "source_location": "L763",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3693,7 +3720,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L790",
+      "source_location": "L802",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3704,17 +3731,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L792",
+      "source_location": "L804",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
-      "source": "scripts_update_site_rationale_139",
+      "source": "scripts_update_site_rationale_140",
       "target": "scripts_update_site_extract_answers",
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "scripts/update_site.py",
-      "source_location": "L139",
+      "source_location": "L140",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3986,7 +4013,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L20",
+      "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3996,7 +4023,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L35",
+      "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4006,7 +4033,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L36",
+      "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4016,7 +4043,27 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L39",
+      "source_location": "L41",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_update_site_updatesitetests",
+      "target": "tests_test_update_site_updatesitetests_test_couriers_are_excluded_from_dashboard",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_update_site.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_update_site_updatesitetests",
+      "target": "tests_test_update_site_updatesitetests_test_excluded_people_do_not_change_dashboard_totals",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_update_site.py",
+      "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4026,7 +4073,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L44",
+      "source_location": "L76",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4036,7 +4083,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L60",
+      "source_location": "L92",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4046,7 +4093,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L71",
+      "source_location": "L103",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4056,7 +4103,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L88",
+      "source_location": "L120",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4066,7 +4113,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L104",
+      "source_location": "L136",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4076,7 +4123,18 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L118",
+      "source_location": "L150",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_update_site_updatesitetests_test_excluded_people_do_not_change_dashboard_totals",
+      "target": "tests_test_update_site_session",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_update_site.py",
+      "source_location": "L56",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4087,7 +4145,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L77",
+      "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4098,7 +4156,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L94",
+      "source_location": "L126",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4109,7 +4167,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_update_site.py",
-      "source_location": "L109",
+      "source_location": "L141",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4219,7 +4277,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "README.md",
-      "source_location": "L63",
+      "source_location": "L64",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4241,7 +4299,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L21",
+      "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4253,7 +4311,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L28",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4265,7 +4323,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L29",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4277,7 +4335,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L37",
+      "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4289,7 +4347,43 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L40",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_update_site_updatesitetests_test_couriers_are_excluded_from_dashboard",
+      "target": "scripts_update_site_is_excluded",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_update_site.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_update_site_updatesitetests_test_excluded_people_do_not_change_dashboard_totals",
+      "target": "scripts_update_site_refresh_roster",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_update_site.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "tests_test_update_site_updatesitetests_test_excluded_people_do_not_change_dashboard_totals",
+      "target": "scripts_update_site_build_payloads",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_update_site.py",
+      "source_location": "L69",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4301,7 +4395,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L54",
+      "source_location": "L86",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4313,7 +4407,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L67",
+      "source_location": "L99",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4325,7 +4419,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L81",
+      "source_location": "L113",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4337,7 +4431,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L98",
+      "source_location": "L130",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4349,7 +4443,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L113",
+      "source_location": "L145",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4361,7 +4455,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L119",
+      "source_location": "L151",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4373,7 +4467,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "tests/test_update_site.py",
-      "source_location": "L141",
+      "source_location": "L173",
       "weight": 1.0,
       "_origin": "ast"
     }

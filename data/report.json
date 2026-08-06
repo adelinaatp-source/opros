@@ -1,20 +1,20 @@
 {
   "schema_version": 2,
-  "snapshot": "06.08.2026 в 11:27 (Екб)",
+  "snapshot": "06.08.2026 в 11:44 (Екб)",
   "summary": {
-    "people": 391,
-    "passed_people": 264,
-    "not_passed_people": 127,
-    "sessions": 869,
+    "people": 387,
+    "passed_people": 268,
+    "not_passed_people": 119,
+    "sessions": 875,
     "quality": {
       "average": 57.9,
-      "high": 86,
-      "medium": 593,
-      "low": 190,
+      "high": 87,
+      "medium": 596,
+      "low": 192,
       "unknown": 0
     },
     "fio_issues": 37,
-    "excluded_people": 99
+    "excluded_people": 103
   },
   "quality_method": {
     "high": "75–100",
@@ -30,12 +30,12 @@
       "tag": "S1",
       "name": "Основной опрос по процессу",
       "metric": "Уверенность описания",
-      "sessions": 348,
+      "sessions": 350,
       "quality": {
         "average": 62.5,
-        "high": 12,
+        "high": 13,
         "medium": 311,
-        "low": 25,
+        "low": 26,
         "unknown": 0
       }
     },
@@ -43,12 +43,12 @@
       "tag": "S2",
       "name": "Доопрос",
       "metric": "Индекс полноты ответов",
-      "sessions": 286,
+      "sessions": 288,
       "quality": {
-        "average": 48.7,
+        "average": 48.6,
         "high": 16,
-        "medium": 148,
-        "low": 122,
+        "medium": 149,
+        "low": 123,
         "unknown": 0
       }
     },
@@ -56,11 +56,11 @@
       "tag": "S3",
       "name": "Фото рабочего дня",
       "metric": "Полнота карты дня",
-      "sessions": 235,
+      "sessions": 237,
       "quality": {
-        "average": 62.3,
+        "average": 62.4,
         "high": 58,
-        "medium": 134,
+        "medium": 136,
         "low": 43,
         "unknown": 0
       }
@@ -596,19 +596,26 @@
       "t": "T1",
       "s1": 1,
       "s2": 0,
-      "s3": 0,
-      "vs": 1,
-      "last": "2026-08-05T11:17:31+00:00",
+      "s3": 1,
+      "vs": 2,
+      "last": "2026-08-06T06:32:09+00:00",
       "name_check": "exact",
       "quality": {
         "average": 68.0,
         "high": 0,
-        "medium": 1,
+        "medium": 2,
         "low": 0,
         "unknown": 0
       },
       "scenario_quality": {
         "s1": {
+          "average": 68.0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "unknown": 0
+        },
+        "s3": {
           "average": 68.0,
           "high": 0,
           "medium": 1,
@@ -700,7 +707,7 @@
         "unknown": 0
       },
       "scenario_quality": {},
-      "excluded_reason": ""
+      "excluded_reason": "курьер"
     },
     {
       "key": "roster:10",
@@ -749,20 +756,27 @@
       "t": "T1",
       "s1": 1,
       "s2": 0,
-      "s3": 0,
-      "vs": 1,
-      "last": "2026-08-05T11:22:09+00:00",
+      "s3": 1,
+      "vs": 2,
+      "last": "2026-08-06T06:33:50+00:00",
       "name_check": "exact",
       "quality": {
-        "average": 66.0,
+        "average": 69.0,
         "high": 0,
-        "medium": 1,
+        "medium": 2,
         "low": 0,
         "unknown": 0
       },
       "scenario_quality": {
         "s1": {
           "average": 66.0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "unknown": 0
+        },
+        "s3": {
+          "average": 72.0,
           "high": 0,
           "medium": 1,
           "low": 0,
@@ -1430,15 +1444,15 @@
       "o": "Отдел продаж техники",
       "u": "Коммерческое управление",
       "t": "T1",
-      "s1": 0,
+      "s1": 1,
       "s2": 1,
       "s3": 1,
-      "vs": 2,
-      "last": "2026-08-06T05:24:59+00:00",
+      "vs": 3,
+      "last": "2026-08-06T06:39:24+00:00",
       "name_check": "exact",
       "quality": {
-        "average": 70.7,
-        "high": 1,
+        "average": 73.1,
+        "high": 2,
         "medium": 1,
         "low": 0,
         "unknown": 0
@@ -1455,6 +1469,13 @@
           "average": 59.4,
           "high": 0,
           "medium": 1,
+          "low": 0,
+          "unknown": 0
+        },
+        "s1": {
+          "average": 78.0,
+          "high": 1,
+          "medium": 0,
           "low": 0,
           "unknown": 0
         }
@@ -3492,19 +3513,27 @@
       "u": "Финансовое управление",
       "t": "T2",
       "s1": 0,
-      "s2": 0,
+      "s2": 1,
       "s3": 0,
-      "vs": 0,
-      "last": "",
-      "name_check": "not_in_source",
+      "vs": 1,
+      "last": "2026-08-06T06:43:21+00:00",
+      "name_check": "exact",
       "quality": {
-        "average": null,
-        "high": 0,
+        "average": 75.0,
+        "high": 1,
         "medium": 0,
         "low": 0,
         "unknown": 0
       },
-      "scenario_quality": {},
+      "scenario_quality": {
+        "s2": {
+          "average": 75.0,
+          "high": 1,
+          "medium": 0,
+          "low": 0,
+          "unknown": 0
+        }
+      },
       "excluded_reason": ""
     },
     {
@@ -4566,19 +4595,27 @@
       "u": "Коммерческое управление",
       "t": "T1",
       "s1": 0,
-      "s2": 0,
+      "s2": 1,
       "s3": 0,
-      "vs": 0,
-      "last": "",
-      "name_check": "not_in_source",
+      "vs": 1,
+      "last": "2026-08-06T06:34:03+00:00",
+      "name_check": "exact",
       "quality": {
-        "average": null,
+        "average": 56.2,
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0,
         "unknown": 0
       },
-      "scenario_quality": {},
+      "scenario_quality": {
+        "s2": {
+          "average": 56.2,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "unknown": 0
+        }
+      },
       "excluded_reason": ""
     },
     {
@@ -4822,7 +4859,7 @@
         "unknown": 0
       },
       "scenario_quality": {},
-      "excluded_reason": ""
+      "excluded_reason": "курьер"
     },
     {
       "key": "roster:131",
@@ -5187,20 +5224,28 @@
       "o": "Товароведы",
       "u": "Коммерческое управление",
       "t": "T1",
-      "s1": 0,
+      "s1": 1,
       "s2": 0,
       "s3": 0,
-      "vs": 0,
-      "last": "",
-      "name_check": "not_in_source",
+      "vs": 1,
+      "last": "2026-08-06T06:39:57+00:00",
+      "name_check": "exact",
       "quality": {
-        "average": null,
+        "average": 45.0,
         "high": 0,
         "medium": 0,
-        "low": 0,
+        "low": 1,
         "unknown": 0
       },
-      "scenario_quality": {},
+      "scenario_quality": {
+        "s1": {
+          "average": 45.0,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "unknown": 0
+        }
+      },
       "excluded_reason": ""
     },
     {
@@ -7237,7 +7282,7 @@
         "unknown": 0
       },
       "scenario_quality": {},
-      "excluded_reason": ""
+      "excluded_reason": "ручное исключение"
     },
     {
       "key": "roster:200",
@@ -8628,16 +8673,16 @@
       "o": "Отдел по развитию бренда",
       "u": "Управление маркетинга",
       "t": "T1",
-      "s1": 8,
+      "s1": 9,
       "s2": 5,
       "s3": 1,
-      "vs": 14,
-      "last": "2026-08-06T06:27:23+00:00",
+      "vs": 15,
+      "last": "2026-08-06T06:43:32+00:00",
       "name_check": "exact",
       "quality": {
         "average": 60.9,
         "high": 2,
-        "medium": 10,
+        "medium": 11,
         "low": 2,
         "unknown": 0
       },
@@ -8650,9 +8695,9 @@
           "unknown": 0
         },
         "s1": {
-          "average": 66.8,
+          "average": 66.2,
           "high": 0,
-          "medium": 8,
+          "medium": 9,
           "low": 0,
           "unknown": 0
         },
@@ -9561,20 +9606,27 @@
       "t": "T2",
       "s1": 1,
       "s2": 0,
-      "s3": 0,
-      "vs": 1,
-      "last": "2026-08-05T11:16:05+00:00",
+      "s3": 1,
+      "vs": 2,
+      "last": "2026-08-06T06:44:07+00:00",
       "name_check": "exact",
       "quality": {
-        "average": 67.0,
+        "average": 66.0,
         "high": 0,
-        "medium": 1,
+        "medium": 2,
         "low": 0,
         "unknown": 0
       },
       "scenario_quality": {
         "s1": {
           "average": 67.0,
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "unknown": 0
+        },
+        "s3": {
+          "average": 65.0,
           "high": 0,
           "medium": 1,
           "low": 0,
@@ -10062,19 +10114,27 @@
       "u": "Коммерческое управление",
       "t": "T1",
       "s1": 0,
-      "s2": 0,
+      "s2": 1,
       "s3": 0,
-      "vs": 0,
-      "last": "",
-      "name_check": "not_in_source",
+      "vs": 1,
+      "last": "2026-08-06T06:33:16+00:00",
+      "name_check": "exact",
       "quality": {
-        "average": null,
+        "average": 46.9,
         "high": 0,
         "medium": 0,
-        "low": 0,
+        "low": 1,
         "unknown": 0
       },
-      "scenario_quality": {},
+      "scenario_quality": {
+        "s2": {
+          "average": 46.9,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
+          "unknown": 0
+        }
+      },
       "excluded_reason": ""
     },
     {
@@ -10176,16 +10236,16 @@
       "u": "Управление маркетинга",
       "t": "T3",
       "s1": 1,
-      "s2": 0,
+      "s2": 1,
       "s3": 2,
-      "vs": 3,
-      "last": "2026-08-05T07:29:29+00:00",
+      "vs": 4,
+      "last": "2026-08-06T06:35:30+00:00",
       "name_check": "exact",
       "quality": {
-        "average": 52.3,
+        "average": 44.5,
         "high": 0,
         "medium": 2,
-        "low": 1,
+        "low": 2,
         "unknown": 0
       },
       "scenario_quality": {
@@ -10201,6 +10261,13 @@
           "high": 0,
           "medium": 1,
           "low": 0,
+          "unknown": 0
+        },
+        "s2": {
+          "average": 20.8,
+          "high": 0,
+          "medium": 0,
+          "low": 1,
           "unknown": 0
         }
       },
@@ -10966,7 +11033,7 @@
         "unknown": 0
       },
       "scenario_quality": {},
-      "excluded_reason": ""
+      "excluded_reason": "курьер"
     },
     {
       "key": "roster:312",
@@ -14477,16 +14544,16 @@
       "o": "Товароведы",
       "u": "Коммерческое управление",
       "t": "T2",
-      "s1": 1,
+      "s1": 2,
       "s2": 2,
       "s3": 1,
-      "vs": 4,
-      "last": "2026-08-06T05:50:51+00:00",
+      "vs": 5,
+      "last": "2026-08-06T06:41:38+00:00",
       "name_check": "duplicate_exact",
       "quality": {
-        "average": 54.4,
+        "average": 57.1,
         "high": 0,
-        "medium": 2,
+        "medium": 3,
         "low": 2,
         "unknown": 0
       },
@@ -14499,9 +14566,9 @@
           "unknown": 0
         },
         "s1": {
-          "average": 58.0,
+          "average": 63.0,
           "high": 0,
-          "medium": 1,
+          "medium": 2,
           "low": 0,
           "unknown": 0
         },

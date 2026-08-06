@@ -25,7 +25,7 @@ python -m unittest discover -s tests -p "test_*.py"
 node scripts/validate_site.js
 ```
 
-Полный локальный цикл с `git pull`, тестами и автокоммитом:
+Полный локальный цикл в отдельной ветке `dashboard-quality` с тестами и автокоммитом:
 
 ```powershell
 powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File scripts\run-update.ps1
@@ -56,9 +56,10 @@ python -m http.server 8765
 ## Автообновление
 
 Windows-задача `Opros-Site-Update-0850` запускает обновление ежедневно в 08:50.
-Скрипт проверяет чистоту рабочего дерева, получает fast-forward изменения,
-пересчитывает JSON, запускает тесты и создаёт локальный коммит только при
-изменении данных. `git push` намеренно отключён.
+Скрипт проверяет чистоту рабочего дерева и активную ветку
+`dashboard-quality`, пересчитывает JSON, запускает тесты и создаёт
+локальный коммит только при изменении данных. `git pull`, merge и `git push`
+намеренно отключены; слияние с `main` выполняется отдельно после проверки.
 
 ## Конфиденциальность
 

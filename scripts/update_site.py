@@ -45,6 +45,7 @@ EXCLUDED_NAMES = {
     "Садовин Александр",
     "Балакин Андрей",
     "Гумеров Радик",
+    "Морозов Михаил",
 }
 TABLE_LINE_RE = re.compile(r"^\s*\|(.+)\|\s*$")
 HEADING_RE = re.compile(r"^#{1,4}\s+(.+?)\s*$")
@@ -606,6 +607,8 @@ def is_excluded(row: dict[str, object]) -> str:
         return "ручное исключение"
     if re.search(r"стаж[её]р", role, re.I):
         return "стажёр"
+    if re.search(r"курьер", role, re.I):
+        return "курьер"
     if re.search(r"ловец|вебхук|уч[её]тк", role + " " + name, re.I):
         return "служебная учётка"
     if str(row.get("o", "")) == "Обособленные подразделения":
@@ -664,7 +667,13 @@ def build_payloads(roster: list[dict[str, object]], sessions: list[Session], dia
         if detail:
             details[person["key"]] = detail
     visible = [person for person in people if not person["excluded_reason"]]
-    included_sessions = [session for session in sessions]
+    excluded_sessions = {
+        session
+        for index, row in enumerate(roster)
+        if is_excluded(row)
+        for session in person_meta.get(index, {}).get("sessions", [])
+    }
+    included_sessions = [session for session in sessions if session not in excluded_sessions]
     latest = max(item.created_at for item in sessions).astimezone(EKB_TZ)
     snapshot = latest.strftime("%d.%m.%Y в %H:%M (Екб)")
     scenario_payload = {}
@@ -692,8 +701,8 @@ def build_payloads(roster: list[dict[str, object]], sessions: list[Session], dia
             "people": len(visible),
             "passed_people": sum(1 for person in visible if person["vs"] > 0),
             "not_passed_people": sum(1 for person in visible if person["vs"] == 0),
-            "sessions": len(sessions),
-            "quality": aggregate_quality(sessions),
+            "sessions": len(included_sessions),
+            "quality": aggregate_quality(included_sessions),
             "fio_issues": fio["issue_count"],
             "excluded_people": len(people) - len(visible),
         },
@@ -718,6 +727,9 @@ def build_payloads(roster: list[dict[str, object]], sessions: list[Session], dia
         "source_files": diagnostics["files_seen"],
         "unique_sessions": diagnostics["unique_sessions"],
         "sessions_by_scenario": diagnostics["sessions_by_scenario"],
+        "included_sessions": len(included_sessions),
+        "excluded_sessions": len(excluded_sessions),
+        "included_sessions_by_scenario": dict(sorted(Counter(item.scenario_field for item in included_sessions).items())),
         "ignored_files": diagnostics["ignored_files"],
         "duplicate_sessions": diagnostics["duplicate_sessions"],
         "malformed_files": diagnostics["malformed_files"],

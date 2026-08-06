@@ -53,11 +53,11 @@ if (!report.quality_method?.warning) throw new Error("Не описано огр
 if (!report.fio_audit || typeof report.fio_audit.issue_count !== "number") throw new Error("Нет аудита ФИО");
 
 const sessionTotal = Object.values(report.scenarios).reduce((sum, scenario) => sum + scenario.sessions, 0);
-if (sessionTotal !== report.summary.sessions || sessionTotal !== status.unique_sessions) {
-  throw new Error(`Не сходится число сессий: scenarios=${sessionTotal}, report=${report.summary.sessions}, status=${status.unique_sessions}`);
+if (sessionTotal !== report.summary.sessions || sessionTotal !== status.included_sessions) {
+  throw new Error(`Не сходится число включённых сессий: scenarios=${sessionTotal}, report=${report.summary.sessions}, status=${status.included_sessions}`);
 }
 
-const counted = report.people.reduce((sum, person) => sum + person.vs, 0);
+const counted = report.people.filter((person) => !person.excluded_reason).reduce((sum, person) => sum + person.vs, 0);
 if (counted !== report.summary.sessions) {
   throw new Error(`Сессии людей не сходятся с итогом: people=${counted}, report=${report.summary.sessions}`);
 }

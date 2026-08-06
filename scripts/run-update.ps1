@@ -8,6 +8,7 @@ $Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 [Console]::OutputEncoding = $Utf8NoBom
 $OutputEncoding = $Utf8NoBom
 $ProjectRoot = Split-Path -Parent $PSScriptRoot
+$ExpectedBranch = 'dashboard-quality'
 $OutDir = Join-Path $ProjectRoot 'out'
 $TempDir = Join-Path $ProjectRoot 'temp'
 $LogPath = Join-Path $OutDir 'scheduled-update.log'
@@ -68,7 +69,15 @@ try {
         throw 'Tracked working tree changes are present'
     }
 
-    Invoke-Checked 'git pull --ff-only' { git pull --ff-only origin main }
+    $branch = (git branch --show-current).Trim()
+    if ($LASTEXITCODE -ne 0) {
+        throw "git branch --show-current failed with exit code $LASTEXITCODE"
+    }
+    if ($branch -ne $ExpectedBranch) {
+        throw "Expected branch $ExpectedBranch, current branch is $branch"
+    }
+    Write-UpdateLog "Branch $branch verified; pull, merge and push are disabled"
+
     Invoke-Checked 'update report data and source index' { python scripts/update_site.py --source $SourcePath --json }
     Invoke-Checked 'focused tests' { python -m unittest discover -s tests -p 'test_*.py' }
     Invoke-Checked 'HTML/JavaScript and filters' { node scripts/validate_site.js }
