@@ -49,7 +49,7 @@ for (const marker of ["data/report.json", "data/details.json", "renderScenarioSc
   if (!app.includes(marker)) throw new Error(`Не найден JS-контракт: ${marker}`);
 }
 
-for (const marker of ["Справка по качеству", "Словарь показателей", "Что именно сравнивается", "Основной опрос", "Доопрос", "Фото рабочего дня", "Вопрос", "Ответ", "Оценка качества", "Расчёт оценки качества", "Итоговая оценка качества", "Итог считается по полным метрикам документа"]) {
+for (const marker of ["Справка по качеству", "Словарь показателей", "Что именно сравнивается", "Основной опрос", "Доопрос", "Фото рабочего дня", "Вопрос", "Ответ", "Оценка качества", "Расчёт оценки качества", "Итоговая оценка качества", "Итог считается по полным метрикам документа", "Опрос проведён", "Есть вопросы на уточнение", "Требуется уточнение", "Завершён · требуется уточнение", "Полностью закрыто", "Закрыто с оговорками", "Частично", "Открыто", "Переадресовано"]) {
   if (!`${html}\n${app}`.includes(marker)) throw new Error(`Не найден русский текст справки: ${marker}`);
 }
 if (/>\s*S[123]\s*</.test(html) || /label:\s*"S[123]"/.test(app) || /<h3>S[123]/.test(app)) {
@@ -80,6 +80,14 @@ if (partialTotal !== report.summary.partial_sessions || partialTotal !== status.
   throw new Error(`Partial session totals differ: scenarios=${partialTotal}, report=${report.summary.partial_sessions}, status=${status.included_partial_sessions}`);
 }
 
+const conductedTotal = Object.values(report.scenarios).reduce((sum, scenario) => sum + (scenario.conducted_sessions || 0), 0);
+if (conductedTotal !== report.summary.conducted_sessions || conductedTotal !== status.included_conducted_sessions) {
+  throw new Error(`Не сходится число проведённых опросов: scenarios=${conductedTotal}, report=${report.summary.conducted_sessions}, status=${status.included_conducted_sessions}`);
+}
+if (report.summary.conducted_sessions !== report.summary.sessions + report.summary.partial_sessions) {
+  throw new Error("Проведённые опросы должны включать опросы, требующие уточнения");
+}
+
 const counted = report.people.filter((person) => !person.excluded_reason).reduce((sum, person) => sum + person.vs, 0);
 if (counted !== report.summary.sessions) {
   throw new Error(`Сессии людей не сходятся с итогом: people=${counted}, report=${report.summary.sessions}`);
@@ -100,7 +108,9 @@ const visibleByName = new Map();
 for (const person of report.people.filter((item) => !item.excluded_reason)) {
   const key = normalizeName(person.f);
   const current = visibleByName.get(key);
-  if (!current || person.vs > current.vs || (person.vs === current.vs && String(person.f).length > String(current.f).length)) {
+  const conducted = person.conducted_sessions ?? ((person.vs || 0) + (person.partial_sessions || 0));
+  const currentConducted = current?.conducted_sessions ?? ((current?.vs || 0) + (current?.partial_sessions || 0));
+  if (!current || conducted > currentConducted || (conducted === currentConducted && person.vs > current.vs) || (conducted === currentConducted && person.vs === current.vs && String(person.f).length > String(current.f).length)) {
     visibleByName.set(key, person);
   }
 }
@@ -135,13 +145,21 @@ if (filterTotals.completed !== report.summary.sessions || filterTotals.partial !
   throw new Error(`Фильтры групп теряют сессии: completed=${filterTotals.completed}/${report.summary.sessions}, partial=${filterTotals.partial}/${report.summary.partial_sessions}`);
 }
 for (const [name, rows] of Object.entries(filterGroups)) {
-  const passed = rows.filter((person) => person.vs > 0);
-  const notPassed = rows.filter((person) => person.vs <= 0);
+  const passed = rows.filter((person) => (person.conducted_sessions || 0) > 0);
+  const notPassed = rows.filter((person) => (person.conducted_sessions || 0) <= 0);
   const low = rows.filter((person) => person.vs > 0 && person.quality.average < 50);
   const partial = rows.filter((person) => (person.partial_sessions || 0) > 0);
   if (passed.length + notPassed.length !== rows.length || low.some((person) => person.vs <= 0) || partial.some((person) => !person.partial_sessions)) {
     throw new Error(`Нарушена логика фильтров для группы ${name}`);
   }
+}
+
+const passedPeople = dashboardRows.filter((person) => (person.conducted_sessions || 0) > 0).length;
+if (passedPeople !== report.summary.passed_people) {
+  throw new Error(`Охват людей не сходится: people=${passedPeople}, report=${report.summary.passed_people}`);
+}
+if (dashboardRows.length !== report.summary.people || dashboardRows.length - passedPeople !== report.summary.not_passed_people) {
+  throw new Error(`Количество уникальных людей не сходится с фильтрами: rows=${dashboardRows.length}, summary=${report.summary.people}`);
 }
 
 for (const person of report.people.filter((item) => item.vs > 0 || item.partial_sessions > 0)) {
@@ -150,6 +168,17 @@ for (const person of report.people.filter((item) => item.vs > 0 || item.partial_
   for (const session of sessions) {
     if (!session.source_file || !String(session.source_file).trim()) {
       throw new Error(`У сессии ${session.session_id || "без ID"} не указано имя исходного файла`);
+    }
+    if (session.scenario === "s2") {
+      const metrics = session.metrics || {};
+      const answerStates = ["closed", "closed_soft", "partial", "open", "reassigned"];
+      if (answerStates.some((key) => !Number.isFinite(Number(metrics[key])))) {
+        throw new Error(`У доопроса ${session.session_id || "без ID"} нет счётчика одного из статусов вопросов`);
+      }
+      const classified = answerStates.reduce((sum, key) => sum + Number(metrics[key]), 0);
+      if (classified !== Number(metrics.asked)) {
+        throw new Error(`Статусы вопросов не сходятся у ${session.session_id || "без ID"}: ${classified}/${metrics.asked}`);
+      }
     }
   }
   const completed = sessions.filter((session) => session.completed).length;
@@ -160,6 +189,9 @@ for (const person of report.people.filter((item) => item.vs > 0 || item.partial_
   if (sessions.some((session) => typeof session.completed !== "boolean" || !session.completion_status)) {
     throw new Error(`В деталях отсутствует статус завершения для ${person.key}`);
   }
+  if (sessions.some((session) => session.conducted !== true || session.requires_clarification !== !session.completed)) {
+    throw new Error(`В деталях неверно определён проведённый опрос или признак уточнения для ${person.key}`);
+  }
 }
 
-console.log(`Сайт и данные: OK; ${report.people.length} карточек, ${report.summary.sessions} завершённых, ${report.summary.partial_sessions} незавершённых, ${report.fio_audit.issue_count} ФИО-сигналов`);
+console.log(`Сайт и данные: OK; ${report.people.length} карточек, ${report.summary.conducted_sessions} опросов проведено, ${report.summary.partial_sessions} требуют уточнения, ${report.fio_audit.issue_count} ФИО-сигналов`);

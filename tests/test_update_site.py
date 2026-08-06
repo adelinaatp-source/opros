@@ -42,7 +42,7 @@ def session(
 
 
 class UpdateSiteTests(unittest.TestCase):
-    def test_partial_gap_is_kept_for_details_but_not_counted_as_completed(self):
+    def test_partial_gap_counts_as_conducted_and_requires_clarification(self):
         roster = [
             {"f": "Иванов Иван Иванович", "d": "Аналитик", "o": "Отдел", "u": "Управление", "t": "T1"},
         ]
@@ -72,9 +72,16 @@ class UpdateSiteTests(unittest.TestCase):
         self.assertEqual((refreshed[0]["s2"], refreshed[0]["vs"]), (0, 0))
         self.assertEqual(report["summary"]["sessions"], 0)
         self.assertEqual(report["summary"]["partial_sessions"], 1)
+        self.assertEqual(report["summary"]["conducted_sessions"], 1)
+        self.assertEqual(report["summary"]["passed_people"], 1)
+        self.assertEqual(report["summary"]["not_passed_people"], 0)
+        self.assertEqual(report["scenarios"]["s2"]["conducted_sessions"], 1)
         self.assertEqual(report["people"][0]["partial_sessions"], 1)
+        self.assertEqual(report["people"][0]["conducted_sessions"], 1)
         detail = details["people"]["roster:0"]["sessions"][0]
         self.assertFalse(detail["completed"])
+        self.assertTrue(detail["conducted"])
+        self.assertTrue(detail["requires_clarification"])
         self.assertEqual(detail["completion_status"], "interrupted-partial")
         self.assertEqual(detail["source_file"], "partial-gap.md")
         self.assertEqual((status["included_sessions"], status["included_partial_sessions"]), (0, 1))

@@ -26,6 +26,32 @@ class SiteArchitectureTests(unittest.TestCase):
         self.assertIn("quality", report["summary"])
         self.assertTrue(all("name_check" in person for person in report["people"]))
         self.assertTrue(all("quality" in person for person in report["people"]))
+        self.assertTrue(all("conducted_sessions" in person for person in report["people"]))
+        self.assertEqual(
+            report["summary"]["conducted_sessions"],
+            report["summary"]["sessions"] + report["summary"]["partial_sessions"],
+        )
+
+    def test_dashboard_uses_conducted_and_clarification_terms(self) -> None:
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        app = (ROOT / "assets" / "app.js").read_text(encoding="utf-8")
+        ui = f"{html}\n{app}"
+
+        for marker in (
+            "Опрос проведён",
+            "Есть вопросы на уточнение",
+            "Требуется уточнение",
+            "Завершён · требуется уточнение",
+            "Полностью закрыто",
+            "Закрыто с оговорками",
+            "Частично",
+            "Открыто",
+            "Переадресовано",
+        ):
+            self.assertIn(marker, ui)
+
+        for obsolete in ("Есть незавершённые", "Незавершён", "Не завершено"):
+            self.assertNotIn(obsolete, ui)
 
     def test_data_files_are_pretty_printed_for_reviewable_diffs(self) -> None:
         for relative in ("data/report.json", "data/details.json", "data/update-status.json"):

@@ -648,6 +648,7 @@ def person_payload(row: dict[str, object], index: int, meta: dict[str, object] |
         "s2": int(row.get("s2", 0)),
         "s3": int(row.get("s3", 0)),
         "vs": int(row.get("vs", 0)),
+        "conducted_sessions": len(sessions),
         "last": row.get("last", ""),
         "partial_sessions": len(partial_sessions),
         "partial_quality": aggregate_quality(partial_sessions),
@@ -666,6 +667,8 @@ def person_payload(row: dict[str, object], index: int, meta: dict[str, object] |
             "source_file": session.source_file.as_posix(),
             "created_at": session.created_at.isoformat(timespec="seconds"),
             "completed": session.completed,
+            "conducted": True,
+            "requires_clarification": not session.completed,
             "completion_status": session.completion_status,
             "title": session.title,
             "score": session.score,
@@ -686,6 +689,19 @@ def build_payloads(roster: list[dict[str, object]], sessions: list[Session], dia
         if detail:
             details[person["key"]] = detail
     visible = [person for person in people if not person["excluded_reason"]]
+    dashboard_people_by_name: dict[str, dict[str, object]] = {}
+    for person in visible:
+        name_key = normalize_name(str(person["f"]))
+        current = dashboard_people_by_name.get(name_key)
+        person_rank = (int(person["conducted_sessions"]), int(person["vs"]), len(str(person["f"])))
+        current_rank = (
+            int(current["conducted_sessions"]),
+            int(current["vs"]),
+            len(str(current["f"])),
+        ) if current else (-1, -1, -1)
+        if person_rank > current_rank:
+            dashboard_people_by_name[name_key] = person
+    dashboard_people = list(dashboard_people_by_name.values())
     excluded_sessions = {
         session
         for index, row in enumerate(roster)
@@ -707,6 +723,7 @@ def build_payloads(roster: list[dict[str, object]], sessions: list[Session], dia
             **info,
             "sessions": len(subset),
             "partial_sessions": len(partial_subset),
+            "conducted_sessions": len(subset) + len(partial_subset),
             "quality": aggregate_quality(subset),
             "partial_quality": aggregate_quality(partial_subset),
         }
@@ -728,11 +745,12 @@ def build_payloads(roster: list[dict[str, object]], sessions: list[Session], dia
         "schema_version": SCHEMA_VERSION,
         "snapshot": snapshot,
         "summary": {
-            "people": len(visible),
-            "passed_people": sum(1 for person in visible if person["vs"] > 0),
-            "not_passed_people": sum(1 for person in visible if person["vs"] == 0),
+            "people": len(dashboard_people),
+            "passed_people": sum(1 for person in dashboard_people if person["conducted_sessions"] > 0),
+            "not_passed_people": sum(1 for person in dashboard_people if person["conducted_sessions"] == 0),
             "sessions": len(included_sessions),
             "partial_sessions": len(included_partial_sessions),
+            "conducted_sessions": len(included_all_sessions),
             "quality": aggregate_quality(included_sessions),
             "fio_issues": fio["issue_count"],
             "excluded_people": len(people) - len(visible),
@@ -766,6 +784,7 @@ def build_payloads(roster: list[dict[str, object]], sessions: list[Session], dia
         ),
         "included_sessions": len(included_sessions),
         "included_partial_sessions": len(included_partial_sessions),
+        "included_conducted_sessions": len(included_all_sessions),
         "excluded_sessions": len(excluded_completed_sessions),
         "excluded_partial_sessions": len(excluded_partial_sessions),
         "included_sessions_by_scenario": dict(sorted(Counter(item.scenario_field for item in included_sessions).items())),

@@ -85,11 +85,21 @@ function deduplicateExact(people) {
   for (const person of people) {
     const key = normalizeName(person.f);
     const current = result.get(key);
-    if (!current || person.vs > current.vs || (person.vs === current.vs && String(person.f).length > String(current.f).length)) {
+    const conducted = person.conducted_sessions ?? ((person.vs || 0) + (person.partial_sessions || 0));
+    const currentConducted = current?.conducted_sessions ?? ((current?.vs || 0) + (current?.partial_sessions || 0));
+    if (!current || conducted > currentConducted || (conducted === currentConducted && person.vs > current.vs) || (conducted === currentConducted && person.vs === current.vs && String(person.f).length > String(current.f).length)) {
       result.set(key, person);
     }
   }
   return [...result.values()];
+}
+
+function conductedCount(person) {
+  return person.conducted_sessions ?? ((person.vs || 0) + (person.partial_sessions || 0));
+}
+
+function hasConductedSurvey(person) {
+  return conductedCount(person) > 0;
 }
 
 function basePeople() {
@@ -140,8 +150,8 @@ function aggregateScenarioQuality(rows, scenarioKey) {
 function filterCounts(rows) {
   return {
     all: rows.length,
-    none: rows.filter((person) => person.vs <= 0).length,
-    pass: rows.filter((person) => person.vs > 0).length,
+    none: rows.filter((person) => !hasConductedSurvey(person)).length,
+    pass: rows.filter(hasConductedSurvey).length,
     low: rows.filter((person) => person.vs > 0 && qualityClass(person) === "low").length,
     partial: rows.filter((person) => (person.partial_sessions || 0) > 0).length,
     fio: rows.filter(nameIssue).length,
@@ -156,7 +166,7 @@ function renderFilterCounts() {
     none: "Не прошли",
     pass: "Прошли",
     low: "Низкое качество",
-    partial: "Есть незавершённые",
+    partial: "Требуется уточнение",
     fio: "Проверить ФИО",
     cov: "Охват",
   };
@@ -165,7 +175,7 @@ function renderFilterCounts() {
     const value = key === "cov" ? `${counts.pass}/${counts.all}` : counts[key];
     button.innerHTML = `${escapeHtml(labels[key])}<span class="filter-count">${escapeHtml(value)}</span>`;
     if (key === "partial") {
-      button.title = `${formatNumber(sessionCounts(rows).partial)} незавершённых сессий у ${formatNumber(counts.partial)} человек`;
+      button.title = `${formatNumber(sessionCounts(rows).partial)} опросов требуют уточнения у ${formatNumber(counts.partial)} человек`;
     }
   }
 }
@@ -179,16 +189,16 @@ function renderSessionLogic() {
   const groupName = state.tab === "tovar" ? "Товароведы и скупщики" : "Сотрудники";
   byId("sessionLogic").innerHTML = `
     <div class="session-logic-summary">
-      <div><span>${escapeHtml(groupName)}</span><strong>${formatNumber(current.total)} всего</strong><small>${formatNumber(current.completed)} завершено · ${formatNumber(current.partial)} незавершено</small></div>
-      <div><span>Весь дашборд</span><strong>${formatNumber(overall.sessions + overall.partial_sessions)} всего</strong><small>${formatNumber(overall.sessions)} завершено · ${formatNumber(overall.partial_sessions)} незавершено (${formatNumber(staff.partial)} + ${formatNumber(tovar.partial)})</small></div>
+      <div><span>${escapeHtml(groupName)}</span><strong>${formatNumber(current.total)} опросов проведено</strong><small>${formatNumber(current.partial)} требуют уточнения</small></div>
+      <div><span>Весь дашборд</span><strong>${formatNumber(overall.conducted_sessions)} опросов проведено</strong><small>${formatNumber(overall.partial_sessions)} требуют уточнения (${formatNumber(staff.partial)} + ${formatNumber(tovar.partial)})</small></div>
     </div>
-    <p><strong>Логика:</strong> в карточке ответов показываются все сессии. Завершённая сессия считается прохождением и входит в свод качества. Незавершённая отображается отдельно, но не увеличивает число прошедших и не входит в среднюю оценку завершённых сессий.</p>
+    <p><strong>Логика:</strong> каждый сохранённый опрос считается проведённым и входит в охват. Метка «требуется уточнение» означает, что часть вопросов осталась открытой, частичной или переадресованной. Такие опросы показаны отдельно и пока не входят в среднюю оценку качества.</p>
   `;
 }
 
 function renderKpis() {
   const rows = rowsForTab();
-  const passed = rows.filter((person) => person.vs > 0);
+  const passed = rows.filter(hasConductedSurvey);
   const sessions = rows.reduce((sum, person) => sum + person.vs, 0);
   const partialSessions = rows.reduce((sum, person) => sum + (person.partial_sessions || 0), 0);
   const scored = passed.filter((person) => person.quality.average != null);
@@ -196,9 +206,9 @@ function renderKpis() {
   const issues = rows.filter(nameIssue).length;
   const cards = [
     ["В реестре", formatNumber(rows.length), `${state.tab === "tovar" ? "товароведов и скупщиков" : "сотрудников"}`],
-    ["Прошли хотя бы один", formatNumber(passed.length), `${rows.length ? percent(passed.length / rows.length * 100) : "—"} охвата`],
-    ["Всего сессий", formatNumber(sessions + partialSessions), `${formatNumber(sessions)} завершено · ${formatNumber(partialSessions)} незавершено`],
-    ["Среднее качество", percent(average), `${formatNumber(issues)} ФИО требуют внимания`],
+    ["Опрос проведён", formatNumber(passed.length), `${rows.length ? percent(passed.length / rows.length * 100) : "—"} охвата`],
+    ["Проведено опросов", formatNumber(sessions + partialSessions), `${formatNumber(partialSessions)} требуют уточнения`],
+    ["Среднее качество", percent(average), `по опросам без отметки уточнения · ${formatNumber(issues)} ФИО требуют внимания`],
   ];
   byId("kpis").innerHTML = cards.map(([label, value, note]) => `
     <article class="kpi">
@@ -213,13 +223,13 @@ function renderScenarioScope() {
   const rows = rowsForTab();
   const sessions = sessionCounts(rows);
   const groupName = state.tab === "tovar" ? "Товароведы и скупщики" : "Сотрудники";
-  byId("scenarioScope").textContent = `Выбранная группа: ${groupName} · качество рассчитано по ${formatNumber(sessions.completed)} завершённым сессиям`;
+  byId("scenarioScope").textContent = `Выбранная группа: ${groupName} · охват включает ${formatNumber(sessions.total)} проведённых опросов; качество рассчитано по ${formatNumber(sessions.completed)} опросам без отметки уточнения`;
 }
 
 function renderScenarioCards() {
   const rows = rowsForTab();
   byId("scenarioCards").innerHTML = Object.entries(state.report.scenarios).map(([key, scenario]) => {
-    const completed = rows.filter((person) => person[key] > 0).length;
+    const completed = rows.filter((person) => person[key] > 0 || (key === "s2" && (person.partial_sessions || 0) > 0)).length;
     const completedSessions = rows.reduce((sum, person) => sum + (person[key] || 0), 0);
     const partialSessions = key === "s2" ? sessionCounts(rows).partial : 0;
     const quality = aggregateScenarioQuality(rows, key);
@@ -231,7 +241,7 @@ function renderScenarioCards() {
           <strong class="scenario-score">${percent(quality.average)}</strong>
         </div>
         <h3>${escapeHtml(scenario.name)}</h3>
-        <p>${escapeHtml(scenario.metric)} · ${formatNumber(completedSessions + partialSessions)} всего: ${formatNumber(completedSessions)} завершено${partialSessions ? ` · ${formatNumber(partialSessions)} незавершено` : ""}</p>
+        <p>${escapeHtml(scenario.metric)} · ${formatNumber(completedSessions + partialSessions)} опросов проведено${partialSessions ? ` · ${formatNumber(partialSessions)} требуют уточнения` : ""}</p>
         <div class="progress"><span style="width:${Math.min(100, coverage)}%"></span></div>
         <div class="scenario-meta"><span>${formatNumber(completed)} из ${formatNumber(rows.length)}</span><span>охват ${percent(coverage)}</span></div>
       </article>
@@ -282,8 +292,8 @@ function populateUnits() {
 function filteredRows() {
   const query = state.query.toLocaleLowerCase("ru-RU");
   return rowsForTab().filter((person) => {
-    if (state.filter === "pass" && person.vs <= 0) return false;
-    if (state.filter === "none" && person.vs > 0) return false;
+    if (state.filter === "pass" && !hasConductedSurvey(person)) return false;
+    if (state.filter === "none" && hasConductedSurvey(person)) return false;
     if (state.filter === "low" && !(person.vs > 0 && qualityClass(person) === "low")) return false;
     if (state.filter === "partial" && !(person.partial_sessions > 0)) return false;
     if (state.filter === "fio" && !nameIssue(person)) return false;
@@ -306,7 +316,7 @@ function sortRows(rows) {
 function scenarioMark(value, key, partial = 0) {
   const label = value ? `✓${value > 1 ? ` ×${value}` : ""}${partial ? ` · ~${partial}` : ""}` : partial ? `~${partial}` : "—";
   const kind = value ? "done" : partial ? "partial" : "off";
-  const note = partial ? `; незавершённых попыток: ${partial}` : "";
+  const note = partial ? `; требуют уточнения: ${partial}` : "";
   return `<span class="scenario-mark ${kind}" title="${escapeHtml(SURVEY[key].name)}${escapeHtml(note)}">${label}</span>`;
 }
 
@@ -338,7 +348,7 @@ function renderRoster() {
     `;
   }).join("");
   const sessions = sessionCounts(rows);
-  byId("rosterCount").innerHTML = `показано <strong>${formatNumber(rows.length)}</strong> из ${formatNumber(all.length)} человек · ${formatNumber(sessions.total)} сессий (${formatNumber(sessions.completed)} завершено + ${formatNumber(sessions.partial)} незавершено)`;
+  byId("rosterCount").innerHTML = `показано <strong>${formatNumber(rows.length)}</strong> из ${formatNumber(all.length)} человек · ${formatNumber(sessions.total)} опросов проведено · ${formatNumber(sessions.partial)} требуют уточнения`;
 }
 
 function sourceFileName(value) {
@@ -353,7 +363,7 @@ function renderCoverage() {
     const key = person.u || "Не указано";
     const value = groups.get(key) || { total: 0, passed: 0, completed: 0, partial: 0 };
     value.total += 1;
-    value.passed += person.vs > 0 ? 1 : 0;
+    value.passed += hasConductedSurvey(person) ? 1 : 0;
     value.completed += person.vs || 0;
     value.partial += person.partial_sessions || 0;
     groups.set(key, value);
@@ -363,15 +373,15 @@ function renderCoverage() {
     const coverage = value.total ? value.passed / value.total * 100 : 0;
     return `
       <div class="coverage-row">
-        <span class="coverage-title">${escapeHtml(name)}<small>${formatNumber(value.completed + value.partial)} сессий: ${formatNumber(value.completed)} завершено · ${formatNumber(value.partial)} незавершено</small></span>
+        <span class="coverage-title">${escapeHtml(name)}<small>${formatNumber(value.completed + value.partial)} опросов проведено · ${formatNumber(value.partial)} требуют уточнения</small></span>
         <div class="coverage-bar"><span style="width:${coverage}%"></span></div>
         <strong>${percent(coverage)}</strong>
       </div>
     `;
   }).join("");
   const totals = sessionCounts(people);
-  const passed = people.filter((person) => person.vs > 0).length;
-  byId("rosterCount").innerHTML = `охват <strong>${formatNumber(passed)}</strong> из ${formatNumber(people.length)} человек · ${formatNumber(totals.total)} сессий (${formatNumber(totals.completed)} завершено + ${formatNumber(totals.partial)} незавершено)`;
+  const passed = people.filter(hasConductedSurvey).length;
+  byId("rosterCount").innerHTML = `охват <strong>${formatNumber(passed)}</strong> из ${formatNumber(people.length)} человек · ${formatNumber(totals.total)} опросов проведено · ${formatNumber(totals.partial)} требуют уточнения`;
 }
 
 function applyView() {
@@ -415,10 +425,10 @@ function metricLabel(key) {
     confidence: "Уверенность описания",
     document_status: "Статус",
     asked: "Задано",
-    closed: "Закрыто",
+    closed: "Полностью закрыто",
     closed_soft: "Закрыто с оговорками",
     partial: "Частично",
-    reassigned: "Передано ответственному",
+    reassigned: "Переадресовано",
     open: "Открыто",
     grounded: "Подтверждено конкретикой",
     completeness: "Полнота",
@@ -431,6 +441,29 @@ function formatDecimal(value) {
   const number = Number(value);
   if (!Number.isFinite(number)) return "—";
   return new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 }).format(number);
+}
+
+function questionBreakdown(session) {
+  if (session.scenario !== "s2") return "";
+  const metrics = session.metrics || {};
+  const items = [
+    ["Полностью закрыто", metrics.closed],
+    ["С оговорками", metrics.closed_soft],
+    ["Частично", metrics.partial],
+    ["Открыто", metrics.open],
+    ["Переадресовано", metrics.reassigned],
+  ];
+  return `
+    <section class="question-summary" aria-label="Количество вопросов по статусам">
+      <div class="question-summary-heading">
+        <span>Ответы на вопросы</span>
+        <strong>${formatNumber(metrics.asked)} задано</strong>
+      </div>
+      <div class="question-summary-grid">
+        ${items.map(([label, value]) => `<div><strong>${formatNumber(value)}</strong><span>${escapeHtml(label)}</span></div>`).join("")}
+      </div>
+    </section>
+  `;
 }
 
 function answerQuality(session, status) {
@@ -447,7 +480,7 @@ function answerQuality(session, status) {
   const normalized = String(status || "").trim().toLocaleLowerCase("ru-RU");
   const rules = [
     { matches: ["closed-soft", "с оговор"], score: 75, label: "Засчитано с оговорками" },
-    { matches: ["reassigned", "передан"], score: 0, label: "Передано ответственному" },
+    { matches: ["reassigned", "передан"], score: 0, label: "Переадресовано" },
     { matches: ["open", "открыт", "не закрыт"], score: 0, label: "Не закрыто" },
     { matches: ["partial", "частич"], score: 50, label: "Засчитано частично" },
     { matches: ["closed", "закрыт"], score: 100, label: "Засчитано полностью" },
@@ -484,7 +517,7 @@ function qualityCalculation(session) {
   if (session.scenario === "s2") {
     return {
       formula: `не более 100%: (${formatDecimal(metrics.closed)} + 0,75 × ${formatDecimal(metrics.closed_soft)} + 0,5 × ${formatDecimal(metrics.partial)}) / ${formatDecimal(metrics.asked)} × 100 = ${percent(session.score)}`,
-      basis: "Полностью закрытые ответы дают 1, с оговорками — 0,75, частичные — 0,5; открытые и переданные — 0. Результат ограничивается 100%.",
+      basis: "Полностью закрытые ответы дают 1, с оговорками — 0,75, частичные — 0,5; открытые и переадресованные — 0. Результат ограничивается 100%.",
     };
   }
   return {
@@ -508,7 +541,11 @@ async function showPerson(personKey) {
     const person = details.people[personKey];
     if (!person) throw new Error("Для сотрудника не найдены детали сессий");
     const cards = person.sessions.map((session) => {
-      const metrics = Object.entries(session.metrics || {}).map(([key, value]) => `<span class="metric">${escapeHtml(metricLabel(key))}: ${escapeHtml(value ?? "—")}</span>`).join("");
+      const questionMetricKeys = new Set(["asked", "closed", "closed_soft", "partial", "open", "reassigned"]);
+      const metrics = Object.entries(session.metrics || {})
+        .filter(([key]) => session.scenario !== "s2" || !questionMetricKeys.has(key))
+        .map(([key, value]) => `<span class="metric">${escapeHtml(metricLabel(key))}: ${escapeHtml(value ?? "—")}</span>`)
+        .join("");
       const answerRows = (session.answers || []).map(([topic, answer, status], index) => {
         const assessment = answerQuality(session, status);
         return `
@@ -541,11 +578,12 @@ async function showPerson(personKey) {
       return `
         <article class="detail-card">
           <span class="quality-pill ${escapeHtml(session.quality)}">${escapeHtml(SURVEY[session.scenario]?.label || session.scenario)} · ${percent(session.score)}</span>
-          <span class="completion-pill ${session.completed ? "completed" : "partial"}">${session.completed ? "Завершён" : "Незавершён"}</span>
+          <span class="completion-pill ${session.completed ? "completed" : "partial"}">${session.completed ? "Опрос проведён" : "Завершён · требуется уточнение"}</span>
           <h3>${escapeHtml(session.title || SURVEY[session.scenario]?.name || "Сессия")}</h3>
           <div class="person-sub">${formatDate(session.created_at)} · ${escapeHtml(session.session_id)}</div>
           <div class="session-source"><span>Файл</span><code title="${escapeHtml(session.source_file || "")}">${escapeHtml(sourceFileName(session.source_file))}</code></div>
           <div class="metric-list">${metrics}</div>
+          ${questionBreakdown(session)}
           ${answers}
           <section class="calculation-card">
             <span class="calculation-label">Расчёт оценки качества</span>
@@ -555,7 +593,7 @@ async function showPerson(personKey) {
           <section class="quality-total ${escapeHtml(session.quality)}">
             <div>
               <span>Итоговая оценка качества</span>
-              <small>${session.completed ? "Учитывается в сводной статистике" : "Не учитывается в сводной статистике: сессия не завершена"}</small>
+              <small>${session.completed ? "Учитывается в охвате и сводном качестве" : "Учитывается в охвате; качество показано отдельно до уточнения вопросов"}</small>
             </div>
             <strong>${percent(session.score)}</strong>
             <span class="quality-total-label">${escapeHtml(QUALITY_LABEL[session.quality] || QUALITY_LABEL.unknown)}</span>
@@ -563,9 +601,8 @@ async function showPerson(personKey) {
         </article>
       `;
     }).join("");
-    const completed = person.sessions.filter((session) => session.completed).length;
-    const partial = person.sessions.length - completed;
-    openDrawer(person.name, `Все ${formatNumber(person.sessions.length)} сессий: ${formatNumber(completed)} завершено · ${formatNumber(partial)} незавершено`, cards);
+    const partial = person.sessions.filter((session) => !session.completed).length;
+    openDrawer(person.name, `${formatNumber(person.sessions.length)} опросов проведено · ${formatNumber(partial)} требуют уточнения`, cards);
   } catch (error) {
     openDrawer("Ошибка загрузки", "Ответы сотрудника", `<div class="notice error">${escapeHtml(error.message)}</div>`);
   }
@@ -577,7 +614,7 @@ function showMethod() {
   const scenarioRows = Object.values(state.report.scenarios).map((scenario) => `
     <tr>
       <td>${escapeHtml(scenario.name)}</td>
-      <td>${formatNumber(scenario.sessions)}</td>
+      <td>${formatNumber(scenario.conducted_sessions)}</td>
       <td>${formatNumber(scenario.partial_sessions || 0)}</td>
       <td>${percent(scenario.quality.average)}</td>
       <td>${formatNumber(scenario.quality.high)}</td>
@@ -604,22 +641,22 @@ function showMethod() {
       <h3>Текущие проверенные результаты</h3>
       <div class="reference-table-wrap">
         <table class="reference-table">
-          <thead><tr><th>Опрос</th><th>Завершено</th><th>Не завершено</th><th>Среднее</th><th>Высокое</th><th>Среднее</th><th>Низкое</th></tr></thead>
+          <thead><tr><th>Опрос</th><th>Опрос проведён</th><th>Требуется уточнение</th><th>Среднее</th><th>Высокое</th><th>Среднее</th><th>Низкое</th></tr></thead>
           <tbody>${scenarioRows}</tbody>
-          <tfoot><tr><th>Итого</th><th>${formatNumber(summary.sessions)}</th><th>${formatNumber(summary.partial_sessions)}</th><th>${percent(summary.quality.average)}</th><th>${formatNumber(summary.quality.high)}</th><th>${formatNumber(summary.quality.medium)}</th><th>${formatNumber(summary.quality.low)}</th></tr></tfoot>
+          <tfoot><tr><th>Итого</th><th>${formatNumber(summary.conducted_sessions)}</th><th>${formatNumber(summary.partial_sessions)}</th><th>${percent(summary.quality.average)}</th><th>${formatNumber(summary.quality.high)}</th><th>${formatNumber(summary.quality.medium)}</th><th>${formatNumber(summary.quality.low)}</th></tr></tfoot>
         </table>
       </div>
-      <p class="muted">Незавершённые ответы сохраняются в деталях, но не считаются прохождением и не входят в официальный средний результат.</p>
+      <p class="muted">Все сохранённые опросы считаются проведёнными и входят в охват. Опросы с отметкой «требуется уточнение» показаны отдельно и пока не входят в средний результат качества.</p>
     </article>
     <article class="detail-card">
       <h3>Что именно сравнивается</h3>
       <ul class="audit-list">
-        <li><strong>Баллы анкеты</strong> — результат одной завершённой анкеты.</li>
-        <li><strong>Качество сотрудника</strong> — среднее его завершённых анкет.</li>
+        <li><strong>Баллы анкеты</strong> — результат одного опроса по метрикам исходного документа.</li>
+        <li><strong>Качество сотрудника</strong> — среднее его опросов без отметки уточнения.</li>
         <li><strong>Низкое качество</strong> — средний результат сотрудника ниже 50%.</li>
-        <li><strong>Распределение качества</strong> — количество отдельных завершённых анкет каждого уровня.</li>
+        <li><strong>Распределение качества</strong> — количество отдельных опросов без отметки уточнения каждого уровня.</li>
         <li><strong>Среднее на вкладке</strong> — среднее персональных результатов выбранной группы.</li>
-        <li><strong>Охват</strong> — доля людей хотя бы с одной завершённой анкетой.</li>
+        <li><strong>Охват</strong> — доля людей хотя бы с одним проведённым опросом, включая требующие уточнения.</li>
       </ul>
     </article>
     <article class="detail-card">
@@ -627,15 +664,15 @@ function showMethod() {
       <dl class="glossary-list">
         <dt>Уверенность описания</dt><dd>Полнота описания основного процесса.</dd>
         <dt>Задано</dt><dd>Общее количество вопросов в доопросе.</dd>
-        <dt>Закрыто</dt><dd>Получен полный ответ; вес в расчёте — 1.</dd>
+        <dt>Полностью закрыто</dt><dd>Получен полный ответ; вес в расчёте — 1.</dd>
         <dt>Закрыто с оговорками</dt><dd>Ответ принят с небольшими ограничениями; вес — 0,75.</dd>
         <dt>Частично</dt><dd>Получена только часть ответа; вес — 0,5.</dd>
         <dt>Открыто</dt><dd>Ответ не получен; вес — 0.</dd>
-        <dt>Передано ответственному</dt><dd>Вопрос направлен другому сотруднику и отдельно показывается в деталях.</dd>
+        <dt>Переадресовано</dt><dd>Вопрос направлен другому сотруднику и отдельно показывается в деталях.</dd>
         <dt>Подтверждено конкретикой</dt><dd>Ответ содержит факт, пример, документ или другое основание.</dd>
         <dt>Полнота карты дня</dt><dd>Насколько полно описаны активности рабочего дня.</dd>
-        <dt>Завершено</dt><dd>Анкета учитывается в прохождении и официальном качестве.</dd>
-        <dt>Не завершено</dt><dd>Ответы сохранены, но прохождение не засчитано.</dd>
+        <dt>Опрос проведён</dt><dd>Сохранённый опрос учитывается в охвате.</dd>
+        <dt>Есть вопросы на уточнение</dt><dd>Опрос проведён, но часть вопросов осталась открытой, частичной или переадресованной.</dd>
         <dt>Нет оценки</dt><dd>В документе недостаточно данных для вычисления балла.</dd>
       </dl>
     </article>
@@ -708,14 +745,14 @@ async function start() {
     state.report = await response.json();
     if (state.report.schema_version !== 2 || !Array.isArray(state.report.people)) throw new Error("Неверная версия данных отчёта");
     byId("snapshot").textContent = state.report.snapshot;
-    byId("sourceHealth").textContent = `${formatNumber(state.report.summary.sessions)} завершено · ${formatNumber(state.report.summary.partial_sessions)} незавершено · версия данных ${state.report.schema_version}`;
+    byId("sourceHealth").textContent = `${formatNumber(state.report.summary.conducted_sessions)} опросов проведено · ${formatNumber(state.report.summary.partial_sessions)} требуют уточнения · версия данных ${state.report.schema_version}`;
     const staff = rowsForTab("staff").length;
     const tovar = rowsForTab("tovar").length;
     byId("cntStaff").textContent = formatNumber(staff);
     byId("cntTovar").textContent = formatNumber(tovar);
     renderFioSummary();
     renderBoard();
-    byId("foot").textContent = `Источник KB-ARM-survey только для чтения · ${state.report.snapshot} · незавершённых попыток: ${formatNumber(state.report.summary.partial_sessions)} · исключено из свода: ${formatNumber(state.report.summary.excluded_people)} · детали ответов загружаются только по запросу.`;
+    byId("foot").textContent = `Источник KB-ARM-survey только для чтения · ${state.report.snapshot} · требуют уточнения: ${formatNumber(state.report.summary.partial_sessions)} · исключено из свода: ${formatNumber(state.report.summary.excluded_people)} · детали ответов загружаются только по запросу.`;
     bindEvents();
   } catch (error) {
     byId("loadError").textContent = `${error.message}. Откройте сайт через GitHub Pages или локальный HTTP-сервер.`;
