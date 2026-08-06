@@ -188,11 +188,19 @@
       "_origin": "ast"
     },
     {
+      "id": "assets_app_renderscenarioscope",
+      "label": "renderScenarioScope()",
+      "file_type": "code",
+      "source_file": "assets/app.js",
+      "source_location": "L212",
+      "_origin": "ast"
+    },
+    {
       "id": "assets_app_renderscenariocards",
       "label": "renderScenarioCards()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L212",
+      "source_location": "L219",
       "_origin": "ast"
     },
     {
@@ -200,7 +208,7 @@
       "label": "renderQualityChart()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L235",
+      "source_location": "L242",
       "_origin": "ast"
     },
     {
@@ -208,7 +216,7 @@
       "label": "renderFioSummary()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L254",
+      "source_location": "L261",
       "_origin": "ast"
     },
     {
@@ -216,7 +224,7 @@
       "label": "populateUnits()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L267",
+      "source_location": "L274",
       "_origin": "ast"
     },
     {
@@ -224,7 +232,7 @@
       "label": "filteredRows()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L275",
+      "source_location": "L282",
       "_origin": "ast"
     },
     {
@@ -232,7 +240,7 @@
       "label": "sortRows()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L289",
+      "source_location": "L296",
       "_origin": "ast"
     },
     {
@@ -240,7 +248,7 @@
       "label": "scenarioMark()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L299",
+      "source_location": "L306",
       "_origin": "ast"
     },
     {
@@ -248,7 +256,7 @@
       "label": "qualityPill()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L306",
+      "source_location": "L313",
       "_origin": "ast"
     },
     {
@@ -256,7 +264,7 @@
       "label": "renderRoster()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L311",
+      "source_location": "L318",
       "_origin": "ast"
     },
     {
@@ -264,7 +272,7 @@
       "label": "renderCoverage()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L337",
+      "source_location": "L344",
       "_origin": "ast"
     },
     {
@@ -272,7 +280,7 @@
       "label": "applyView()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L365",
+      "source_location": "L372",
       "_origin": "ast"
     },
     {
@@ -280,7 +288,7 @@
       "label": "renderBoard()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L374",
+      "source_location": "L381",
       "_origin": "ast"
     },
     {
@@ -288,7 +296,7 @@
       "label": "openDrawer()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L384",
+      "source_location": "L392",
       "_origin": "ast"
     },
     {
@@ -296,7 +304,7 @@
       "label": "closeDrawer()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L394",
+      "source_location": "L402",
       "_origin": "ast"
     },
     {
@@ -304,7 +312,7 @@
       "label": "metricLabel()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L400",
+      "source_location": "L408",
       "_origin": "ast"
     },
     {
@@ -312,7 +320,7 @@
       "label": "formatDecimal()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L417",
+      "source_location": "L425",
       "_origin": "ast"
     },
     {
@@ -320,7 +328,7 @@
       "label": "answerQuality()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L423",
+      "source_location": "L431",
       "_origin": "ast"
     },
     {
@@ -328,7 +336,7 @@
       "label": "qualityCalculation()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L457",
+      "source_location": "L465",
       "_origin": "ast"
     },
     {
@@ -336,7 +344,7 @@
       "label": "loadDetails()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L483",
+      "source_location": "L491",
       "_origin": "ast"
     },
     {
@@ -344,7 +352,7 @@
       "label": "showPerson()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L491",
+      "source_location": "L499",
       "_origin": "ast"
     },
     {
@@ -352,7 +360,7 @@
       "label": "showMethod()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L560",
+      "source_location": "L568",
       "_origin": "ast"
     },
     {
@@ -360,7 +368,7 @@
       "label": "auditSection()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L636",
+      "source_location": "L644",
       "_origin": "ast"
     },
     {
@@ -368,7 +376,7 @@
       "label": "showFioAudit()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L641",
+      "source_location": "L649",
       "_origin": "ast"
     },
     {
@@ -376,7 +384,7 @@
       "label": "bindEvents()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L653",
+      "source_location": "L661",
       "_origin": "ast"
     },
     {
@@ -384,7 +392,7 @@
       "label": "start()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L690",
+      "source_location": "L698",
       "_origin": "ast"
     },
     {
@@ -864,7 +872,7 @@
       "label": "sessionTotal",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L72",
+      "source_location": "L73",
       "_origin": "ast"
     },
     {
@@ -872,7 +880,7 @@
       "label": "partialTotal",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L77",
+      "source_location": "L78",
       "_origin": "ast"
     },
     {
@@ -880,7 +888,7 @@
       "label": "counted",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L82",
+      "source_location": "L83",
       "_origin": "ast"
     },
     {
@@ -888,7 +896,7 @@
       "label": "countedPartial",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L87",
+      "source_location": "L88",
       "_origin": "ast"
     },
     {
@@ -896,7 +904,7 @@
       "label": "normalizeName()",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L92",
+      "source_location": "L93",
       "_origin": "ast"
     },
     {
@@ -904,7 +912,7 @@
       "label": "isTovar()",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L97",
+      "source_location": "L98",
       "_origin": "ast"
     },
     {
@@ -912,7 +920,7 @@
       "label": "visibleByName",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L98",
+      "source_location": "L99",
       "_origin": "ast"
     },
     {
@@ -920,7 +928,7 @@
       "label": "dashboardRows",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L106",
+      "source_location": "L107",
       "_origin": "ast"
     },
     {
@@ -928,7 +936,31 @@
       "label": "filterGroups",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L107",
+      "source_location": "L108",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_validate_site_scenarioaverage",
+      "label": "scenarioAverage()",
+      "file_type": "code",
+      "source_file": "scripts/validate_site.js",
+      "source_location": "L112",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_validate_site_staffscenarioquality",
+      "label": "staffScenarioQuality",
+      "file_type": "code",
+      "source_file": "scripts/validate_site.js",
+      "source_location": "L125",
+      "_origin": "ast"
+    },
+    {
+      "id": "scripts_validate_site_tovarscenarioquality",
+      "label": "tovarScenarioQuality",
+      "file_type": "code",
+      "source_file": "scripts/validate_site.js",
+      "source_location": "L126",
       "_origin": "ast"
     },
     {
@@ -936,7 +968,7 @@
       "label": "filterTotals",
       "file_type": "code",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L111",
+      "source_location": "L130",
       "_origin": "ast"
     },
     {
@@ -1402,6 +1434,46 @@
       "source_file": "graphify-out/memory/query_20260806_093008_как_показываются_вопрос__ответ__вклад_качества__фо.md",
       "source_location": "L20",
       "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы",
+      "label": "query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы.md",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы.md",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы_q_как_работают_фильтры_реестра_и_почему_охват_показывал_117_из_211_вместо_сессий",
+      "label": "Q: Как работают фильтры реестра и почему Охват показывал 117 из 211 вместо сессий?",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы.md",
+      "source_location": "L10",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы_answer",
+      "label": "Answer",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы.md",
+      "source_location": "L12",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы_outcome",
+      "label": "Outcome",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы.md",
+      "source_location": "L16",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы_source_nodes",
+      "label": "Source Nodes",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы.md",
+      "source_location": "L20",
+      "_origin": "ast"
     }
   ],
   "links": [
@@ -1627,7 +1699,7 @@
     },
     {
       "source": "assets_app",
-      "target": "assets_app_renderscenariocards",
+      "target": "assets_app_renderscenarioscope",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
@@ -1637,11 +1709,21 @@
     },
     {
       "source": "assets_app",
+      "target": "assets_app_renderscenariocards",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L219",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app",
       "target": "assets_app_renderqualitychart",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L235",
+      "source_location": "L242",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1651,7 +1733,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L254",
+      "source_location": "L261",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1661,7 +1743,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L267",
+      "source_location": "L274",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1671,7 +1753,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L275",
+      "source_location": "L282",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1681,7 +1763,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L289",
+      "source_location": "L296",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1691,7 +1773,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L299",
+      "source_location": "L306",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1701,7 +1783,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L306",
+      "source_location": "L313",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1711,7 +1793,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L311",
+      "source_location": "L318",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1721,7 +1803,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L337",
+      "source_location": "L344",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1731,7 +1813,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L365",
+      "source_location": "L372",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1741,7 +1823,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L374",
+      "source_location": "L381",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1751,7 +1833,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L384",
+      "source_location": "L392",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1761,7 +1843,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L394",
+      "source_location": "L402",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1771,7 +1853,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L400",
+      "source_location": "L408",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1781,7 +1863,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L417",
+      "source_location": "L425",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1791,7 +1873,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L423",
+      "source_location": "L431",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1801,7 +1883,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L457",
+      "source_location": "L465",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1811,7 +1893,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L483",
+      "source_location": "L491",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1821,7 +1903,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L491",
+      "source_location": "L499",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1831,7 +1913,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L560",
+      "source_location": "L568",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1841,7 +1923,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L636",
+      "source_location": "L644",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1851,7 +1933,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L641",
+      "source_location": "L649",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1861,7 +1943,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L653",
+      "source_location": "L661",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1871,7 +1953,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L690",
+      "source_location": "L698",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2129,7 +2211,7 @@
       "_origin": "ast"
     },
     {
-      "source": "assets_app_renderscenariocards",
+      "source": "assets_app_renderscenarioscope",
       "target": "assets_app_rowsfortab",
       "relation": "calls",
       "context": "call",
@@ -2140,8 +2222,8 @@
       "_origin": "ast"
     },
     {
-      "source": "assets_app_renderscenariocards",
-      "target": "assets_app_byid",
+      "source": "assets_app_renderscenarioscope",
+      "target": "assets_app_sessioncounts",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -2151,41 +2233,52 @@
       "_origin": "ast"
     },
     {
+      "source": "assets_app_renderscenarioscope",
+      "target": "assets_app_byid",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L216",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_renderscenarioscope",
+      "target": "assets_app_formatnumber",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L216",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_renderscenariocards",
+      "target": "assets_app_rowsfortab",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L220",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_renderscenariocards",
+      "target": "assets_app_byid",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L221",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "assets_app_renderscenariocards",
       "target": "assets_app_sessioncounts",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "assets/app.js",
-      "source_location": "L217",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "assets_app_renderscenariocards",
-      "target": "assets_app_aggregatescenarioquality",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "assets/app.js",
-      "source_location": "L218",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "assets_app_renderscenariocards",
-      "target": "assets_app_escapehtml",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "assets/app.js",
-      "source_location": "L223",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "assets_app_renderscenariocards",
-      "target": "assets_app_percent",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -2196,12 +2289,45 @@
     },
     {
       "source": "assets_app_renderscenariocards",
+      "target": "assets_app_aggregatescenarioquality",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L225",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_renderscenariocards",
+      "target": "assets_app_escapehtml",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L230",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_renderscenariocards",
+      "target": "assets_app_percent",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L231",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_renderscenariocards",
       "target": "assets_app_formatnumber",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L227",
+      "source_location": "L234",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2212,7 +2338,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L236",
+      "source_location": "L243",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2223,7 +2349,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L237",
+      "source_location": "L244",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2234,7 +2360,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L238",
+      "source_location": "L245",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2245,7 +2371,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L242",
+      "source_location": "L249",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2256,7 +2382,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L248",
+      "source_location": "L255",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2267,7 +2393,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L262",
+      "source_location": "L269",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2278,45 +2404,12 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L263",
+      "source_location": "L270",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
       "source": "assets_app_renderfiosummary",
-      "target": "assets_app_escapehtml",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "assets/app.js",
-      "source_location": "L263",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "assets_app_populateunits",
-      "target": "assets_app_byid",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "assets/app.js",
-      "source_location": "L268",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "assets_app_populateunits",
-      "target": "assets_app_rowsfortab",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "assets/app.js",
-      "source_location": "L269",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "assets_app_populateunits",
       "target": "assets_app_escapehtml",
       "relation": "calls",
       "context": "call",
@@ -2327,8 +2420,30 @@
       "_origin": "ast"
     },
     {
-      "source": "assets_app_filteredrows",
+      "source": "assets_app_populateunits",
+      "target": "assets_app_byid",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L275",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_populateunits",
       "target": "assets_app_rowsfortab",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L276",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_populateunits",
+      "target": "assets_app_escapehtml",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -2339,12 +2454,23 @@
     },
     {
       "source": "assets_app_filteredrows",
+      "target": "assets_app_rowsfortab",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L284",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_filteredrows",
       "target": "assets_app_qualityclass",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L280",
+      "source_location": "L287",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2355,7 +2481,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L282",
+      "source_location": "L289",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2366,7 +2492,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L303",
+      "source_location": "L310",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2377,7 +2503,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L307",
+      "source_location": "L314",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2388,68 +2514,13 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L308",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "assets_app_renderroster",
-      "target": "assets_app_rowsfortab",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "assets/app.js",
-      "source_location": "L312",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "assets_app_renderroster",
-      "target": "assets_app_sortrows",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "assets/app.js",
-      "source_location": "L313",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "assets_app_renderroster",
-      "target": "assets_app_filteredrows",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "assets/app.js",
-      "source_location": "L313",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "assets_app_renderroster",
-      "target": "assets_app_byid",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "assets/app.js",
-      "source_location": "L314",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "assets_app_renderroster",
-      "target": "assets_app_nameissue",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "assets/app.js",
       "source_location": "L315",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
       "source": "assets_app_renderroster",
-      "target": "assets_app_escapehtml",
+      "target": "assets_app_rowsfortab",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -2460,12 +2531,67 @@
     },
     {
       "source": "assets_app_renderroster",
+      "target": "assets_app_sortrows",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L320",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_renderroster",
+      "target": "assets_app_filteredrows",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L320",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_renderroster",
+      "target": "assets_app_byid",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L321",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_renderroster",
+      "target": "assets_app_nameissue",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L322",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_renderroster",
+      "target": "assets_app_escapehtml",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L326",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_renderroster",
       "target": "assets_app_scenariomark",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L324",
+      "source_location": "L331",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2476,7 +2602,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L327",
+      "source_location": "L334",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2487,7 +2613,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L328",
+      "source_location": "L335",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2498,7 +2624,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L333",
+      "source_location": "L340",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2509,7 +2635,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L334",
+      "source_location": "L341",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2520,7 +2646,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L339",
+      "source_location": "L346",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2531,7 +2657,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L350",
+      "source_location": "L357",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2542,7 +2668,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L354",
+      "source_location": "L361",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2553,7 +2679,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L354",
+      "source_location": "L361",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2564,24 +2690,13 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L356",
+      "source_location": "L363",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
       "source": "assets_app_rendercoverage",
       "target": "assets_app_sessioncounts",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "assets/app.js",
-      "source_location": "L360",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "assets_app_applyview",
-      "target": "assets_app_byid",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -2592,12 +2707,23 @@
     },
     {
       "source": "assets_app_applyview",
+      "target": "assets_app_byid",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L374",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_applyview",
       "target": "assets_app_rendercoverage",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L371",
+      "source_location": "L378",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2608,7 +2734,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L371",
+      "source_location": "L378",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2619,7 +2745,18 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L375",
+      "source_location": "L382",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_renderboard",
+      "target": "assets_app_renderscenarioscope",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L383",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2630,7 +2767,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L376",
+      "source_location": "L384",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2641,7 +2778,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L377",
+      "source_location": "L385",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2652,7 +2789,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L378",
+      "source_location": "L386",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2663,7 +2800,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L379",
+      "source_location": "L387",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2674,7 +2811,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L380",
+      "source_location": "L388",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2685,7 +2822,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L381",
+      "source_location": "L389",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2696,7 +2833,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L385",
+      "source_location": "L393",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2707,7 +2844,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L395",
+      "source_location": "L403",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2718,7 +2855,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L452",
+      "source_location": "L460",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2729,7 +2866,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L467",
+      "source_location": "L475",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2740,57 +2877,13 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L467",
+      "source_location": "L475",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
       "source": "assets_app_showperson",
       "target": "assets_app_opendrawer",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "assets/app.js",
-      "source_location": "L492",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "assets_app_showperson",
-      "target": "assets_app_loaddetails",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "assets/app.js",
-      "source_location": "L494",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "assets_app_showperson",
-      "target": "assets_app_escapehtml",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "assets/app.js",
-      "source_location": "L498",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "assets_app_showperson",
-      "target": "assets_app_metriclabel",
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "assets/app.js",
-      "source_location": "L498",
-      "weight": 1.0,
-      "_origin": "ast"
-    },
-    {
-      "source": "assets_app_showperson",
-      "target": "assets_app_answerquality",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -2801,12 +2894,56 @@
     },
     {
       "source": "assets_app_showperson",
+      "target": "assets_app_loaddetails",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L502",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_showperson",
+      "target": "assets_app_escapehtml",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L506",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_showperson",
+      "target": "assets_app_metriclabel",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L506",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_showperson",
+      "target": "assets_app_answerquality",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L508",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_showperson",
       "target": "assets_app_qualitycalculation",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L527",
+      "source_location": "L535",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2817,7 +2954,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L530",
+      "source_location": "L538",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2828,7 +2965,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L533",
+      "source_location": "L541",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2839,7 +2976,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L554",
+      "source_location": "L562",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2850,7 +2987,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L565",
+      "source_location": "L573",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2861,7 +2998,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L566",
+      "source_location": "L574",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2872,7 +3009,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L568",
+      "source_location": "L576",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2883,7 +3020,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L575",
+      "source_location": "L583",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2894,7 +3031,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L637",
+      "source_location": "L645",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2905,7 +3042,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L638",
+      "source_location": "L646",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2916,7 +3053,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L644",
+      "source_location": "L652",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2927,7 +3064,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L650",
+      "source_location": "L658",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2938,7 +3075,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L650",
+      "source_location": "L658",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2949,7 +3086,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L654",
+      "source_location": "L662",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2960,7 +3097,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L664",
+      "source_location": "L672",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2971,7 +3108,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L671",
+      "source_location": "L679",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2982,7 +3119,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L673",
+      "source_location": "L681",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2993,7 +3130,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L677",
+      "source_location": "L685",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3004,7 +3141,7 @@
       "context": "argument",
       "confidence": "INFERRED",
       "source_file": "assets/app.js",
-      "source_location": "L683",
+      "source_location": "L691",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3015,7 +3152,7 @@
       "context": "argument",
       "confidence": "INFERRED",
       "source_file": "assets/app.js",
-      "source_location": "L684",
+      "source_location": "L692",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3026,7 +3163,7 @@
       "context": "argument",
       "confidence": "INFERRED",
       "source_file": "assets/app.js",
-      "source_location": "L685",
+      "source_location": "L693",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3037,7 +3174,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L687",
+      "source_location": "L695",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3048,7 +3185,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L696",
+      "source_location": "L704",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3059,7 +3196,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L697",
+      "source_location": "L705",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3070,7 +3207,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L698",
+      "source_location": "L706",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3081,7 +3218,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L702",
+      "source_location": "L710",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3092,7 +3229,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L703",
+      "source_location": "L711",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -3103,7 +3240,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L705",
+      "source_location": "L713",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4676,7 +4813,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L72",
+      "source_location": "L73",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4686,7 +4823,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L77",
+      "source_location": "L78",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4696,7 +4833,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L82",
+      "source_location": "L83",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4706,7 +4843,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L87",
+      "source_location": "L88",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4716,7 +4853,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L92",
+      "source_location": "L93",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4726,7 +4863,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L97",
+      "source_location": "L98",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4736,7 +4873,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L98",
+      "source_location": "L99",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4746,7 +4883,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L106",
+      "source_location": "L107",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4756,7 +4893,37 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L107",
+      "source_location": "L108",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_validate_site",
+      "target": "scripts_validate_site_scenarioaverage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/validate_site.js",
+      "source_location": "L112",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_validate_site",
+      "target": "scripts_validate_site_staffscenarioquality",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/validate_site.js",
+      "source_location": "L125",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "scripts_validate_site",
+      "target": "scripts_validate_site_tovarscenarioquality",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/validate_site.js",
+      "source_location": "L126",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4766,7 +4933,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L111",
+      "source_location": "L130",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4777,7 +4944,7 @@
       "context": "argument",
       "confidence": "INFERRED",
       "source_file": "scripts/validate_site.js",
-      "source_location": "L109",
+      "source_location": "L110",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -5432,6 +5599,46 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "graphify-out/memory/query_20260806_093008_как_показываются_вопрос__ответ__вклад_качества__фо.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы",
+      "target": "graphify_out_memory_query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы_q_как_работают_фильтры_реестра_и_почему_охват_показывал_117_из_211_вместо_сессий",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы_q_как_работают_фильтры_реестра_и_почему_охват_показывал_117_из_211_вместо_сессий",
+      "target": "graphify_out_memory_query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы_answer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы_q_как_работают_фильтры_реестра_и_почему_охват_показывал_117_из_211_вместо_сессий",
+      "target": "graphify_out_memory_query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы_outcome",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы_q_как_работают_фильтры_реестра_и_почему_охват_показывал_117_из_211_вместо_сессий",
+      "target": "graphify_out_memory_query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы_source_nodes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_094533_как_работают_фильтры_реестра_и_почему_охват_показы.md",
       "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast"

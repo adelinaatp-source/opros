@@ -209,6 +209,13 @@ function renderKpis() {
   `).join("");
 }
 
+function renderScenarioScope() {
+  const rows = rowsForTab();
+  const sessions = sessionCounts(rows);
+  const groupName = state.tab === "tovar" ? "Товароведы и скупщики" : "Сотрудники";
+  byId("scenarioScope").textContent = `Выбранная группа: ${groupName} · качество рассчитано по ${formatNumber(sessions.completed)} завершённым сессиям`;
+}
+
 function renderScenarioCards() {
   const rows = rowsForTab();
   byId("scenarioCards").innerHTML = Object.entries(state.report.scenarios).map(([key, scenario]) => {
@@ -373,6 +380,7 @@ function applyView() {
 
 function renderBoard() {
   renderKpis();
+  renderScenarioScope();
   renderScenarioCards();
   renderQualityChart();
   renderFilterCounts();

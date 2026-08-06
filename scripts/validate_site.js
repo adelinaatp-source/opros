@@ -29,6 +29,7 @@ for (const marker of [
   'id="selUnit"',
   'id="search"',
   'id="qualityChart"',
+  'id="scenarioScope"',
   'id="drawer"',
   'id="sessionLogic"',
   'data-f="all"',
@@ -44,7 +45,7 @@ for (const marker of [
   if (!html.includes(marker)) throw new Error(`Не найден обязательный элемент: ${marker}`);
 }
 
-for (const marker of ["data/report.json", "data/details.json", "renderQualityChart", "renderFilterCounts", "renderSessionLogic", "showPerson", "showFioAudit"]) {
+for (const marker of ["data/report.json", "data/details.json", "renderScenarioScope", "renderQualityChart", "renderFilterCounts", "renderSessionLogic", "showPerson", "showFioAudit"]) {
   if (!app.includes(marker)) throw new Error(`Не найден JS-контракт: ${marker}`);
 }
 
@@ -108,6 +109,24 @@ const filterGroups = {
   staff: dashboardRows.filter((person) => !isTovar(person)),
   tovar: dashboardRows.filter(isTovar),
 };
+const scenarioAverage = (rows, key) => {
+  let weighted = 0;
+  let scored = 0;
+  for (const person of rows) {
+    const quality = person.scenario_quality?.[key];
+    const count = (quality?.high || 0) + (quality?.medium || 0) + (quality?.low || 0);
+    if (quality?.average != null && count) {
+      weighted += quality.average * count;
+      scored += count;
+    }
+  }
+  return scored ? Math.round(weighted / scored * 10) / 10 : null;
+};
+const staffScenarioQuality = ["s1", "s2", "s3"].map((key) => scenarioAverage(filterGroups.staff, key));
+const tovarScenarioQuality = ["s1", "s2", "s3"].map((key) => scenarioAverage(filterGroups.tovar, key));
+if (staffScenarioQuality.every((value, index) => value === tovarScenarioQuality[index])) {
+  throw new Error("Качество сценариев не различается между группами — возможна подстановка глобальных процентов");
+}
 const filterTotals = Object.values(filterGroups).reduce((result, rows) => ({
   completed: result.completed + rows.reduce((sum, person) => sum + person.vs, 0),
   partial: result.partial + rows.reduce((sum, person) => sum + (person.partial_sessions || 0), 0),
