@@ -87,9 +87,17 @@ h2 { margin-bottom: 0; font-size: 19px; letter-spacing: -0.02em; }
 .controls { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; }
 .seg { display: flex; flex-wrap: wrap; gap: 3px; padding: 3px; background: #081522; border: 1px solid var(--line); border-radius: 11px; }
 .seg button { padding: 7px 10px; font-size: 11px; }
+.filter-count { display: inline-flex; min-width: 20px; margin-left: 6px; padding: 1px 5px; justify-content: center; border-radius: 999px; background: rgb(148 168 194 / 12%); color: var(--muted); font-size: 9px; }
+.seg button.active .filter-count { background: rgb(108 199 255 / 14%); color: var(--accent); }
 .seg button[data-f="none"].active, .seg button[data-f="low"].active { color: var(--low); }
 .seg button[data-f="pass"].active { color: var(--high); }
 .seg button[data-f="partial"].active { color: var(--medium); }
+.session-logic { margin-bottom: 14px; padding: 13px 15px; border: 1px solid rgb(108 199 255 / 22%); border-radius: 12px; background: rgb(108 199 255 / 5%); }
+.session-logic-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.session-logic-summary > div { padding: 10px 12px; border-radius: 10px; background: rgb(7 17 31 / 48%); }
+.session-logic-summary span, .session-logic-summary small { display: block; color: var(--muted); font-size: 10px; }
+.session-logic-summary strong { display: block; margin: 2px 0; font-size: 17px; }
+.session-logic > p { margin: 10px 0 0; color: #bed0e6; font-size: 11px; }
 .select, .input { min-height: 37px; border: 1px solid var(--line); border-radius: 10px; outline: none; background: var(--surface-2); color: var(--text); }
 .select { max-width: 260px; padding: 0 32px 0 10px; }
 .search-wrap { position: relative; display: flex; flex: 1; align-items: center; min-width: 210px; }
@@ -124,6 +132,7 @@ tbody tr:hover { background: rgb(108 199 255 / 5%); }
 .details-button { padding: 6px 9px; border-radius: 8px; color: var(--accent); font-size: 11px; white-space: nowrap; }
 .coverage-view { display: grid; gap: 9px; }
 .coverage-row { display: grid; grid-template-columns: minmax(180px, 1fr) 3fr 90px; gap: 12px; align-items: center; font-size: 12px; }
+.coverage-title small { display: block; margin-top: 2px; color: var(--muted); font-size: 9px; }
 .coverage-bar { height: 13px; overflow: hidden; background: #07111f; border-radius: 999px; }
 .coverage-bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--accent-2), var(--accent)); border-radius: inherit; }
 footer { padding: 22px 4px 0; color: var(--muted); font-size: 11px; }
@@ -204,6 +213,7 @@ footer { padding: 22px 4px 0; color: var(--muted); font-size: 11px; }
   .chart-row { grid-template-columns: 92px 1fr 40px; gap: 7px; }
   .select, .search-wrap { width: 100%; max-width: none; }
   .coverage-row { grid-template-columns: 1fr; gap: 4px; }
+  .session-logic-summary { grid-template-columns: 1fr; }
   .glossary-list { grid-template-columns: 1fr; gap: 3px; }
   .glossary-list dd { margin-bottom: 8px; }
   .answer-head { display: none; }

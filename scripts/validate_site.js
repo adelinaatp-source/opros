@@ -30,6 +30,7 @@ for (const marker of [
   'id="search"',
   'id="qualityChart"',
   'id="drawer"',
+  'id="sessionLogic"',
   'data-f="all"',
   'data-f="none"',
   'data-f="pass"',
@@ -43,7 +44,7 @@ for (const marker of [
   if (!html.includes(marker)) throw new Error(`Не найден обязательный элемент: ${marker}`);
 }
 
-for (const marker of ["data/report.json", "data/details.json", "renderQualityChart", "showPerson", "showFioAudit"]) {
+for (const marker of ["data/report.json", "data/details.json", "renderQualityChart", "renderFilterCounts", "renderSessionLogic", "showPerson", "showFioAudit"]) {
   if (!app.includes(marker)) throw new Error(`Не найден JS-контракт: ${marker}`);
 }
 
@@ -86,6 +87,42 @@ if (counted !== report.summary.sessions) {
 const countedPartial = report.people.filter((person) => !person.excluded_reason).reduce((sum, person) => sum + (person.partial_sessions || 0), 0);
 if (countedPartial !== report.summary.partial_sessions) {
   throw new Error(`Person partial totals differ: people=${countedPartial}, report=${report.summary.partial_sessions}`);
+}
+
+const normalizeName = (value) => String(value || "")
+  .toLocaleLowerCase("ru-RU")
+  .replaceAll("ё", "е")
+  .replace(/[^а-яa-z0-9]+/gi, " ")
+  .trim();
+const isTovar = (person) => person.o === "Товароведы" || /товаровед/i.test(person.d || "") || /скупщик/i.test(person.d || "");
+const visibleByName = new Map();
+for (const person of report.people.filter((item) => !item.excluded_reason)) {
+  const key = normalizeName(person.f);
+  const current = visibleByName.get(key);
+  if (!current || person.vs > current.vs || (person.vs === current.vs && String(person.f).length > String(current.f).length)) {
+    visibleByName.set(key, person);
+  }
+}
+const dashboardRows = [...visibleByName.values()];
+const filterGroups = {
+  staff: dashboardRows.filter((person) => !isTovar(person)),
+  tovar: dashboardRows.filter(isTovar),
+};
+const filterTotals = Object.values(filterGroups).reduce((result, rows) => ({
+  completed: result.completed + rows.reduce((sum, person) => sum + person.vs, 0),
+  partial: result.partial + rows.reduce((sum, person) => sum + (person.partial_sessions || 0), 0),
+}), { completed: 0, partial: 0 });
+if (filterTotals.completed !== report.summary.sessions || filterTotals.partial !== report.summary.partial_sessions) {
+  throw new Error(`Фильтры групп теряют сессии: completed=${filterTotals.completed}/${report.summary.sessions}, partial=${filterTotals.partial}/${report.summary.partial_sessions}`);
+}
+for (const [name, rows] of Object.entries(filterGroups)) {
+  const passed = rows.filter((person) => person.vs > 0);
+  const notPassed = rows.filter((person) => person.vs <= 0);
+  const low = rows.filter((person) => person.vs > 0 && person.quality.average < 50);
+  const partial = rows.filter((person) => (person.partial_sessions || 0) > 0);
+  if (passed.length + notPassed.length !== rows.length || low.some((person) => person.vs <= 0) || partial.some((person) => !person.partial_sessions)) {
+    throw new Error(`Нарушена логика фильтров для группы ${name}`);
+  }
 }
 
 for (const person of report.people.filter((item) => item.vs > 0 || item.partial_sessions > 0)) {

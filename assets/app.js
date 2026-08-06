@@ -110,6 +110,82 @@ function qualityClass(person) {
   return "low";
 }
 
+function sessionCounts(rows) {
+  const completed = rows.reduce((sum, person) => sum + (person.vs || 0), 0);
+  const partial = rows.reduce((sum, person) => sum + (person.partial_sessions || 0), 0);
+  return { completed, partial, total: completed + partial };
+}
+
+function aggregateScenarioQuality(rows, scenarioKey) {
+  const result = { average: null, high: 0, medium: 0, low: 0, unknown: 0 };
+  let weightedScore = 0;
+  let scored = 0;
+  for (const person of rows) {
+    const quality = person.scenario_quality?.[scenarioKey];
+    if (!quality) continue;
+    result.high += quality.high || 0;
+    result.medium += quality.medium || 0;
+    result.low += quality.low || 0;
+    result.unknown += quality.unknown || 0;
+    const personScored = (quality.high || 0) + (quality.medium || 0) + (quality.low || 0);
+    if (quality.average != null && personScored) {
+      weightedScore += quality.average * personScored;
+      scored += personScored;
+    }
+  }
+  result.average = scored ? Math.round(weightedScore / scored * 10) / 10 : null;
+  return result;
+}
+
+function filterCounts(rows) {
+  return {
+    all: rows.length,
+    none: rows.filter((person) => person.vs <= 0).length,
+    pass: rows.filter((person) => person.vs > 0).length,
+    low: rows.filter((person) => person.vs > 0 && qualityClass(person) === "low").length,
+    partial: rows.filter((person) => (person.partial_sessions || 0) > 0).length,
+    fio: rows.filter(nameIssue).length,
+  };
+}
+
+function renderFilterCounts() {
+  const rows = rowsForTab();
+  const counts = filterCounts(rows);
+  const labels = {
+    all: "Все",
+    none: "Не прошли",
+    pass: "Прошли",
+    low: "Низкое качество",
+    partial: "Есть незавершённые",
+    fio: "Проверить ФИО",
+    cov: "Охват",
+  };
+  for (const button of document.querySelectorAll("#segFilter button[data-f]")) {
+    const key = button.dataset.f;
+    const value = key === "cov" ? `${counts.pass}/${counts.all}` : counts[key];
+    button.innerHTML = `${escapeHtml(labels[key])}<span class="filter-count">${escapeHtml(value)}</span>`;
+    if (key === "partial") {
+      button.title = `${formatNumber(sessionCounts(rows).partial)} незавершённых сессий у ${formatNumber(counts.partial)} человек`;
+    }
+  }
+}
+
+function renderSessionLogic() {
+  const currentRows = rowsForTab();
+  const current = sessionCounts(currentRows);
+  const staff = sessionCounts(rowsForTab("staff"));
+  const tovar = sessionCounts(rowsForTab("tovar"));
+  const overall = state.report.summary;
+  const groupName = state.tab === "tovar" ? "Товароведы и скупщики" : "Сотрудники";
+  byId("sessionLogic").innerHTML = `
+    <div class="session-logic-summary">
+      <div><span>${escapeHtml(groupName)}</span><strong>${formatNumber(current.total)} всего</strong><small>${formatNumber(current.completed)} завершено · ${formatNumber(current.partial)} незавершено</small></div>
+      <div><span>Весь дашборд</span><strong>${formatNumber(overall.sessions + overall.partial_sessions)} всего</strong><small>${formatNumber(overall.sessions)} завершено · ${formatNumber(overall.partial_sessions)} незавершено (${formatNumber(staff.partial)} + ${formatNumber(tovar.partial)})</small></div>
+    </div>
+    <p><strong>Логика:</strong> в карточке ответов показываются все сессии. Завершённая сессия считается прохождением и входит в свод качества. Незавершённая отображается отдельно, но не увеличивает число прошедших и не входит в среднюю оценку завершённых сессий.</p>
+  `;
+}
+
 function renderKpis() {
   const rows = rowsForTab();
   const passed = rows.filter((person) => person.vs > 0);
@@ -121,7 +197,7 @@ function renderKpis() {
   const cards = [
     ["В реестре", formatNumber(rows.length), `${state.tab === "tovar" ? "товароведов и скупщиков" : "сотрудников"}`],
     ["Прошли хотя бы один", formatNumber(passed.length), `${rows.length ? percent(passed.length / rows.length * 100) : "—"} охвата`],
-    ["Завершённых сессий", formatNumber(sessions), `${formatNumber(partialSessions)} незавершённых показаны отдельно`],
+    ["Всего сессий", formatNumber(sessions + partialSessions), `${formatNumber(sessions)} завершено · ${formatNumber(partialSessions)} незавершено`],
     ["Среднее качество", percent(average), `${formatNumber(issues)} ФИО требуют внимания`],
   ];
   byId("kpis").innerHTML = cards.map(([label, value, note]) => `
@@ -137,15 +213,18 @@ function renderScenarioCards() {
   const rows = rowsForTab();
   byId("scenarioCards").innerHTML = Object.entries(state.report.scenarios).map(([key, scenario]) => {
     const completed = rows.filter((person) => person[key] > 0).length;
+    const completedSessions = rows.reduce((sum, person) => sum + (person[key] || 0), 0);
+    const partialSessions = key === "s2" ? sessionCounts(rows).partial : 0;
+    const quality = aggregateScenarioQuality(rows, key);
     const coverage = rows.length ? completed / rows.length * 100 : 0;
     return `
       <article class="scenario-card">
         <div class="scenario-top">
           <span class="scenario-tag">${escapeHtml(scenario.tag)}</span>
-          <strong class="scenario-score">${percent(scenario.quality.average)}</strong>
+          <strong class="scenario-score">${percent(quality.average)}</strong>
         </div>
         <h3>${escapeHtml(scenario.name)}</h3>
-        <p>${escapeHtml(scenario.metric)} · ${formatNumber(scenario.sessions)} завершено${scenario.partial_sessions ? ` · ${formatNumber(scenario.partial_sessions)} незавершено` : ""}</p>
+        <p>${escapeHtml(scenario.metric)} · ${formatNumber(completedSessions + partialSessions)} всего: ${formatNumber(completedSessions)} завершено${partialSessions ? ` · ${formatNumber(partialSessions)} незавершено` : ""}</p>
         <div class="progress"><span style="width:${Math.min(100, coverage)}%"></span></div>
         <div class="scenario-meta"><span>${formatNumber(completed)} из ${formatNumber(rows.length)}</span><span>охват ${percent(coverage)}</span></div>
       </article>
@@ -154,8 +233,9 @@ function renderScenarioCards() {
 }
 
 function renderQualityChart() {
-  byId("qualityChart").innerHTML = Object.entries(state.report.scenarios).map(([key, scenario]) => {
-    const quality = scenario.quality;
+  const rows = rowsForTab();
+  byId("qualityChart").innerHTML = Object.entries(state.report.scenarios).map(([key]) => {
+    const quality = aggregateScenarioQuality(rows, key);
     const total = quality.high + quality.medium + quality.low + quality.unknown || 1;
     return `
       <div class="chart-row">
@@ -250,17 +330,20 @@ function renderRoster() {
       </tr>
     `;
   }).join("");
-  byId("rosterCount").innerHTML = `показано <strong>${formatNumber(rows.length)}</strong> из ${formatNumber(all.length)}`;
+  const sessions = sessionCounts(rows);
+  byId("rosterCount").innerHTML = `показано <strong>${formatNumber(rows.length)}</strong> из ${formatNumber(all.length)} человек · ${formatNumber(sessions.total)} сессий (${formatNumber(sessions.completed)} завершено + ${formatNumber(sessions.partial)} незавершено)`;
 }
 
 function renderCoverage() {
   const groups = new Map();
-  for (const person of rowsForTab()) {
+  const people = rowsForTab();
+  for (const person of people) {
     const key = person.u || "Не указано";
-    const value = groups.get(key) || { total: 0, passed: 0, sessions: 0 };
+    const value = groups.get(key) || { total: 0, passed: 0, completed: 0, partial: 0 };
     value.total += 1;
     value.passed += person.vs > 0 ? 1 : 0;
-    value.sessions += person.vs;
+    value.completed += person.vs || 0;
+    value.partial += person.partial_sessions || 0;
     groups.set(key, value);
   }
   const rows = [...groups.entries()].sort((a, b) => (b[1].passed / b[1].total) - (a[1].passed / a[1].total));
@@ -268,12 +351,15 @@ function renderCoverage() {
     const coverage = value.total ? value.passed / value.total * 100 : 0;
     return `
       <div class="coverage-row">
-        <span>${escapeHtml(name)}</span>
+        <span class="coverage-title">${escapeHtml(name)}<small>${formatNumber(value.completed + value.partial)} сессий: ${formatNumber(value.completed)} завершено · ${formatNumber(value.partial)} незавершено</small></span>
         <div class="coverage-bar"><span style="width:${coverage}%"></span></div>
         <strong>${percent(coverage)}</strong>
       </div>
     `;
   }).join("");
+  const totals = sessionCounts(people);
+  const passed = people.filter((person) => person.vs > 0).length;
+  byId("rosterCount").innerHTML = `охват <strong>${formatNumber(passed)}</strong> из ${formatNumber(people.length)} человек · ${formatNumber(totals.total)} сессий (${formatNumber(totals.completed)} завершено + ${formatNumber(totals.partial)} незавершено)`;
 }
 
 function applyView() {
@@ -288,6 +374,9 @@ function applyView() {
 function renderBoard() {
   renderKpis();
   renderScenarioCards();
+  renderQualityChart();
+  renderFilterCounts();
+  renderSessionLogic();
   populateUnits();
   applyView();
 }
@@ -460,7 +549,9 @@ async function showPerson(personKey) {
         </article>
       `;
     }).join("");
-    openDrawer(person.name, `${formatNumber(person.sessions.length)} сессий · точные фрагменты ответов`, cards);
+    const completed = person.sessions.filter((session) => session.completed).length;
+    const partial = person.sessions.length - completed;
+    openDrawer(person.name, `Все ${formatNumber(person.sessions.length)} сессий: ${formatNumber(completed)} завершено · ${formatNumber(partial)} незавершено`, cards);
   } catch (error) {
     openDrawer("Ошибка загрузки", "Ответы сотрудника", `<div class="notice error">${escapeHtml(error.message)}</div>`);
   }
@@ -608,7 +699,6 @@ async function start() {
     const tovar = rowsForTab("tovar").length;
     byId("cntStaff").textContent = formatNumber(staff);
     byId("cntTovar").textContent = formatNumber(tovar);
-    renderQualityChart();
     renderFioSummary();
     renderBoard();
     byId("foot").textContent = `Источник KB-ARM-survey только для чтения · ${state.report.snapshot} · незавершённых попыток: ${formatNumber(state.report.summary.partial_sessions)} · исключено из свода: ${formatNumber(state.report.summary.excluded_people)} · детали ответов загружаются только по запросу.`;
