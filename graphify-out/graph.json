@@ -268,11 +268,35 @@
       "_origin": "ast"
     },
     {
+      "id": "assets_app_formatdecimal",
+      "label": "formatDecimal()",
+      "file_type": "code",
+      "source_file": "assets/app.js",
+      "source_location": "L328",
+      "_origin": "ast"
+    },
+    {
+      "id": "assets_app_answerquality",
+      "label": "answerQuality()",
+      "file_type": "code",
+      "source_file": "assets/app.js",
+      "source_location": "L334",
+      "_origin": "ast"
+    },
+    {
+      "id": "assets_app_qualitycalculation",
+      "label": "qualityCalculation()",
+      "file_type": "code",
+      "source_file": "assets/app.js",
+      "source_location": "L368",
+      "_origin": "ast"
+    },
+    {
       "id": "assets_app_loaddetails",
       "label": "loadDetails()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L328",
+      "source_location": "L394",
       "_origin": "ast"
     },
     {
@@ -280,7 +304,7 @@
       "label": "showPerson()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L336",
+      "source_location": "L402",
       "_origin": "ast"
     },
     {
@@ -288,7 +312,7 @@
       "label": "showMethod()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L368",
+      "source_location": "L469",
       "_origin": "ast"
     },
     {
@@ -296,7 +320,7 @@
       "label": "auditSection()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L444",
+      "source_location": "L545",
       "_origin": "ast"
     },
     {
@@ -304,7 +328,7 @@
       "label": "showFioAudit()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L449",
+      "source_location": "L550",
       "_origin": "ast"
     },
     {
@@ -312,7 +336,7 @@
       "label": "bindEvents()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L461",
+      "source_location": "L562",
       "_origin": "ast"
     },
     {
@@ -320,7 +344,7 @@
       "label": "start()",
       "file_type": "code",
       "source_file": "assets/app.js",
-      "source_location": "L498",
+      "source_location": "L599",
       "_origin": "ast"
     },
     {
@@ -1210,6 +1234,86 @@
       "source_file": "graphify-out/memory/query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана.md",
       "source_location": "L22",
       "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош",
+      "label": "query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош.md",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош.md",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош_q_обновить_описание_логики_качества_и_подсчета_опрошенных_людей_без_s1_s2_s3",
+      "label": "Q: Обновить описание логики качества и подсчета опрошенных людей без S1 S2 S3",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош.md",
+      "source_location": "L10",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош_answer",
+      "label": "Answer",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош.md",
+      "source_location": "L12",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош_outcome",
+      "label": "Outcome",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош.md",
+      "source_location": "L16",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош_source_nodes",
+      "label": "Source Nodes",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош.md",
+      "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_093008_как_показываются_вопрос_ответ_вклад_качества_фо",
+      "label": "query_20260806_093008_как_показываются_вопрос__ответ__вклад_качества__фо.md",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_093008_как_показываются_вопрос__ответ__вклад_качества__фо.md",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_093008_как_показываются_вопрос_ответ_вклад_качества_фо_q_как_показываются_вопрос_ответ_вклад_качества_формула_и_итоговая_оценка_сессии",
+      "label": "Q: Как показываются вопрос, ответ, вклад качества, формула и итоговая оценка сессии?",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_093008_как_показываются_вопрос__ответ__вклад_качества__фо.md",
+      "source_location": "L10",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_093008_как_показываются_вопрос_ответ_вклад_качества_фо_answer",
+      "label": "Answer",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_093008_как_показываются_вопрос__ответ__вклад_качества__фо.md",
+      "source_location": "L12",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_093008_как_показываются_вопрос_ответ_вклад_качества_фо_outcome",
+      "label": "Outcome",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_093008_как_показываются_вопрос__ответ__вклад_качества__фо.md",
+      "source_location": "L16",
+      "_origin": "ast"
+    },
+    {
+      "id": "graphify_out_memory_query_20260806_093008_как_показываются_вопрос_ответ_вклад_качества_фо_source_nodes",
+      "label": "Source Nodes",
+      "file_type": "document",
+      "source_file": "graphify-out/memory/query_20260806_093008_как_показываются_вопрос__ответ__вклад_качества__фо.md",
+      "source_location": "L20",
+      "_origin": "ast"
     }
   ],
   "links": [
@@ -1535,7 +1639,7 @@
     },
     {
       "source": "assets_app",
-      "target": "assets_app_loaddetails",
+      "target": "assets_app_formatdecimal",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
@@ -1545,17 +1649,17 @@
     },
     {
       "source": "assets_app",
-      "target": "assets_app_showperson",
+      "target": "assets_app_answerquality",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L336",
+      "source_location": "L334",
       "weight": 1.0,
       "_origin": "ast"
     },
     {
       "source": "assets_app",
-      "target": "assets_app_showmethod",
+      "target": "assets_app_qualitycalculation",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
@@ -1565,11 +1669,41 @@
     },
     {
       "source": "assets_app",
+      "target": "assets_app_loaddetails",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L394",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app",
+      "target": "assets_app_showperson",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L402",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app",
+      "target": "assets_app_showmethod",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L469",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app",
       "target": "assets_app_auditsection",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L444",
+      "source_location": "L545",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1579,7 +1713,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L449",
+      "source_location": "L550",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1589,7 +1723,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L461",
+      "source_location": "L562",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1599,7 +1733,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L498",
+      "source_location": "L599",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2198,13 +2332,46 @@
       "_origin": "ast"
     },
     {
+      "source": "assets_app_answerquality",
+      "target": "assets_app_formatdecimal",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L363",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_qualitycalculation",
+      "target": "assets_app_formatdecimal",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L378",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_qualitycalculation",
+      "target": "assets_app_percent",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L378",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "assets_app_showperson",
       "target": "assets_app_opendrawer",
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L337",
+      "source_location": "L403",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2215,7 +2382,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L339",
+      "source_location": "L405",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2226,7 +2393,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L343",
+      "source_location": "L409",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2237,7 +2404,29 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L343",
+      "source_location": "L409",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_showperson",
+      "target": "assets_app_answerquality",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L411",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "assets_app_showperson",
+      "target": "assets_app_qualitycalculation",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "assets/app.js",
+      "source_location": "L438",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2248,7 +2437,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L353",
+      "source_location": "L441",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2259,7 +2448,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L356",
+      "source_location": "L444",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2270,7 +2459,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L362",
+      "source_location": "L463",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2281,7 +2470,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L373",
+      "source_location": "L474",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2292,7 +2481,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L374",
+      "source_location": "L475",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2303,7 +2492,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L376",
+      "source_location": "L477",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2314,7 +2503,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L383",
+      "source_location": "L484",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2325,7 +2514,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L445",
+      "source_location": "L546",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2336,7 +2525,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L446",
+      "source_location": "L547",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2347,7 +2536,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L452",
+      "source_location": "L553",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2358,7 +2547,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L458",
+      "source_location": "L559",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2369,7 +2558,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L458",
+      "source_location": "L559",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2380,7 +2569,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L462",
+      "source_location": "L563",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2391,7 +2580,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L472",
+      "source_location": "L573",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2402,7 +2591,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L479",
+      "source_location": "L580",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2413,7 +2602,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L481",
+      "source_location": "L582",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2424,7 +2613,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L485",
+      "source_location": "L586",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2435,7 +2624,7 @@
       "context": "argument",
       "confidence": "INFERRED",
       "source_file": "assets/app.js",
-      "source_location": "L491",
+      "source_location": "L592",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2446,7 +2635,7 @@
       "context": "argument",
       "confidence": "INFERRED",
       "source_file": "assets/app.js",
-      "source_location": "L492",
+      "source_location": "L593",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2457,7 +2646,7 @@
       "context": "argument",
       "confidence": "INFERRED",
       "source_file": "assets/app.js",
-      "source_location": "L493",
+      "source_location": "L594",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2468,7 +2657,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L495",
+      "source_location": "L596",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2479,7 +2668,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L504",
+      "source_location": "L605",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2490,7 +2679,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L505",
+      "source_location": "L606",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2501,7 +2690,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L506",
+      "source_location": "L607",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2512,7 +2701,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L510",
+      "source_location": "L611",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2523,7 +2712,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L511",
+      "source_location": "L612",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2534,7 +2723,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L512",
+      "source_location": "L613",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2545,7 +2734,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "assets/app.js",
-      "source_location": "L514",
+      "source_location": "L615",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -4724,6 +4913,86 @@
       "confidence": "EXTRACTED",
       "source_file": "graphify-out/memory/query_20260806_084019_откуда_взята_формула_балла_и_была_ли_она_придумана.md",
       "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош",
+      "target": "graphify_out_memory_query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош_q_обновить_описание_логики_качества_и_подсчета_опрошенных_людей_без_s1_s2_s3",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош_q_обновить_описание_логики_качества_и_подсчета_опрошенных_людей_без_s1_s2_s3",
+      "target": "graphify_out_memory_query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош_answer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош_q_обновить_описание_логики_качества_и_подсчета_опрошенных_людей_без_s1_s2_s3",
+      "target": "graphify_out_memory_query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош_outcome",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош_q_обновить_описание_логики_качества_и_подсчета_опрошенных_людей_без_s1_s2_s3",
+      "target": "graphify_out_memory_query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош_source_nodes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_090020_обновить_описание_логики_качества_и_подсчета_опрош.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_093008_как_показываются_вопрос_ответ_вклад_качества_фо",
+      "target": "graphify_out_memory_query_20260806_093008_как_показываются_вопрос_ответ_вклад_качества_фо_q_как_показываются_вопрос_ответ_вклад_качества_формула_и_итоговая_оценка_сессии",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_093008_как_показываются_вопрос__ответ__вклад_качества__фо.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_093008_как_показываются_вопрос_ответ_вклад_качества_фо_q_как_показываются_вопрос_ответ_вклад_качества_формула_и_итоговая_оценка_сессии",
+      "target": "graphify_out_memory_query_20260806_093008_как_показываются_вопрос_ответ_вклад_качества_фо_answer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_093008_как_показываются_вопрос__ответ__вклад_качества__фо.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_093008_как_показываются_вопрос_ответ_вклад_качества_фо_q_как_показываются_вопрос_ответ_вклад_качества_формула_и_итоговая_оценка_сессии",
+      "target": "graphify_out_memory_query_20260806_093008_как_показываются_вопрос_ответ_вклад_качества_фо_outcome",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_093008_как_показываются_вопрос__ответ__вклад_качества__фо.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "graphify_out_memory_query_20260806_093008_как_показываются_вопрос_ответ_вклад_качества_фо_q_как_показываются_вопрос_ответ_вклад_качества_формула_и_итоговая_оценка_сессии",
+      "target": "graphify_out_memory_query_20260806_093008_как_показываются_вопрос_ответ_вклад_качества_фо_source_nodes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "graphify-out/memory/query_20260806_093008_как_показываются_вопрос__ответ__вклад_качества__фо.md",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast"
     },

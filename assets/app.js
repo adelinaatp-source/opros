@@ -325,6 +325,72 @@ function metricLabel(key) {
   return labels[key] || key;
 }
 
+function formatDecimal(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return "—";
+  return new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 2 }).format(number);
+}
+
+function answerQuality(session, status) {
+  if (session.scenario !== "s2") {
+    return {
+      className: "not-scored",
+      label: "Отдельно не рассчитывается",
+      detail: session.scenario === "s1"
+        ? "Итог определяется уверенностью всего документа"
+        : "Итог определяется полнотой всего документа",
+    };
+  }
+
+  const normalized = String(status || "").trim().toLocaleLowerCase("ru-RU");
+  const rules = [
+    { matches: ["closed-soft", "с оговор"], score: 75, label: "Засчитано с оговорками" },
+    { matches: ["reassigned", "передан"], score: 0, label: "Передано ответственному" },
+    { matches: ["open", "открыт", "не закрыт"], score: 0, label: "Не закрыто" },
+    { matches: ["partial", "частич"], score: 50, label: "Засчитано частично" },
+    { matches: ["closed", "закрыт"], score: 100, label: "Засчитано полностью" },
+  ];
+  const rule = rules.find((item) => item.matches.some((marker) => normalized.includes(marker)));
+  if (!rule) {
+    return {
+      className: "not-scored",
+      label: "Не участвует в расчёте",
+      detail: "В строке нет расчётного статуса доопроса",
+    };
+  }
+  return {
+    className: rule.score >= 75 ? "high" : rule.score >= 50 ? "medium" : "low",
+    label: `${formatDecimal(rule.score)}% · ${rule.label}`,
+    detail: `Вклад в числитель: ${formatDecimal(rule.score / 100)}`,
+  };
+}
+
+function qualityCalculation(session) {
+  const metrics = session.metrics || {};
+  if (session.score == null) {
+    return {
+      formula: "Расчёт недоступен: в документе недостаточно исходных показателей.",
+      basis: "Такая сессия не получает числовой оценки качества.",
+    };
+  }
+  if (session.scenario === "s1") {
+    return {
+      formula: `${formatDecimal(metrics.confidence)} × 100 = ${percent(session.score)}`,
+      basis: "Уверенность описания умножается на 100.",
+    };
+  }
+  if (session.scenario === "s2") {
+    return {
+      formula: `не более 100%: (${formatDecimal(metrics.closed)} + 0,75 × ${formatDecimal(metrics.closed_soft)} + 0,5 × ${formatDecimal(metrics.partial)}) / ${formatDecimal(metrics.asked)} × 100 = ${percent(session.score)}`,
+      basis: "Полностью закрытые ответы дают 1, с оговорками — 0,75, частичные — 0,5; открытые и переданные — 0. Результат ограничивается 100%.",
+    };
+  }
+  return {
+    formula: `${formatDecimal(metrics.completeness)} × 100 = ${percent(session.score)}`,
+    basis: "Полнота фото рабочего дня умножается на 100.",
+  };
+}
+
 async function loadDetails() {
   if (state.details) return state.details;
   const response = await fetch("data/details.json", { cache: "no-store" });
@@ -341,13 +407,35 @@ async function showPerson(personKey) {
     if (!person) throw new Error("Для сотрудника не найдены детали сессий");
     const cards = person.sessions.map((session) => {
       const metrics = Object.entries(session.metrics || {}).map(([key, value]) => `<span class="metric">${escapeHtml(metricLabel(key))}: ${escapeHtml(value ?? "—")}</span>`).join("");
-      const answers = (session.answers || []).map(([topic, answer, status]) => `
-        <div class="answer">
-          <strong>${escapeHtml(topic || "Фрагмент ответа")}</strong>
-          <p>${escapeHtml(answer || "—")}</p>
-          <small>${escapeHtml(status || "")}</small>
+      const answerRows = (session.answers || []).map(([topic, answer, status], index) => {
+        const assessment = answerQuality(session, status);
+        return `
+          <div class="answer-row">
+            <div class="answer-cell" data-label="Вопрос">
+              <span class="answer-number">${index + 1}</span>
+              <strong>${escapeHtml(topic || "Фрагмент ответа")}</strong>
+            </div>
+            <div class="answer-cell answer-text" data-label="Ответ">
+              <p>${escapeHtml(answer || "—")}</p>
+              ${status ? `<small>Статус/контекст источника: ${escapeHtml(status)}</small>` : ""}
+            </div>
+            <div class="answer-cell answer-assessment ${assessment.className}" data-label="Оценка качества">
+              <strong>${escapeHtml(assessment.label)}</strong>
+              <small>${escapeHtml(assessment.detail)}</small>
+            </div>
+          </div>
+        `;
+      }).join("");
+      const answers = answerRows ? `
+        <p class="answer-note">Показаны доступные извлечённые фрагменты. Итог считается по полным метрикам документа, поэтому только видимые строки могут не складываться в итоговый балл.</p>
+        <div class="answer-table">
+          <div class="answer-head" aria-hidden="true">
+            <span>Вопрос</span><span>Ответ</span><span>Оценка качества</span>
+          </div>
+          ${answerRows}
         </div>
-      `).join("") || `<p class="muted">Структурированные фрагменты не извлечены; метрики сессии показаны выше.</p>`;
+      ` : `<p class="muted">Структурированные фрагменты не извлечены; метрики сессии показаны выше.</p>`;
+      const calculation = qualityCalculation(session);
       return `
         <article class="detail-card">
           <span class="quality-pill ${escapeHtml(session.quality)}">${escapeHtml(SURVEY[session.scenario]?.label || session.scenario)} · ${percent(session.score)}</span>
@@ -356,6 +444,19 @@ async function showPerson(personKey) {
           <div class="person-sub">${formatDate(session.created_at)} · ${escapeHtml(session.session_id)}</div>
           <div class="metric-list">${metrics}</div>
           ${answers}
+          <section class="calculation-card">
+            <span class="calculation-label">Расчёт оценки качества</span>
+            <strong>${escapeHtml(calculation.formula)}</strong>
+            <p>${escapeHtml(calculation.basis)}</p>
+          </section>
+          <section class="quality-total ${escapeHtml(session.quality)}">
+            <div>
+              <span>Итоговая оценка качества</span>
+              <small>${session.completed ? "Учитывается в сводной статистике" : "Не учитывается в сводной статистике: сессия не завершена"}</small>
+            </div>
+            <strong>${percent(session.score)}</strong>
+            <span class="quality-total-label">${escapeHtml(QUALITY_LABEL[session.quality] || QUALITY_LABEL.unknown)}</span>
+          </section>
         </article>
       `;
     }).join("");
